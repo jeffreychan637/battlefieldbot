@@ -4,8 +4,10 @@ import numpy as np
 import cv2
 from matplotlib import pyplot as plt
 
-img = cv2.imread('wallet3.JPG',0)
-edges = cv2.Canny(img,25,75)
+img = cv2.imread('croissant.jpg',0)
+edges = cv2.Canny(img,100,200)
+
+print(edges)
 
 plt.subplot(121),plt.imshow(img,cmap = 'gray')
 plt.title('Original Image'), plt.xticks([]), plt.yticks([])
