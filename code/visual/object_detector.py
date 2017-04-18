@@ -9,13 +9,13 @@ eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
 print(face_cascade)
 print(eye_cascade)
 
-img = cv2.imread('kim.jpg')
+img = cv2.imread('lab.jpg')
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 faces = face_cascade.detectMultiScale(gray, 1.3, 5)
 print(faces)
 for (x,y,w,h) in faces:
-    img = cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
+    cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2) # Originally had "img ="
     roi_gray = gray[y:y+h, x:x+w]
     roi_color = img[y:y+h, x:x+w]
     eyes = eye_cascade.detectMultiScale(roi_gray)

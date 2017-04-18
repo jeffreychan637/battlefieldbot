@@ -4,7 +4,7 @@ import numpy as np
 import cv2
 from matplotlib import pyplot as plt
 
-img = cv2.imread('croissant.jpg',0)
+img = cv2.imread('kim.jpg',0)
 edges = cv2.Canny(img,100,200)
 
 print(edges)
