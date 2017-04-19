@@ -9,7 +9,7 @@ An accompanying computer receives voice commands and sends them to the car for r
 
 Using a camera that takes images in real-time, a visual processor on an accompanying computer receives these images and analyzes them to detect targets and determine the angle the car needs to be steered to get to the target. Commands to adjust the angle and turn the car are sent to the car to be processed in real-time.
 
-###Audio Processor Setup
+### Audio Processor Setup
 1. Download dependencies
 ```
 $ virtualenv env
