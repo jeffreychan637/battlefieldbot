@@ -19,6 +19,11 @@ $ brew install portaudio
 $ pip install -r requirements.txt
 ```
 
+If you have issues with installing the PyAudio dependencies, running this command found [here](http://stackoverflow.com/questions/33513522/when-installing-pyaudio-pip-cannot-find-portaudio-h-in-usr-local-include) might help.
+```
+$ pip install --global-option='build_ext' --global-option='-I/usr/local/include' --global-option='-L/usr/local/lib' pyaudio
+```
+
 2. Setup Google Cloud Account
 Follow [Google's Getting Started Guide](https://cloud.google.com/speech/docs/getting-started)
 * When getting the credentials Setting role as project owner works fine
