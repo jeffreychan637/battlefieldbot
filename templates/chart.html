@@ -1,0 +1,355 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Chart.js </title>
+<script src='static/js/Chart.min.js'></script>
+<script src='static/js/stopwatch.js'></script>
+<script src='static/js/socket_script.js'></script>
+<link href="static/css/styles.css" rel="stylesheet">
+<link href="static/css/stopwatch.css" rel="stylesheet">
+<link href="static/css/reset.css" rel="stylesheet">
+<link href="static/css/circle.css" rel="stylesheet">
+<link rel='stylesheet' href="{{ url_for('static', filename='font-awesome/css/font-awesome.min.css')}}">
+<link rel='stylesheet' href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css')}}">
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='bootstrap/bootstrap.min.js')}}"></script>
+
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"><span>Battlefield</span>Bot</a>
+			</div>
+		</div>
+	</nav>
+
+<div class="col-lg-12 main">
+  <h1>Dashboard</h1>
+
+
+  <h1>Flask-SocketIO Test</h1>
+   <p>Async mode is: <b>{{ async_mode }}</b></p>
+      <p>Audio Command is: <span id="audio_command"></span></p>
+      <p>Average ping/pong latency: <b><span id="ping-pong"></span>ms</b></p>
+
+      <h2>Receive:</h2>
+      <div id="log"></div>
+
+
+  <div class="row">
+
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <div class="panel panel-orange panel-widget">
+        <div class="row no-padding">
+          <div class="col-sm-3 col-lg-5 widget-left">
+            AUDIO COMMAND
+          </div>
+          <div class="col-sm-9 col-lg-7 widget-right">
+            <div class="large" id="audio_commands">RETRIEVE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <div class="panel panel-teal panel-widget">
+        <div class="row no-padding">
+          <div class="col-sm-3 col-lg-5 widget-left">
+            AUDIO TIME
+          </div>
+          <div class="col-sm-9 col-lg-7 widget-right">
+            <div class="wrapper">
+            <p><span id="audio_seconds">00</span>:<span id="audio_tens">00</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <canvas id="chart" width="600" height="400"></canvas>
+    </div>
+
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <canvas id="chart2" width="600" height="400"></canvas>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar"
+        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+          40%
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <div class="panel panel-blue panel-widget">
+        <div class="row no-padding">
+          <div class="col-sm-3 col-lg-5 widget-left">
+            ANGLE TO TARGET
+          </div>
+          <div class="col-sm-9 col-lg-7 widget-right">
+            <div class="large" id="audio_commands">30</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+<div class="row">
+
+  <div class="col-xs-12 col-md-4 col-lg-4">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="static/images/ball.jpg" alt="Chania">
+        </div>
+
+        <div class="item">
+          <img src="static/images/ball.jpg" alt="Chania">
+        </div>
+
+        <div class="item">
+          <img src="static/images/ball.jpg" alt="Flower">
+        </div>
+
+        <div class="item">
+          <img src="static/images/ball.jpg" alt="Flower">
+        </div>
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-md-4 col-lg-4">
+    <div class="panel panel-blue panel-widget">
+      <div class="row no-padding">
+        <div class="col-sm-3 col-lg-5 widget-left">
+          SIZE OF TARGET
+        </div>
+        <div class="col-sm-9 col-lg-7 widget-right">
+          <div class="c100 p50 big">
+              <span>50%</span>
+              <div class="slice">
+                  <div class="bar"></div>
+                  <div class="fill"></div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-md-3 col-lg-3">
+    <div class="panel panel-blue panel-widget">
+      <div class="row no-padding">
+        <div class="col-sm-3 col-lg-5 widget-left">
+          Coordinates of Center
+        </div>
+        <div class="col-sm-9 col-lg-7 widget-right">
+          <div class="large" id="audio_commands">( X, Y )</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-lg-6">
+    <div class="panel panel-teal panel-widget">
+      <div class="row no-padding">
+        <div class="col-sm-3 col-lg-5 widget-left">
+          Time Until Next Image
+        </div>
+        <div class="col-sm-9 col-lg-7 widget-right">
+          <div class="wrapper">
+          <p><span id="seconds">00</span>:<span id="tens">00</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-md-6 col-lg-6">
+    <div class="panel panel-teal panel-widget">
+      <div class="row no-padding">
+        <div class="col-sm-3 col-lg-5 widget-left">
+          Time Until Next Image
+        </div>
+        <div class="col-sm-9 col-lg-7 widget-right">
+          <div class="wrapper">
+          <p><span id="seconds2">00</span>:<span id="tens2">00</span></p>
+          <button id="button-start2">Start</button>
+          <button id="button-stop2">Stop</button>
+          <button id="button-reset2">Reset</button>
+          </div>
+
+          <script>
+          window.onload = function () {
+
+
+
+
+            var seconds2 = 00;
+            var tens2 = 00;
+            var appendTens2 = document.getElementById("tens2")
+            var appendSeconds2 = document.getElementById("seconds2")
+            var buttonStart2 = document.getElementById('button-start2');
+            var buttonStop2 = document.getElementById('button-stop2');
+            var buttonReset2 = document.getElementById('button-reset2');
+            var Interval2 ;
+
+            buttonStart2.onclick = function() {
+
+               clearInterval(Interval2);
+               Interval2 = setInterval(startTimer2, 10);
+            }
+
+              buttonStop2.onclick = function() {
+                 clearInterval(Interval2);
+            }
+
+
+            buttonReset2.onclick = function() {
+               clearInterval(Interval2);
+              tens2 = "00";
+            	seconds2 = "00";
+              appendTens2.innerHTML = tens2;
+            	appendSeconds2.innerHTML = seconds2;
+            }
+
+
+
+            function startTimer2 () {
+              tens2++;
+
+              if(tens2 < 9){
+                appendTens2.innerHTML = "0" + tens2;
+              }
+
+              if (tens2 > 9){
+                appendTens2.innerHTML = tens2;
+
+              }
+
+              if (tens2 > 99) {
+                seconds2++;
+                appendSeconds2.innerHTML = "0" + seconds2;
+                tens2 = 0;
+                appendTens2.innerHTML = "0" + 0;
+              }
+
+              if (seconds2 > 9){
+                appendSeconds2.innerHTML = seconds2;
+              }
+
+            }
+          }
+          </script>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+<script>
+
+var barData = {
+  labels : [{% for item in labels %}
+    "{{item}}",
+    {% endfor %}],
+  datasets : [
+    {
+      fillColor: "rgba(151,187,205,0.2)",
+      strokeColor: "rgba(151,187,205,1)",
+      pointColor: "rgba(151,187,205,1)",
+      data : [{% for item in values %}
+                {{item}},
+              {% endfor %}]
+    }
+  ]
+};
+
+var barData2 = {
+  labels : [{% for item in labels %}
+    "{{item}}",
+    {% endfor %}],
+  datasets : [
+    {
+      fillColor: "rgba(151,187,205,0.2)",
+      strokeColor: "rgba(151,187,205,1)",
+      pointColor: "rgba(151,187,205,1)",
+      data : [{% for item in values %}
+                {{item}},
+              {% endfor %}]
+    }
+  ]
+}
+
+// get bar chart canvas
+var mychart = document.getElementById("chart").getContext("2d");
+var mychart2 = document.getElementById("chart2").getContext("2d");
+
+steps = 10
+max = 10
+// draw bar chart
+new Chart(mychart).Bar(barData, {
+scaleOverride: true,
+scaleSteps: steps,
+scaleStepWidth: Math.ceil(max / steps),
+scaleStartValue: 0,
+scaleShowVerticalLines: true,
+scaleShowGridLines : true,
+barShowStroke : true,
+scaleShowLabels: true
+});
+
+new Chart(mychart2).Bar(barData2, {
+scaleOverride: true,
+scaleSteps: steps,
+scaleStepWidth: Math.ceil(max / steps),
+scaleStartValue: 0,
+scaleShowVerticalLines: true,
+scaleShowGridLines : true,
+barShowStroke : true,
+scaleShowLabels: true
+});
+
+</script>
+</body></html>
