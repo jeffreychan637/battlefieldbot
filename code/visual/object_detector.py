@@ -9,7 +9,7 @@ inner_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
 font = cv2.FONT_HERSHEY_SIMPLEX
 
 class Object_Detector:
-    def __init__(self, file, classifier, thresh=None):
+    def __init__(self, file, classifier, thresh=.45):
         self.file = file
         self.image = cv2.imread(file)
         self.classifier = classifier
@@ -27,17 +27,23 @@ class Object_Detector:
         x, y = point
         cv2.circle(img, (x, y), circ_size, (0,0,255), -1)
 
+    def find_area(self, b, h):
+        return b * h
 
     def find_obj(self):
         img = self.image
         (center_x, center_y) = self.find_perspective()
+        img_w, img_h, img_c = self.image.shape
+        img_size = self.find_area(img_w, img_h)
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
         objects = self.classifier.detectMultiScale(gray, 1.3, 5)
         # print(objects)
-
+        (rec_center_x, rec_center_y) = (0, 0)
+        rec_area = 0
         for (x,y,w,h) in objects:
             box = cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2) # Originally had "img ="
+            rec_area = self.find_area(w, h)
             (rec_center_x, rec_center_y) = self.find_rectangle_center((x, y, w, h))
             print (rec_center_x, rec_center_y)
             roi_gray = gray[y:y+h, x:x+w]
@@ -54,6 +60,12 @@ class Object_Detector:
         print(ang)
         cv2.putText(self.image, str(ang), (center_x, center_y), font, 1,(0,0,255),2)
 
+        if rec_area / img_size >= self.thresh:
+            print("Found")
+        else:
+            print(rec_area / img_size)
+            print(img_size)
+            print(self.image.shape)
 
         cv2.imshow('img', self.image)
         cv2.waitKey(0)
@@ -108,7 +120,7 @@ class Object_Detector:
 
 finder = Object_Detector('lab.jpg', object_cascade)
 # finder = Object_Detector('croissant.jpg', object_cascade)
-finder = Object_Detector('face_gradient.png', object_cascade)
-
+# finder = Object_Detector('face_gradient.png', object_cascade)
+# finder = Object_Detector('zoom.jpg', object_cascade)
 
 finder.find_obj()
