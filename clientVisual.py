@@ -15,11 +15,9 @@ v_name.on('connect', v_name.on_connect)
 v_name.on('disconnect', v_name.on_disconnect)
 
 v_name.emit('visual_image_received')
+v_name.emit('visual_info', {'angle': '55', 'size_target': '80', 'center': '(32, 68)'})
 
-v_name.emit('visual_distance', {'data': '30'})
-v_name.emit('visual_angle', {'data': '55'})
-v_name.emit('visual_size_target', {'data': '80'})
-v_name.emit('visual_center', {'data': '32, 68'})
 time.sleep(5)
+
 v_name.emit('visual_executed')
 v_name.emit('visual_image_received')

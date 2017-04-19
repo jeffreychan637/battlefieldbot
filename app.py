@@ -1,24 +1,8 @@
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO, emit
-import socket
-import Queue
-import threading
-import select
 
 app = Flask(__name__)
 socketio = SocketIO(app, async_mode='gevent')
-
-            # socketio.emit(key, , namespace='/test')
-            # socketio.emit("hello", {'data': values}, namespace='/test')
-            # if key == 'audio_command': # start time for audio time to execute
-            #     emit('start audio time')
-            # elif key == 'visual_info': #start time for visual time to execute
-            #     emit('start_visual_exec_time')
-            # elif key == 'visual image': #save to images and update carousel, start time for next image
-            #     emit('start_visual_image_time')
-            #     pass # save img here
-            # elif key == 'visual_center':
-            #     pass
 
 @app.route("/")
 def chart():
@@ -29,6 +13,8 @@ def chart():
 @socketio.on('connect', namespace='/gui')
 def gui_connect():
     print 'connected gui'
+
+################################################################
 
 @socketio.on('connect', namespace='/audio')
 def audio_connect():
@@ -41,7 +27,7 @@ def audio_command(msg):
 
 def send_audio_command(msg):
     print msg
-    socketio.emit('audio_command', {'data': msg}, namespace='/gui')
+    socketio.emit('audio_command', msg, namespace='/gui')
 
 @socketio.on('audio_executed', namespace='/audio')
 def audio_executed():
@@ -60,6 +46,23 @@ def visual_image_received():
 
 def send_visual_image_received():
     socketio.emit('visual_image_received', namespace='/gui')
+
+@socketio.on('visual_info', namespace='/visual')
+def visual_info(msg):
+    print 'visual info received'
+    print msg
+    send_visual_info(msg)
+
+def send_visual_info(msg):
+    socketio.emit('visual_info', msg, namespace='/gui')
+
+@socketio.on('visual_executed', namespace='/visual')
+def visual_executed():
+    print 'visual execution done'
+    send_visual_executed()
+
+def send_visual_executed():
+    socketio.emit('visual_executed', namespace='/gui')
 
 if __name__ == "__main__":
     print 'Starting Server'

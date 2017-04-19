@@ -15,8 +15,13 @@ Version 1.0
 	margin-top:5%;
 }
 
+.timer-wrapper {
+	text-align: center;
+}
 
-
+.timer-wrapper span {
+	font-size: 30px;
+}
 
 
 

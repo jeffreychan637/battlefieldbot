@@ -126,7 +126,29 @@ $(document).ready(function() {
 
   }
 
+  var prog_interval;
+  var max = 6000;
+  var increment = max / 100.0;
+  var curr_perc = 0;
 
+  function startProgress() {
+    clearInterval(prog_interval);
+    prog_interval = setInterval(animateProgress, increment);
+  }
+
+  function animateProgress() {
+    curr_perc++;
+    console.log('update percent');
+    $('#progress_audio').attr('aria-valuenow', curr_perc.toString()).css('width',curr_perc.toString() + "%");
+    $('#progress_audio_num').text(curr_perc.toString() + "%");
+  }
+
+  function resetProgress() {
+    clearInterval(prog_interval);
+    curr_perc = 0;
+    $('#progress_audio').attr('aria-valuenow', curr_perc.toString()).css('width',curr_perc.toString() + "%");
+    $('#progress_audio_num').text(curr_perc.toString() + "%");
+  }
 
 
   var socket = io.connect('http://localhost:5000/gui');
@@ -136,19 +158,45 @@ $(document).ready(function() {
   });
 
   socket.on('audio_command', function(msg) {
-      $('#audio_command').text(msg.data.data); // assuming only one command at a time
+    console.log(msg.data);
+      $('#audio_commands').text(msg.data); // assuming only one command at a time
       console.log('Starting audio watch');
-      // buttonStartAudio();
-      // buttonStartVImage();
-      buttonStartVExec();
+      buttonStartAudio();
+      startProgress();
   });
 
   socket.on('audio_executed', function() {
       console.log('Stopping audio watch');
-      // buttonResetAudio();
-      // buttonResetVImage();
+      buttonResetAudio();
+      resetProgress();
+  });
+
+  var visual_image_started = false;
+  socket.on('visual_image_received', function() {
+      console.log('Visual image received');
+      if (visual_image_started) {
+        buttonResetVImage();
+        buttonStartVImage();
+      }
+      else {
+        buttonStartVImage();
+        visual_image_started = true;
+      }
+  });
+
+  socket.on('visual_info', function(msg) {
+      var size_target = msg.size_target;
+      $('#size_target_class').removeClass('p50').addClass('p' + size_target);
+      $('#size_target_num').text(size_target + '%');
+      console.log('Starting visual exec watch');
+      buttonStartVExec();
+  });
+
+  socket.on('visual_executed', function() {
+      console.log('Stopping visual exec watch');
       buttonResetVExec();
   });
+
 
     // socket.on('audio_command', function(msg) {
     //     $('#log').append('<br>' + $('<div/>').text('Received #' + msg.count + ': ' + msg.data).html());
