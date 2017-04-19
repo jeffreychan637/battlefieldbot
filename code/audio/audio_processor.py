@@ -21,7 +21,7 @@ def process_audio(audio, recognizer):
     if result and result.strip() in COMMANDS:
         print("Command Sent: " + result)
         #send result.strip() to PSOC
-        #send result.strip() to command
+        #send result.strip() to GUI
     return
 
 def main():
