@@ -191,11 +191,11 @@
     <div class="panel panel-teal panel-widget">
       <div class="row no-padding">
         <div class="col-sm-3 col-lg-5 widget-left">
-          Time Until Next Image
+          Time for Visual Execution
         </div>
         <div class="col-sm-9 col-lg-7 widget-right">
           <div class="wrapper">
-          <p><span id="seconds">00</span>:<span id="tens">00</span></p>
+          <p><span id="v_exec_seconds">00</span>:<span id="v_exec_tens">00</span></p>
           </div>
         </div>
       </div>
@@ -210,75 +210,8 @@
         </div>
         <div class="col-sm-9 col-lg-7 widget-right">
           <div class="wrapper">
-          <p><span id="seconds2">00</span>:<span id="tens2">00</span></p>
-          <button id="button-start2">Start</button>
-          <button id="button-stop2">Stop</button>
-          <button id="button-reset2">Reset</button>
+          <p><span id="v_image_seconds">00</span>:<span id="v_image_tens">00</span></p>
           </div>
-
-          <script>
-          window.onload = function () {
-
-
-
-
-            var seconds2 = 00;
-            var tens2 = 00;
-            var appendTens2 = document.getElementById("tens2")
-            var appendSeconds2 = document.getElementById("seconds2")
-            var buttonStart2 = document.getElementById('button-start2');
-            var buttonStop2 = document.getElementById('button-stop2');
-            var buttonReset2 = document.getElementById('button-reset2');
-            var Interval2 ;
-
-            buttonStart2.onclick = function() {
-
-               clearInterval(Interval2);
-               Interval2 = setInterval(startTimer2, 10);
-            }
-
-              buttonStop2.onclick = function() {
-                 clearInterval(Interval2);
-            }
-
-
-            buttonReset2.onclick = function() {
-               clearInterval(Interval2);
-              tens2 = "00";
-            	seconds2 = "00";
-              appendTens2.innerHTML = tens2;
-            	appendSeconds2.innerHTML = seconds2;
-            }
-
-
-
-            function startTimer2 () {
-              tens2++;
-
-              if(tens2 < 9){
-                appendTens2.innerHTML = "0" + tens2;
-              }
-
-              if (tens2 > 9){
-                appendTens2.innerHTML = tens2;
-
-              }
-
-              if (tens2 > 99) {
-                seconds2++;
-                appendSeconds2.innerHTML = "0" + seconds2;
-                tens2 = 0;
-                appendTens2.innerHTML = "0" + 0;
-              }
-
-              if (seconds2 > 9){
-                appendSeconds2.innerHTML = seconds2;
-              }
-
-            }
-          }
-          </script>
-
         </div>
       </div>
     </div>

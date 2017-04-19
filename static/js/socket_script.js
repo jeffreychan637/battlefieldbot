@@ -1,6 +1,4 @@
 $(document).ready(function() {
-
-
   var audio_seconds = 00;
   var audio_tens = 00;
   var audio_appendTens = document.getElementById("audio_tens")
@@ -10,10 +8,6 @@ $(document).ready(function() {
   function buttonStartAudio() {
      clearInterval(audio_Interval);
      audio_Interval = setInterval(startTimerAudio, 10);
-  }
-
-    function buttonStopAudio() {
-       clearInterval(audio_Interval);
   }
 
   function buttonResetAudio() {
@@ -43,6 +37,95 @@ $(document).ready(function() {
     }
   }
 
+  var v_image_seconds = 00;
+  var v_image_tens = 00;
+  var v_image_appendTens = document.getElementById("v_image_tens");
+  var v_image_appendSeconds = document.getElementById("v_image_seconds");
+  var v_image_Interval;
+
+  function buttonStartVImage() {
+     clearInterval(v_image_Interval);
+     v_image_Interval = setInterval(startTimerVImage, 10);
+  }
+
+  function buttonResetVImage() {
+     clearInterval(v_image_Interval);
+    v_image_tens = "00";
+    v_image_seconds = "00";
+    v_image_appendTens.innerHTML = v_image_tens;
+    v_image_appendSeconds.innerHTML = v_image_seconds;
+  }
+
+  function startTimerVImage() {
+    v_image_tens++;
+
+    if(v_image_tens < 9){
+      v_image_appendTens.innerHTML = "0" + v_image_tens;
+    }
+
+    if (v_image_tens > 9){
+      v_image_appendTens.innerHTML = v_image_tens;
+
+    }
+
+    if (v_image_tens > 99) {
+      v_image_seconds++;
+      v_image_appendSeconds.innerHTML = "0" + v_image_seconds;
+      v_image_tens = 0;
+      v_image_appendTens.innerHTML = "0" + 0;
+    }
+
+    if (v_image_seconds > 9){
+      v_image_appendSeconds.innerHTML = v_image_seconds;
+    }
+
+  }
+
+
+  var v_exec_seconds = 00;
+  var v_exec_tens = 00;
+  var v_exec_appendTens = document.getElementById("v_exec_tens");
+  var v_exec_appendSeconds = document.getElementById("v_exec_seconds");
+  var v_exec_Interval;
+
+  function buttonStartVExec() {
+     clearInterval(v_exec_Interval);
+     v_exec_Interval = setInterval(startTimerVExec, 10);
+  }
+
+  function buttonResetVExec() {
+     clearInterval(v_exec_Interval);
+    v_exec_tens = "00";
+    v_exec_seconds = "00";
+    v_exec_appendTens.innerHTML = v_exec_tens;
+    v_exec_appendSeconds.innerHTML = v_exec_seconds;
+  }
+
+  function startTimerVExec() {
+    v_exec_tens++;
+
+    if(v_exec_tens < 9){
+      v_exec_appendTens.innerHTML = "0" + v_exec_tens;
+    }
+
+    if (v_exec_tens > 9){
+      v_exec_appendTens.innerHTML = v_exec_tens;
+
+    }
+
+    if (v_exec_tens > 99) {
+      v_exec_seconds++;
+      v_exec_appendSeconds.innerHTML = "0" + v_exec_seconds;
+      v_exec_tens = 0;
+      v_exec_appendTens.innerHTML = "0" + 0;
+    }
+
+    if (v_exec_seconds > 9){
+      v_exec_appendSeconds.innerHTML = v_exec_seconds;
+    }
+
+  }
+
 
 
 
@@ -55,12 +138,16 @@ $(document).ready(function() {
   socket.on('audio_command', function(msg) {
       $('#audio_command').text(msg.data.data); // assuming only one command at a time
       console.log('Starting audio watch');
-      buttonStartAudio();
+      // buttonStartAudio();
+      // buttonStartVImage();
+      buttonStartVExec();
   });
 
   socket.on('audio_executed', function() {
       console.log('Stopping audio watch');
-      buttonResetAudio();
+      // buttonResetAudio();
+      // buttonResetVImage();
+      buttonResetVExec();
   });
 
     // socket.on('audio_command', function(msg) {
