@@ -12,6 +12,7 @@ Using a camera that takes images in real-time, a visual processor on an accompan
 ### Audio Processor Setup
 1. Download dependencies
 ```
+$ cd battlebot
 $ virtualenv env
 $ source env/bin/activate
 $ brew install portaudio
