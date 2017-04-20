@@ -25,7 +25,7 @@ $ pip install --global-option='build_ext' --global-option='-I/usr/local/include'
 ```
 
 2. Setup Google Cloud Account
-Follow [Google's Getting Started Guide](https://cloud.google.com/speech/docs/getting-started)
+* Follow [Google's Getting Started Guide](https://cloud.google.com/speech/docs/getting-started)
 * When getting the credentials Setting role as project owner works fine
 * Save credentials as “Google_Speech_API_Secret” in the code/audio folder
 
