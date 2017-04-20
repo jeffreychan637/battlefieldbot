@@ -23,10 +23,59 @@ Version 1.0
 	font-size: 30px;
 }
 
+canvas {
+	margin-left: auto;
+	margin-right: auto;
+	display: inherit !important;
+}
 
+.carousel {
+	width: 200px;
+	height: 200px;
+	margin-left: auto;
+	margin-right: auto;
+}
 
+.center h2 {
+	text-align: center;
+	line-height: 200px;
+	margin: 0px;
+}
 
+.size_container {
+	width: 120px;
+	height: 120px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 40px;
+}
 
+.widget-right {
+	padding-top: 0px !important;
+}
+
+.widget-right h2 {
+	text-align: center;
+	line-height: 200px;
+	margin: 0px;
+	font-size: 5em;
+}
+
+.widget-right h3{
+	text-align: center;
+	margin: 0px;
+}
+
+.widget-left {
+	height: 200px !important;
+}
+
+.widget-left h4 {
+	transform: rotate(270deg);
+	padding-top: 100px;
+	padding-bottom: 40px;
+	font-size: 30px;
+}
 
 
 

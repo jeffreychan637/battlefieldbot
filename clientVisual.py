@@ -14,10 +14,10 @@ v_name = socketIO.define(VisualNamespace, '/visual')
 v_name.on('connect', v_name.on_connect)
 v_name.on('disconnect', v_name.on_disconnect)
 
-v_name.emit('visual_image_received')
-v_name.emit('visual_info', {'angle': '55', 'size_target': '80', 'center': '(32, 68)'})
+# v_name.emit('visual_image_received')
+v_name.emit('visual_info', {'center': '(32,68)', 'size_target': '80', 'angle': '55'})
 
 time.sleep(5)
 
+# v_name.emit('visual_image_received')
 v_name.emit('visual_executed')
-v_name.emit('visual_image_received')
