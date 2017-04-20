@@ -19,11 +19,7 @@ def keyboard_processor(commands):
             commands.put("stop")
 
 def main():
-    socketIO = SocketIO('localhost', 5000)
-    audio_socket = socketIO.define(Audio.AudioNamespace, '/audio')
-    audio_socket.on('connect', audio_socket.on_connect)
-    audio_socket.on('disconnect', audio_socket.on_disconnect)
-
+    audio_socket = Audio.setup_socket()
     commands = Queue()
 
     command_executor = Thread(target=Audio.execute_commands, args=(commands, audio_socket))

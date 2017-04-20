@@ -19,6 +19,13 @@ class AudioNamespace(BaseNamespace):
     def on_disconnect(self):
         print('audio disconnected')
 
+def setup_socket():
+    socketIO = SocketIO('localhost', 5000)
+    audio_socket = socketIO.define(AudioNamespace, '/audio')
+    audio_socket.on('connect', audio_socket.on_connect)
+    audio_socket.on('disconnect', audio_socket.on_disconnect)
+    return audio_socket
+
 def get_text_from_Google(audio, recognizer):
     try:
         print("Contacting Google")
@@ -52,12 +59,7 @@ def execute_commands(commands, audio_socket):
 def main():
     pool = ThreadPool(processes=POOL_SIZE)
     recognizer = sr.Recognizer()
-
-    socketIO = SocketIO('localhost', 5000)
-    audio_socket = socketIO.define(AudioNamespace, '/audio')
-    audio_socket.on('connect', audio_socket.on_connect)
-    audio_socket.on('disconnect', audio_socket.on_disconnect)
-
+    audio_socket = setup_socket()
     commands = Queue()
 
     command_executor = Thread(target=execute_commands, args=(commands, audio_socket))
