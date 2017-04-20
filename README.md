@@ -9,8 +9,31 @@ An accompanying computer receives voice commands and sends them to the car for r
 
 Using a camera that takes images in real-time, a visual processor on an accompanying computer receives these images and analyzes them to detect targets and determine the angle the car needs to be steered to get to the target. Commands to adjust the angle and turn the car are sent to the car to be processed in real-time.
 
+## Running the Battlefield Bot
+1. Follow the setup instructions for the individual processors.
+
+2. Start the processors, GUI, and simulators
+```
+$ cd battlebot
+$ virtualenv env
+$ source env/bin/activate
+```
+
+In separate tabs (one for each line):
+```
+$ cd code/audio; python audio_processor.py
+$ cd code/audio; python keyboard_processor.py // This is optional
+$ cd code/visual; python canny_edge_detector.py
+$ cd code/visual; python object_detector.py
+$ cd code/gui; python app.py
+$ cd code/simulation; python simulation.py
+```
+
 ### Audio Processor Setup
+_Note that the keyboard processor is an alternative to the audio processor. It takes in commands via the keyboard instead of the microphone and does not require setup of a Google Cloud Account._
+
 1. Download dependencies
+    1. This will download all dependencies including ones for the Visual Processor, GUI, and simulators.
 ```
 $ cd battlebot
 $ virtualenv env
@@ -31,3 +54,28 @@ $ pip install --global-option='build_ext' --global-option='-I/usr/local/include'
 
 3. Replace `battlefieldbot/env/lib/python2.7/site-packages/speech_recognition/__init__.py` with this [updated version](https://github.com/jeffreychan637/speech_recognition/blob/google-json-file/speech_recognition/__init__.py).
 * This updated version allows for your secret Google Speech API credentials to be stored as a file instead of manually written within the audio code in a JSON format.
+
+### Visual Processor Setup
+1. Download dependencies
+    1. This will download all dependencies including ones for the Audio Processor, GUI, and simulators.
+```
+$ cd battlebot
+$ virtualenv env
+$ source env/bin/activate
+$ brew install portaudio
+$ pip install -r requirements.txt
+```
+
+2. Test the Canny Edge Detector
+```
+$ cd code/visual
+$ python canny_edge_detector.py
+```
+If you run into issues with `matplotlib` where Python needs to be installed as a framework, a possible solution can be found [here](http://stackoverflow.com/questions/29433824/unable-to-import-matplotlib-pyplot-as-plt-in-virtualenv).
+
+3. Test the Object Detector
+```
+$ cd code/visual
+$ python object_detector.py
+```
+If you run into issues with OpenCV needed to be reconfigured, a possible solution can be found [here]()
