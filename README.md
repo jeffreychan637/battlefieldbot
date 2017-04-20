@@ -78,4 +78,4 @@ If you run into issues with `matplotlib` where Python needs to be installed as a
 $ cd code/visual
 $ python object_detector.py
 ```
-If you run into issues with OpenCV needed to be reconfigured, a possible solution can be found [here]()
+If you run into issues with OpenCV needed to be reconfigured, a possible solution can be found [here]().
