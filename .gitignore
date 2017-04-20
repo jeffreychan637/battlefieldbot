@@ -1,4 +1,4 @@
 env/*
 .DS_Store
-.pyc
+*.pyc
 code/audio/Google_Speech_API_Secret
