@@ -55,6 +55,7 @@ $ pip install --global-option='build_ext' --global-option='-I/usr/local/include'
 3. Replace `battlefieldbot/env/lib/python2.7/site-packages/speech_recognition/__init__.py` with this [updated version](https://github.com/jeffreychan637/speech_recognition/blob/google-json-file/speech_recognition/__init__.py).
 * This updated version allows for your secret Google Speech API credentials to be stored as a file instead of manually written within the audio code in a JSON format.
 
+## Setup
 ### Visual Processor Setup
 1. Download dependencies
     1. This will download all dependencies including ones for the Audio Processor, GUI, and simulators.
