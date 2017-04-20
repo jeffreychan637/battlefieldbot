@@ -20,35 +20,35 @@ $(document).ready(function() {
   var angle_data = [30, 330];
   var angle_ctx = $("#angle")[0].getContext('2d');
 
-  var sample = {
-    labels: [
-        "Angle",
-        "Bg"
-    ],
-    datasets: [
-        {
-            data: angle_data,
-            backgroundColor: [
-                "#FF6384",
-                "#FFFFFF"
-            ]
-    }]
-};
-
-  var angle_cfg = {
-      type: 'pie',
-      data: sample,
-      options: {
-        legend: {
-          display: false
-        },
-        tooltips: {
-          enabled: false
-        }
-      }
-  };
-
   function graphPie() {
+    var sample = {
+      labels: [
+          "Angle",
+          "Bg"
+      ],
+      datasets: [
+          {
+              data: angle_data,
+              backgroundColor: [
+                  "#FF6384",
+                  "#FFFFFF"
+              ]
+      }]
+    };
+
+    var angle_cfg = {
+        type: 'pie',
+        data: sample,
+        options: {
+          legend: {
+            display: false
+          },
+          tooltips: {
+            enabled: false
+          }
+        }
+    };
+    
     new Chart(angle_ctx, angle_cfg);
   }
 
@@ -207,7 +207,7 @@ $(document).ready(function() {
   ////////////////////////////////////////////////////////////
 
   var progintervalAudio;
-  var maxAudio = 6000;
+  var maxAudio = 30000;
   var incrementAudio = maxAudio / 100.0;
   var currPercAudio = 0;
 
@@ -232,7 +232,7 @@ $(document).ready(function() {
   ////////////////////////////////////////////////////////////
 
   var progintervalVisualExec;
-  var maxVisualExec = 6000;
+  var maxVisualExec = 26000;
   var incrementVisualExec = maxVisualExec / 100.0;
   var currPercVisualExec = 0;
 
@@ -257,7 +257,7 @@ $(document).ready(function() {
   ////////////////////////////////////////////////////////////
 
   var progintervalVisualImage;
-  var maxVisualImage = 6000;
+  var maxVisualImage = 28000;
   var incrementVisualImage = maxVisualImage / 100.0;
   var currPercVisualImage = 0;
 
@@ -325,7 +325,7 @@ var config = {
                 ticks: {
                     max: maxAudio / 1000,
                     min: 0,
-                    stepSize: 0.5
+                    stepSize: (maxAudio / 1000) / ((maxAudio / 1000) / 2.0)
                 }
             }]
         }
@@ -373,7 +373,7 @@ var config2 = {
                 ticks: {
                     max: maxVisualExec / 1000,
                     min: 0,
-                    stepSize: 0.5
+                    stepSize: (maxAudio / 1000) / ((maxAudio / 1000) / 2.0)
                 }
             }]
         }
@@ -421,7 +421,7 @@ var config3 = {
                 ticks: {
                     max: maxVisualImage / 1000,
                     min: 0,
-                    stepSize: 0.5
+                    stepSize: (maxAudio / 1000) / ((maxAudio / 1000) / 2.0)
                 }
             }]
         }
@@ -442,7 +442,7 @@ function graph3() {
 
   socket.on('audio_command', function(msg) {
     console.log(msg.data);
-      $('#audio_command').text(msg.data); // assuming only one command at a time
+      $('#audio_command').text(msg.data.toUpperCase()); // assuming only one command at a time
       console.log('Starting audio watch');
       buttonStartAudio();
       startProgressAudio();
@@ -465,9 +465,9 @@ function graph3() {
       $('#center').text(center);
 
       var angle = msg.angle;
-      angle_data = [angle, 360-angle];
+      angle_data = [parseInt(angle), 360-parseInt(angle)];
       graphPie();
-      $('#angle_degrees').text(angle);
+      $('#angle_degrees').text(angle + " Degrees");
 
       console.log('Starting visual exec watch');
       buttonStartVExec();

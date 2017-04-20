@@ -15,5 +15,5 @@ a_name.on('connect', a_name.on_connect)
 a_name.on('disconnect', a_name.on_disconnect)
 
 a_name.emit('audio_command', {'data': 'Fire'})
-time.sleep(5)
+time.sleep(20)
 a_name.emit('audio_executed')
