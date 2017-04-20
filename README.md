@@ -1,5 +1,5 @@
-# battlebot
-This is a project to create a car that can take in voice commands to detect a target, fire at it, or retreive the target.
+# Battlefield Bot
+This is a project to create a car that can take in voice commands to detect a target, fire at it, or retreive the target. This kind of robot would be extremely used in a battlefield environment, thus earning the name, Battlefield Bot.
 
 The car will be controlled via a PSOC 4 microcontroller. For the scope of this project, the car will not actually fire or retrieve targets but simply receive commands to fire as well as be able to drive up to a target and back.
 
