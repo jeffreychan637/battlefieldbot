@@ -1,0 +1,26 @@
+# KIT042_Accelerometer_LightPaint
+# 2017-05-05 01:15:44Z
+
+# IO_2@[IOP=(3)][IoId=(2)] is reserved: SWDDebugEnabled
+dont_use_io iocell 3 2
+# IO_3@[IOP=(3)][IoId=(3)] is reserved: SWDDebugEnabled
+dont_use_io iocell 3 3
+set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
+set_io "\I2C_Accel:sda(0)\" iocell 3 1
+set_io "\I2C_Accel:scl(0)\" iocell 3 0
+set_io "LED(0)" iocell 1 6
+set_io "Pin_Button(0)" iocell 0 7
+set_io "\UART:tx(0)\" iocell 4 1
+set_io "Pin_Accel_VDD(0)" iocell 0 6
+set_io "Pin_Accel_GND(0)" iocell 2 6
+set_io "Pin_Accel_INT1(0)" iocell 3 6
+set_io "Pin_Accel_INT2(0)" iocell 3 4
+set_io "Forward_out(0)" iocell 0 4
+set_io "Reverse_out(0)" iocell 0 5
+set_io "Left_out(0)" iocell 3 7
+set_io "Right_out(0)" iocell 3 5
+set_io "Trigr_1(0)" iocell 1 1
+set_io "LED_1(0)" iocell 0 3
+set_io "Echo_1(0)" iocell 1 0
+set_io "back_wheels(0)" iocell 2 4
+set_io "front_wheels(0)" iocell 2 5

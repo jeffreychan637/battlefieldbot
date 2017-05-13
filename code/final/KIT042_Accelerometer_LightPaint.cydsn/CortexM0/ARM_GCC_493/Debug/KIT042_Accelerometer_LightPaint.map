@@ -1,0 +1,1484 @@
+Archive member included because of file (symbol)
+
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o)
+                              .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o (cyfitter_cfg)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+                              .\CortexM0\ARM_GCC_493\Debug\main.o (I2C_Accel_Start)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C.o)
+                              .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o) (I2C_Accel_I2CInit)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+                              .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C.o) (I2C_Accel_mstrStatus)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_scl.o)
+                              .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o) (I2C_Accel_scl_Write)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_sda.o)
+                              .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o) (I2C_Accel_sda_Read)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+                              .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o) (CySysClkWriteImoFreq)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+                              .\CortexM0\ARM_GCC_493\Debug\main.o (UART_Start)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+                              .\CortexM0\ARM_GCC_493\Debug\main.o (UART_SpiUartWriteTxData)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+                              .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o) (UART_UartInit)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+                              .\CortexM0\ARM_GCC_493\Debug\main.o (init_printf)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Forward_out.o)
+                              .\CortexM0\ARM_GCC_493\Debug\main.o (Forward_out_Write)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Reverse_out.o)
+                              .\CortexM0\ARM_GCC_493\Debug\main.o (Reverse_out_Write)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Left_out.o)
+                              .\CortexM0\ARM_GCC_493\Debug\main.o (Left_out_Write)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Right_out.o)
+                              .\CortexM0\ARM_GCC_493\Debug\main.o (Right_out_Write)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo.o)
+                              .\CortexM0\ARM_GCC_493\Debug\main.o (Echo_Read)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr.o)
+                              .\CortexM0\ARM_GCC_493\Debug\main.o (Trigr_Write)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED.o)
+                              .\CortexM0\ARM_GCC_493\Debug\main.o (LED_Write)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+                              .\CortexM0\ARM_GCC_493\Debug\main.o (PWM_2_WriteCompare)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr_1.o)
+                              .\CortexM0\ARM_GCC_493\Debug\main.o (Trigr_1_Write)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo_1.o)
+                              .\CortexM0\ARM_GCC_493\Debug\main.o (Echo_1_Read)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED_1.o)
+                              .\CortexM0\ARM_GCC_493\Debug\main.o (LED_1_Write)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyBootAsmGnu.o)
+                              .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o) (CyDelayCycles)
+.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_INT.o)
+                              .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C.o) (I2C_Accel_I2C_ISR)
+c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
+                              .\CortexM0\ARM_GCC_493\Debug\main.o (__aeabi_uidiv)
+c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
+                              c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-errno.o)
+                              .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o (__errno)
+c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-exit.o)
+                              c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o (exit)
+c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
+                              c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-exit.o) (_global_impure_ptr)
+c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-init.o)
+                              c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o (__libc_init_array)
+c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memcpy.o)
+                              .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o) (memcpy)
+c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
+                              c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o (memset)
+
+Allocating common symbols
+Common symbol       size              file
+
+I2C_Accel_mstrWrBufIndexTmp
+                    0x4               .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+I2C_Accel_mstrControl
+                    0x1               .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+I2C_Accel_mstrStatus
+                    0x2               .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+I2C_Accel_mstrRdBufPtr
+                    0x4               .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+I2C_Accel_mstrWrBufPtr
+                    0x4               .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+I2C_Accel_state     0x1               .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C.o)
+I2C_Accel_mstrRdBufSize
+                    0x4               .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+I2C_Accel_mstrWrBufIndex
+                    0x4               .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+I2C_Accel_mstrRdBufIndex
+                    0x4               .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+I2C_Accel_mstrWrBufSize
+                    0x4               .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
+ .data          0x00000000        0x4 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+ .text          0x00000000       0x78 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .ARM.extab     0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .ARM.exidx     0x00000000        0x8 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\main.o
+ .bss           0x00000000        0x8 .\CortexM0\ARM_GCC_493\Debug\main.o
+ .text.MY_ISR   0x00000000       0x18 .\CortexM0\ARM_GCC_493\Debug\main.o
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+ .data          0x00000000        0x4 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+ .text._exit    0x00000000       0x14 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+ .text._sbrk    0x00000000       0x54 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\cymetadata.o
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\cymetadata.o
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\cymetadata.o
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o)
+ .text.CYCONFIGCPY
+                0x00000000       0x24 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o)
+ .text.CYCONFIGCPYCODE
+                0x00000000       0x24 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+ .text.I2C_Accel_Stop
+                0x00000000       0x34 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+ .text.I2C_Accel_SetRxFifoLevel
+                0x00000000       0x34 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+ .text.I2C_Accel_SetTxFifoLevel
+                0x00000000       0x34 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+ .text.I2C_Accel_SetCustomInterruptHandler
+                0x00000000       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+ .text.I2C_Accel_ScbModeStop
+                0x00000000        0xc .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+ .text.I2C_Accel_I2CSlaveNackGeneration
+                0x00000000       0x50 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C.o)
+ .text.I2C_Accel_I2CStop
+                0x00000000       0x14 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+ .text.I2C_Accel_I2CMasterWriteBuf
+                0x00000000      0x11c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+ .text.I2C_Accel_I2CMasterReadBuf
+                0x00000000      0x12c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+ .text.I2C_Accel_I2CMasterGetReadBufSize
+                0x00000000       0x14 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+ .text.I2C_Accel_I2CMasterGetWriteBufSize
+                0x00000000       0x14 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+ .text.I2C_Accel_I2CMasterClearReadBuf
+                0x00000000       0x34 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+ .text.I2C_Accel_I2CMasterClearWriteBuf
+                0x00000000       0x34 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+ .text.I2C_Accel_I2CMasterStatus
+                0x00000000       0x44 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+ .text.I2C_Accel_I2CMasterClearStatus
+                0x00000000       0x30 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_scl.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_scl.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_scl.o)
+ .text.I2C_Accel_scl_SetDriveMode
+                0x00000000       0x2c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_scl.o)
+ .text.I2C_Accel_scl_ReadDataReg
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_scl.o)
+ .text.I2C_Accel_scl_SetInterruptMode
+                0x00000000       0x40 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_scl.o)
+ .text.I2C_Accel_scl_ClearInterrupt
+                0x00000000       0x2c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_scl.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_sda.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_sda.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_sda.o)
+ .text.I2C_Accel_sda_SetDriveMode
+                0x00000000       0x2c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_sda.o)
+ .text.I2C_Accel_sda_Write
+                0x00000000       0x4c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_sda.o)
+ .text.I2C_Accel_sda_ReadDataReg
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_sda.o)
+ .text.I2C_Accel_sda_SetInterruptMode
+                0x00000000       0x40 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_sda.o)
+ .text.I2C_Accel_sda_ClearInterrupt
+                0x00000000       0x30 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_sda.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .bss           0x00000000       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysClkImoStart
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysClkImoStop
+                0x00000000       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysClkWriteHfclkDirect
+                0x00000000       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysEnablePumpClock
+                0x00000000       0x50 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysClkGetSysclkSource
+                0x00000000       0x34 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysClkWriteSysclkDiv
+                0x00000000       0x44 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysLvdEnable
+                0x00000000       0x60 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysLvdDisable
+                0x00000000       0x28 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysLvdGetInterruptSource
+                0x00000000       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysLvdClearInterrupt
+                0x00000000       0x14 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysGetResetReason
+                0x00000000       0x30 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CyDisableInts
+                0x00000000       0x24 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CyEnableInts
+                0x00000000       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CyIntSetSysVector
+                0x00000000       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CyIntGetSysVector
+                0x00000000       0x34 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CyIntGetVector
+                0x00000000       0x38 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CyIntGetPriority
+                0x00000000       0x5c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CyIntGetState
+                0x00000000       0x30 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CyIntSetPending
+                0x00000000       0x28 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CyIntClearPending
+                0x00000000       0x28 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySoftwareReset
+                0x00000000       0x20 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CyDelayFreq
+                0x00000000       0x84 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysTickStart
+                0x00000000       0x24 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysTickInit
+                0x00000000       0x60 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysTickEnable
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysTickStop
+                0x00000000       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysTickEnableInterrupt
+                0x00000000       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysTickDisableInterrupt
+                0x00000000       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysTickSetReload
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysTickGetReload
+                0x00000000       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysTickGetValue
+                0x00000000       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysTickGetCountFlag
+                0x00000000       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysTickClear
+                0x00000000       0x14 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysTickSetCallback
+                0x00000000       0x2c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysTickGetCallback
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CySysTickServiceCallbacks
+                0x00000000       0x44 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text.CyGetUniqueId
+                0x00000000       0xc0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+ .text.UART_Stop
+                0x00000000       0x28 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+ .text.UART_SetRxFifoLevel
+                0x00000000       0x34 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+ .text.UART_SetTxFifoLevel
+                0x00000000       0x34 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+ .text.UART_ScbModeStop
+                0x00000000        0xc .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+ .text.UART_I2CSlaveNackGeneration
+                0x00000000       0x50 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+ .text.UART_SpiUartReadRxData
+                0x00000000       0x20 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+ .text.UART_SpiUartGetRxBufferSize
+                0x00000000       0x20 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+ .text.UART_SpiUartClearRxBuffer
+                0x00000000       0x2c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+ .text.UART_SpiUartPutArray
+                0x00000000       0x34 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+ .text.UART_SpiUartGetTxBufferSize
+                0x00000000       0x20 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+ .text.UART_SpiUartClearTxBuffer
+                0x00000000       0x2c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+ .text.UART_SpiUartDisableIntRx
+                0x00000000       0x20 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+ .text.UART_SpiUartDisableIntTx
+                0x00000000       0x20 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+ .text.UART_UartStop
+                0x00000000       0x34 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+ .text.UART_UartSetRxAddress
+                0x00000000       0x34 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+ .text.UART_UartSetRxAddressMask
+                0x00000000       0x34 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+ .text.UART_UartGetChar
+                0x00000000       0x40 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+ .text.UART_UartGetByte
+                0x00000000       0x50 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+ .text.UART_UartPutString
+                0x00000000       0x34 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+ .text.UART_UartPutCRLF
+                0x00000000       0x24 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+ .text.putcp    0x00000000       0x24 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+ .text.tfp_sprintf
+                0x00000000       0x38 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Forward_out.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Forward_out.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Forward_out.o)
+ .text.Forward_out_SetDriveMode
+                0x00000000       0x30 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Forward_out.o)
+ .text.Forward_out_Read
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Forward_out.o)
+ .text.Forward_out_ReadDataReg
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Forward_out.o)
+ .text.Forward_out_SetInterruptMode
+                0x00000000       0x40 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Forward_out.o)
+ .text.Forward_out_ClearInterrupt
+                0x00000000       0x30 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Forward_out.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Reverse_out.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Reverse_out.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Reverse_out.o)
+ .text.Reverse_out_SetDriveMode
+                0x00000000       0x30 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Reverse_out.o)
+ .text.Reverse_out_Read
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Reverse_out.o)
+ .text.Reverse_out_ReadDataReg
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Reverse_out.o)
+ .text.Reverse_out_SetInterruptMode
+                0x00000000       0x40 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Reverse_out.o)
+ .text.Reverse_out_ClearInterrupt
+                0x00000000       0x30 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Reverse_out.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Left_out.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Left_out.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Left_out.o)
+ .text.Left_out_SetDriveMode
+                0x00000000       0x30 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Left_out.o)
+ .text.Left_out_Read
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Left_out.o)
+ .text.Left_out_ReadDataReg
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Left_out.o)
+ .text.Left_out_SetInterruptMode
+                0x00000000       0x40 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Left_out.o)
+ .text.Left_out_ClearInterrupt
+                0x00000000       0x30 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Left_out.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Right_out.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Right_out.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Right_out.o)
+ .text.Right_out_SetDriveMode
+                0x00000000       0x30 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Right_out.o)
+ .text.Right_out_Read
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Right_out.o)
+ .text.Right_out_ReadDataReg
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Right_out.o)
+ .text.Right_out_SetInterruptMode
+                0x00000000       0x40 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Right_out.o)
+ .text.Right_out_ClearInterrupt
+                0x00000000       0x30 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Right_out.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo.o)
+ .text.Echo_SetDriveMode
+                0x00000000       0x2c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo.o)
+ .text.Echo_Write
+                0x00000000       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo.o)
+ .text.Echo_ReadDataReg
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo.o)
+ .text.Echo_SetInterruptMode
+                0x00000000       0x40 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo.o)
+ .text.Echo_ClearInterrupt
+                0x00000000       0x2c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr.o)
+ .text.Trigr_SetDriveMode
+                0x00000000       0x2c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr.o)
+ .text.Trigr_Read
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr.o)
+ .text.Trigr_ReadDataReg
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr.o)
+ .text.Trigr_SetInterruptMode
+                0x00000000       0x40 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr.o)
+ .text.Trigr_ClearInterrupt
+                0x00000000       0x30 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED.o)
+ .text.LED_SetDriveMode
+                0x00000000       0x30 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED.o)
+ .text.LED_Read
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED.o)
+ .text.LED_ReadDataReg
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED.o)
+ .text.LED_SetInterruptMode
+                0x00000000       0x40 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED.o)
+ .text.LED_ClearInterrupt
+                0x00000000       0x30 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_Stop
+                0x00000000       0x30 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_SetMode
+                0x00000000       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_SetQDMode
+                0x00000000       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_SetPrescaler
+                0x00000000       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_SetOneShot
+                0x00000000       0x4c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_SetPWMMode
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_SetPWMSyncKill
+                0x00000000       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_SetPWMStopOnKill
+                0x00000000       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_SetPWMDeadTime
+                0x00000000       0x4c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_SetPWMInvert
+                0x00000000       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_ReadCounter
+                0x00000000       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_SetCounterMode
+                0x00000000       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_ReadPeriod
+                0x00000000       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_SetCompareSwap
+                0x00000000       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_WritePeriodBuf
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_ReadPeriodBuf
+                0x00000000       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_SetPeriodSwap
+                0x00000000       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_WriteCompareBuf
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_ReadCompareBuf
+                0x00000000       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_ReadCapture
+                0x00000000       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_ReadCaptureBuf
+                0x00000000       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_SetCaptureMode
+                0x00000000       0x44 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_SetReloadMode
+                0x00000000       0x44 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_SetStartMode
+                0x00000000       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_SetStopMode
+                0x00000000       0x44 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_SetCountMode
+                0x00000000       0x44 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_ReadStatus
+                0x00000000       0x20 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_GetInterruptSourceMasked
+                0x00000000       0x14 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_GetInterruptSource
+                0x00000000       0x14 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_ClearInterrupt
+                0x00000000       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text.PWM_2_SetInterrupt
+                0x00000000       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr_1.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr_1.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr_1.o)
+ .text.Trigr_1_SetDriveMode
+                0x00000000       0x2c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr_1.o)
+ .text.Trigr_1_Read
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr_1.o)
+ .text.Trigr_1_ReadDataReg
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr_1.o)
+ .text.Trigr_1_SetInterruptMode
+                0x00000000       0x40 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr_1.o)
+ .text.Trigr_1_ClearInterrupt
+                0x00000000       0x30 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr_1.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo_1.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo_1.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo_1.o)
+ .text.Echo_1_SetDriveMode
+                0x00000000       0x2c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo_1.o)
+ .text.Echo_1_Write
+                0x00000000       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo_1.o)
+ .text.Echo_1_ReadDataReg
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo_1.o)
+ .text.Echo_1_SetInterruptMode
+                0x00000000       0x40 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo_1.o)
+ .text.Echo_1_ClearInterrupt
+                0x00000000       0x2c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo_1.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED_1.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED_1.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED_1.o)
+ .text.LED_1_SetDriveMode
+                0x00000000       0x30 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED_1.o)
+ .text.LED_1_Read
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED_1.o)
+ .text.LED_1_ReadDataReg
+                0x00000000       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED_1.o)
+ .text.LED_1_SetInterruptMode
+                0x00000000       0x40 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED_1.o)
+ .text.LED_1_ClearInterrupt
+                0x00000000       0x30 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED_1.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyBootAsmGnu.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyBootAsmGnu.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_INT.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_INT.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_INT.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-errno.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-errno.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-errno.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-exit.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-exit.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-exit.o)
+ .text.exit     0x00000000       0x2c c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
+ .rodata._global_impure_ptr
+                0x00000000        0x4 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-init.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-init.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-init.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memcpy.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memcpy.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memcpy.o)
+ .text.memcpy   0x00000000       0x12 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memcpy.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+rom              0x00000000         0x00008000         xr
+ram              0x20000000         0x00001000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
+LOAD c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+LOAD c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+START GROUP
+LOAD .\CortexM0\ARM_GCC_493\Debug\main.o
+LOAD .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+LOAD .\CortexM0\ARM_GCC_493\Debug\cymetadata.o
+LOAD .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a
+LOAD C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_493\Debug\CyComponentLibrary.a
+END GROUP
+START GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a
+END GROUP
+START GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a
+END GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
+LOAD c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
+START GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libnosys.a
+END GROUP
+                0x00000000                CY_APPL_ORIGIN = 0x0
+                0x00000080                CY_FLASH_ROW_SIZE = 0x80
+                0x00000001                CY_APPL_NUM = 0x1
+                0x00000001                CY_APPL_MAX = 0x1
+                0x00000040                CY_METADATA_SIZE = 0x40
+                0x00000000                CY_APPL_LOADABLE = 0x0
+                0x00000000                CY_CHECKSUM_EXCLUDE_SIZE = ALIGN (0x0, CY_FLASH_ROW_SIZE)
+                0x00000000                CY_APP_FOR_STACK_AND_COPIER = 0x0
+                0x200001a0                PROVIDE (__cy_heap_start, _end)
+                0x00000001                PROVIDE (__cy_region_num, ((__cy_regions_end - __cy_regions) / 0x10))
+                0x20001000                PROVIDE (__cy_stack, (ORIGIN (ram) + 0x1000))
+                0x20000c00                PROVIDE (__cy_heap_end, (__cy_stack - 0x400))
+
+.cybootloader   0x00000000        0x0
+ *(.cybootloader)
+                0x00000000                appl1_start = CY_APPL_ORIGIN?CY_APPL_ORIGIN:ALIGN (CY_FLASH_ROW_SIZE)
+                0x00003f80                appl2_start = (appl1_start + ALIGN ((((0x8000 - appl1_start) - (0x2 * CY_FLASH_ROW_SIZE)) / 0x2), CY_FLASH_ROW_SIZE))
+                0x00000000                appl_start = (CY_APPL_NUM == 0x1)?appl1_start:appl2_start
+                0x00000001                cy_project_type_bootloader = (appl_start == 0x0)?0x1:0x0
+                0x00000000                cy_project_type_app_for_stack_and_copier = (CY_APP_FOR_STACK_AND_COPIER == 0x1)?0x1:0x0
+
+.text           0x00000000     0x2624
+ CREATE_OBJECT_SYMBOLS
+                0x00000000                PROVIDE (__cy_interrupt_vector, RomVectors)
+ *(.romvectors)
+ .romvectors    0x00000000       0x10 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+                0x00000000                RomVectors
+                0x00000001                ASSERT ((. != __cy_interrupt_vector), No interrupt vector)
+                0x00000001                ASSERT (CY_APPL_ORIGIN?(SIZEOF (.cybootloader) <= CY_APPL_ORIGIN):0x1, Wrong image location)
+                0x00000010                PROVIDE (__cy_reset, Reset)
+ *(.text.Reset)
+ .text.Reset    0x00000010        0x8 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+                0x00000010                Reset
+                0x00000001                ASSERT ((. != __cy_reset), No reset code)
+ *(.psocinit)
+ .psocinit      0x00000018      0x278 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o)
+                0x000000c0                cyfitter_cfg
+                0x00000290                . = MAX (., 0x100)
+ *(.text .text.* .gnu.linkonce.t.*)
+ .text          0x00000290       0x60 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+ .text.putdata  0x000002f0       0x20 .\CortexM0\ARM_GCC_493\Debug\main.o
+                0x000002f0                putdata
+ .text.abs16    0x00000310       0x3c .\CortexM0\ARM_GCC_493\Debug\main.o
+                0x00000310                abs16
+ .text.Truck_Stop
+                0x0000034c       0x20 .\CortexM0\ARM_GCC_493\Debug\main.o
+                0x0000034c                Truck_Stop
+ .text.Truck_Forward
+                0x0000036c       0x18 .\CortexM0\ARM_GCC_493\Debug\main.o
+                0x0000036c                Truck_Forward
+ .text.Truck_Right
+                0x00000384       0x30 .\CortexM0\ARM_GCC_493\Debug\main.o
+                0x00000384                Truck_Right
+ .text.Truck_Left
+                0x000003b4       0x30 .\CortexM0\ARM_GCC_493\Debug\main.o
+                0x000003b4                Truck_Left
+ .text.Truck_Straight
+                0x000003e4       0x1c .\CortexM0\ARM_GCC_493\Debug\main.o
+                0x000003e4                Truck_Straight
+ .text.detectObstacle
+                0x00000400       0x80 .\CortexM0\ARM_GCC_493\Debug\main.o
+                0x00000400                detectObstacle
+ .text.detectObstacle2
+                0x00000480       0x80 .\CortexM0\ARM_GCC_493\Debug\main.o
+                0x00000480                detectObstacle2
+ .text.firstMove
+                0x00000500       0x44 .\CortexM0\ARM_GCC_493\Debug\main.o
+                0x00000500                firstMove
+ .text.moveRobot
+                0x00000544       0x48 .\CortexM0\ARM_GCC_493\Debug\main.o
+                0x00000544                moveRobot
+ .text.avoidObs
+                0x0000058c       0x48 .\CortexM0\ARM_GCC_493\Debug\main.o
+                0x0000058c                avoidObs
+ .text.getAccel
+                0x000005d4      0x1d8 .\CortexM0\ARM_GCC_493\Debug\main.o
+                0x000005d4                getAccel
+ .text.main     0x000007ac      0x1d0 .\CortexM0\ARM_GCC_493\Debug\main.o
+                0x000007ac                main
+ .text.IntDefaultHandler
+                0x0000097c       0x14 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+                0x0000097c                IntDefaultHandler
+ .text.Start_c  0x00000990       0x98 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+                0x00000990                Start_c
+ .text.initialize_psoc
+                0x00000a28       0x64 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+                0x00000a28                initialize_psoc
+ .text.CYMEMZERO
+                0x00000a8c       0x20 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o)
+ .text.cfg_write_bytes32
+                0x00000aac       0x80 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o)
+ .text.AnalogSetDefault
+                0x00000b2c        0x8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o)
+ .text.I2C_Accel_Init
+                0x00000b34        0xc .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+                0x00000b34                I2C_Accel_Init
+ .text.I2C_Accel_Enable
+                0x00000b40       0x24 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+                0x00000b40                I2C_Accel_Enable
+ .text.I2C_Accel_Start
+                0x00000b64       0x24 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+                0x00000b64                I2C_Accel_Start
+ .text.I2C_Accel_ScbEnableIntr
+                0x00000b88       0x10 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+ .text.I2C_Accel_ScbModePostEnable
+                0x00000b98        0x8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+ .text.I2C_Accel_I2CInit
+                0x00000ba0       0xe8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C.o)
+                0x00000ba0                I2C_Accel_I2CInit
+ .text.I2C_Accel_I2CMasterSendStart
+                0x00000c88      0x110 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+                0x00000c88                I2C_Accel_I2CMasterSendStart
+ .text.I2C_Accel_I2CMasterSendRestart
+                0x00000d98      0x108 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+                0x00000d98                I2C_Accel_I2CMasterSendRestart
+ .text.I2C_Accel_I2CMasterSendStop
+                0x00000ea0       0xbc .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+                0x00000ea0                I2C_Accel_I2CMasterSendStop
+ .text.I2C_Accel_I2CMasterWriteByte
+                0x00000f5c       0xcc .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+                0x00000f5c                I2C_Accel_I2CMasterWriteByte
+ .text.I2C_Accel_I2CMasterReadByte
+                0x00001028       0xa8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+                0x00001028                I2C_Accel_I2CMasterReadByte
+ .text.I2C_Accel_I2CReStartGeneration
+                0x000010d0       0xac .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+                0x000010d0                I2C_Accel_I2CReStartGeneration
+ .text.I2C_Accel_scl_Write
+                0x0000117c       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_scl.o)
+                0x0000117c                I2C_Accel_scl_Write
+ .text.I2C_Accel_scl_Read
+                0x000011c4       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_scl.o)
+                0x000011c4                I2C_Accel_scl_Read
+ .text.I2C_Accel_sda_Read
+                0x000011e0       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_sda.o)
+                0x000011e0                I2C_Accel_sda_Read
+ .text.CySysClkWriteImoFreq
+                0x000011fc      0x1ec .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+                0x000011fc                CySysClkWriteImoFreq
+ .text.CyIntSetVector
+                0x000013e8       0x4c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+                0x000013e8                CyIntSetVector
+ .text.CyIntSetPriority
+                0x00001434       0xa8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+                0x00001434                CyIntSetPriority
+ .text.CyIntEnable
+                0x000014dc       0x28 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+                0x000014dc                CyIntEnable
+ .text.CyIntDisable
+                0x00001504       0x28 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+                0x00001504                CyIntDisable
+ .text.CyHalt   0x0000152c       0x14 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+                0x0000152c                CyHalt
+ .text.CyDelay  0x00001540       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+                0x00001540                CyDelay
+ .text.CyDelayUs
+                0x00001588       0x28 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+                0x00001588                CyDelayUs
+ .text.UART_Init
+                0x000015b0        0xc .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+                0x000015b0                UART_Init
+ .text.UART_Enable
+                0x000015bc       0x24 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+                0x000015bc                UART_Enable
+ .text.UART_Start
+                0x000015e0       0x24 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+                0x000015e0                UART_Start
+ .text.UART_ScbEnableIntr
+                0x00001604        0x8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+ .text.UART_ScbModePostEnable
+                0x0000160c        0xc .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+ .text.UART_SpiUartWriteTxData
+                0x00001618       0x2c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+                0x00001618                UART_SpiUartWriteTxData
+ .text.UART_UartInit
+                0x00001644       0xb4 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+                0x00001644                UART_UartInit
+ .text.UART_UartPostEnable
+                0x000016f8       0x2c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+                0x000016f8                UART_UartPostEnable
+ .text.ui2a     0x00001724       0xac .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+ .text.i2a      0x000017d0       0x34 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+ .text.a2d      0x00001804       0x60 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+ .text.a2i      0x00001864       0x74 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+ .text.putchw   0x000018d8       0x90 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+ .text.tfp_format
+                0x00001968      0x1d4 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+                0x00001968                tfp_format
+ .text.init_printf
+                0x00001b3c       0x24 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+                0x00001b3c                init_printf
+ .text.tfp_printf
+                0x00001b60       0x34 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+                0x00001b60                tfp_printf
+ .text.Forward_out_Write
+                0x00001b94       0x4c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Forward_out.o)
+                0x00001b94                Forward_out_Write
+ .text.Reverse_out_Write
+                0x00001be0       0x4c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Reverse_out.o)
+                0x00001be0                Reverse_out_Write
+ .text.Left_out_Write
+                0x00001c2c       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Left_out.o)
+                0x00001c2c                Left_out_Write
+ .text.Right_out_Write
+                0x00001c74       0x4c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Right_out.o)
+                0x00001c74                Right_out_Write
+ .text.Echo_Read
+                0x00001cc0       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo.o)
+                0x00001cc0                Echo_Read
+ .text.Trigr_Write
+                0x00001cdc       0x4c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr.o)
+                0x00001cdc                Trigr_Write
+ .text.LED_Write
+                0x00001d28       0x4c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED.o)
+                0x00001d28                LED_Write
+ .text.PWM_2_Init
+                0x00001d74       0x5c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+                0x00001d74                PWM_2_Init
+ .text.PWM_2_Enable
+                0x00001dd0       0x38 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+                0x00001dd0                PWM_2_Enable
+ .text.PWM_2_Start
+                0x00001e08       0x24 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+                0x00001e08                PWM_2_Start
+ .text.PWM_2_WriteCounter
+                0x00001e2c       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+                0x00001e2c                PWM_2_WriteCounter
+ .text.PWM_2_WritePeriod
+                0x00001e48       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+                0x00001e48                PWM_2_WritePeriod
+ .text.PWM_2_WriteCompare
+                0x00001e64       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+                0x00001e64                PWM_2_WriteCompare
+ .text.PWM_2_ReadCompare
+                0x00001e80       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+                0x00001e80                PWM_2_ReadCompare
+ .text.PWM_2_TriggerCommand
+                0x00001e98       0x38 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+                0x00001e98                PWM_2_TriggerCommand
+ .text.PWM_2_SetInterruptMode
+                0x00001ed0       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+                0x00001ed0                PWM_2_SetInterruptMode
+ .text.Trigr_1_Write
+                0x00001ee8       0x4c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr_1.o)
+                0x00001ee8                Trigr_1_Write
+ .text.Echo_1_Read
+                0x00001f34       0x1c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo_1.o)
+                0x00001f34                Echo_1_Read
+ .text.LED_1_Write
+                0x00001f50       0x4c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED_1.o)
+                0x00001f50                LED_1_Write
+ *fill*         0x00001f9c        0x4 
+ .text          0x00001fa0       0x28 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyBootAsmGnu.o)
+                0x00001fa0                CyDelayCycles
+                0x00001fb4                CyEnterCriticalSection
+                0x00001fbc                CyExitCriticalSection
+ .text.I2C_Accel_I2C_ISR
+                0x00001fc8      0x4d0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_INT.o)
+                0x00001fc8                I2C_Accel_I2C_ISR
+ .text          0x00002498      0x120 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
+                0x00002498                __aeabi_uidiv
+                0x00002498                __udivsi3
+                0x000025a4                __aeabi_uidivmod
+ .text          0x000025b8        0x4 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
+                0x000025b8                __aeabi_idiv0
+                0x000025b8                __aeabi_ldiv0
+ .text.__errno  0x000025bc        0xc c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-errno.o)
+                0x000025bc                __errno
+ .text.__libc_init_array
+                0x000025c8       0x4c c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-init.o)
+                0x000025c8                __libc_init_array
+ .text.memset   0x00002614       0x10 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
+                0x00002614                memset
+ *(.plt)
+ *(.gnu.warning)
+ *(.glue_7t)
+ .glue_7t       0x00000000        0x0 linker stubs
+ *(.glue_7)
+ .glue_7        0x00000000        0x0 linker stubs
+ *(.vfp11_veneer)
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+ *(.bootloader)
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+ *(.gcc_except_table)
+
+.v4_bx          0x00002624        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.iplt           0x00002624        0x0
+ .iplt          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+
+.eh_frame       0x00002624        0x4
+ *(.eh_frame)
+ .eh_frame      0x00002624        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+ .eh_frame      0x00002624        0x4 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
+                0x00002628                PROVIDE (__exidx_start, .)
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x00002628                __exidx_end = .
+
+.rodata         0x00002628      0x200
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata        0x00002628       0xa0 .\CortexM0\ARM_GCC_493\Debug\main.o
+ .rodata        0x000026c8       0xf8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o)
+ .rodata        0x000027c0       0x30 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+                0x000027c0                cyImoFreqMhz2Reg
+ .rodata.str1.1
+                0x000027f0        0x2 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
+                0x000027f4                . = ALIGN (0x4)
+ *fill*         0x000027f2        0x2 
+ *(.init)
+ .init          0x000027f4        0x4 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
+                0x000027f4                _init
+ .init          0x000027f8        0x8 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
+                0x00002800                . = ALIGN (0x4)
+                0x00002800                __preinit_array_start = .
+ *(.preinit_array)
+                0x00002800                __preinit_array_end = .
+                0x00002800                . = ALIGN (0x4)
+                0x00002800                __init_array_start = .
+ *(SORT(.init_array.*))
+ *(.init_array)
+ .init_array    0x00002800        0x4 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+ .init_array    0x00002804        0x4 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+                0x00002808                __init_array_end = .
+                0x00002808                . = ALIGN (0x4)
+ *(.fini)
+ .fini          0x00002808        0x4 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
+                0x00002808                _fini
+ .fini          0x0000280c        0x8 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
+                0x00002814                . = ALIGN (0x4)
+                0x00002814                __fini_array_start = .
+ *(.fini_array)
+ .fini_array    0x00002814        0x4 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+ *(SORT(.fini_array.*))
+                0x00002818                __fini_array_end = .
+                0x00002818                . = ALIGN (0x4)
+ *crtbegin.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o) .ctors)
+ *(SORT(.ctors.*))
+ *crtend.o(.ctors)
+                0x00002818                . = ALIGN (0x4)
+ *crtbegin.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o) .dtors)
+ *(SORT(.dtors.*))
+ *crtend.o(.dtors)
+                0x00002818                . = ALIGN (0x4)
+                0x00002818                __cy_regions = .
+                0x00002818        0x4 LONG 0x2828 __cy_region_init_ram
+                0x0000281c        0x4 LONG 0x200000c8 __cy_region_start_data
+                0x00002820        0x4 LONG 0x80 __cy_region_init_size_ram
+                0x00002824        0x4 LONG 0x58 __cy_region_zero_size_ram
+                0x00002828                __cy_regions_end = .
+                0x00002828                . = ALIGN (0x8)
+                0x00002828                _etext = .
+
+.cy_checksum_exclude
+                0x00002828        0x0
+ *(.cy_checksum_exclude)
+
+.ramvectors     0x20000000       0xc0
+                0x20000000                __cy_region_start_ram = .
+ *(.ramvectors)
+ .ramvectors    0x20000000       0xc0 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+                0x20000000                CyRamVectors
+
+.noinit         0x200000c0        0x4
+ *(.noinit)
+ .noinit        0x200000c0        0x4 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+
+.data           0x200000c8       0x80 load address 0x00002828
+                0x200000c8                __cy_region_start_data = .
+ *(.jcr)
+ .jcr           0x200000c8        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+ .jcr           0x200000c8        0x4 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
+ *(.got.plt)
+ *(.got)
+ *(.shdata)
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x200000cc        0x4 .\CortexM0\ARM_GCC_493\Debug\main.o
+                0x200000cc                range
+ .data          0x200000d0       0x14 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+                0x200000d0                cydelayFreqHz
+                0x200000d4                cydelayFreqKhz
+                0x200000d8                cydelayFreqMhz
+                0x200000dc                cydelay32kMs
+                0x200000e0                CySysClkPumpConfig
+ .data.impure_data
+                0x200000e4       0x60 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
+ .data._impure_ptr
+                0x20000144        0x4 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
+                0x20000144                _impure_ptr
+                0x20000148                . = ALIGN (0x8)
+ *(.ram)
+                0x20000148                _edata = .
+
+.igot.plt       0x20000148        0x0 load address 0x000028a8
+ .igot.plt      0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+
+.bss            0x20000148       0x58 load address 0x000028a8
+                0x20000148                PROVIDE (__bss_start__, .)
+ *(.shbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x20000148       0x1c c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+ .bss           0x20000164        0x8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+                0x20000164                I2C_Accel_initVar
+                0x20000168                I2C_Accel_customIntrHandler
+ .bss           0x2000016c        0x4 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+                0x2000016c                UART_initVar
+                0x2000016e                UART_IntrTxMask
+ .bss           0x20000170        0x8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+ .bss           0x20000178        0x1 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+                0x20000178                PWM_2_initVar
+ *(COMMON)
+ COMMON         0x20000179        0x1 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C.o)
+                0x20000179                I2C_Accel_state
+ *fill*         0x2000017a        0x2 
+ COMMON         0x2000017c       0x20 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+                0x2000017c                I2C_Accel_mstrWrBufIndexTmp
+                0x20000180                I2C_Accel_mstrControl
+                0x20000182                I2C_Accel_mstrStatus
+                0x20000184                I2C_Accel_mstrRdBufPtr
+                0x20000188                I2C_Accel_mstrWrBufPtr
+                0x2000018c                I2C_Accel_mstrRdBufSize
+                0x20000190                I2C_Accel_mstrWrBufIndex
+                0x20000194                I2C_Accel_mstrRdBufIndex
+                0x20000198                I2C_Accel_mstrWrBufSize
+                0x200001a0                . = ALIGN (0x8)
+ *fill*         0x2000019c        0x4 
+ *(.ram.b)
+                0x200001a0                _end = .
+                0x200001a0                __end = .
+                0x200001a0                PROVIDE (end, .)
+                0x200001a0                PROVIDE (__bss_end__, .)
+                0x00002828                __cy_region_init_ram = LOADADDR (.data)
+                0x00000080                __cy_region_init_size_ram = (_edata - ADDR (.data))
+                0x00000058                __cy_region_zero_size_ram = (_end - _edata)
+
+.heap           0x200001a0      0x100 load address 0x000028a8
+                0x200001a0                . = _end
+                0x200002a0                . = (. + 0x100)
+ *fill*         0x200001a0      0x100 
+                0x200002a0                __cy_heap_limit = .
+
+.stack          0x20000c00      0x400
+                0x20000c00                __cy_stack_limit = .
+                0x20001000                . = (. + 0x400)
+ *fill*         0x20000c00      0x400 
+                0x00000001                ASSERT ((__cy_stack_limit >= __cy_heap_limit), region RAM overflowed with stack)
+                0x00000000                cy_checksum_exclude_size = (CY_APPL_LOADABLE == 0x1)?SIZEOF (.cy_checksum_exclude):0x0
+                0x00000001                ASSERT ((cy_checksum_exclude_size <= CY_CHECKSUM_EXCLUDE_SIZE), CY_BOOT: Section .cy_checksum_exclude size exceedes specified limit.)
+                0x00007fc0                cyloadermeta_start = (cy_project_type_bootloader || cy_project_type_app_for_stack_and_copier)?(0x8000 - CY_METADATA_SIZE):0xf0000000
+
+.cyloadermeta
+ *(.cyloadermeta)
+                0x00007fc0                cyloadablemeta_start = cy_project_type_app_for_stack_and_copier?((0x8000 - CY_FLASH_ROW_SIZE) - CY_METADATA_SIZE):((0x8000 - (CY_FLASH_ROW_SIZE * (CY_APPL_NUM - 0x1))) - CY_METADATA_SIZE)
+
+.cyloadablemeta
+ *(.cyloadablemeta)
+
+.cyflashprotect
+                0x90400000       0x20
+ *(.cyflashprotect)
+ .cyflashprotect
+                0x90400000       0x20 .\CortexM0\ARM_GCC_493\Debug\cymetadata.o
+                0x90400000                cy_meta_flashprotect
+
+.cymeta         0x90500000        0xc
+ *(.cymeta)
+ .cymeta        0x90500000        0xc .\CortexM0\ARM_GCC_493\Debug\cymetadata.o
+                0x90500000                cy_metadata
+
+.cychipprotect  0x90600000        0x4
+ *(.cychipprotect)
+ .cychipprotect
+                0x90600000        0x4 .\CortexM0\ARM_GCC_493\Debug\cymetadata.o
+                0x90600000                cy_meta_chipprotect
+
+.rel.dyn        0x000028a8        0x0 load address 0x90600004
+ .rel.iplt      0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0xa68
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x90 .\CortexM0\ARM_GCC_493\Debug\main.o
+ .debug_aranges
+                0x00000090       0x48 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+ .debug_aranges
+                0x000000d8       0x18 .\CortexM0\ARM_GCC_493\Debug\cymetadata.o
+ .debug_aranges
+                0x000000f0       0x50 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o)
+ .debug_aranges
+                0x00000140       0x70 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+ .debug_aranges
+                0x000001b0       0x28 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C.o)
+ .debug_aranges
+                0x000001d8       0x88 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+ .debug_aranges
+                0x00000260       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_scl.o)
+ .debug_aranges
+                0x000002a8       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_sda.o)
+ .debug_aranges
+                0x000002f0      0x180 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .debug_aranges
+                0x00000470       0x68 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+ .debug_aranges
+                0x000004d8       0x60 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+ .debug_aranges
+                0x00000538       0x60 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+ .debug_aranges
+                0x00000598       0x68 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+ .debug_aranges
+                0x00000600       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Forward_out.o)
+ .debug_aranges
+                0x00000648       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Reverse_out.o)
+ .debug_aranges
+                0x00000690       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Left_out.o)
+ .debug_aranges
+                0x000006d8       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Right_out.o)
+ .debug_aranges
+                0x00000720       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo.o)
+ .debug_aranges
+                0x00000768       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr.o)
+ .debug_aranges
+                0x000007b0       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED.o)
+ .debug_aranges
+                0x000007f8      0x158 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .debug_aranges
+                0x00000950       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr_1.o)
+ .debug_aranges
+                0x00000998       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo_1.o)
+ .debug_aranges
+                0x000009e0       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED_1.o)
+ .debug_aranges
+                0x00000a28       0x20 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyBootAsmGnu.o)
+ .debug_aranges
+                0x00000a48       0x20 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_INT.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000     0x4291
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0x462 .\CortexM0\ARM_GCC_493\Debug\main.o
+ .debug_info    0x00000462      0x300 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+ .debug_info    0x00000762       0xfe .\CortexM0\ARM_GCC_493\Debug\cymetadata.o
+ .debug_info    0x00000860      0x356 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o)
+ .debug_info    0x00000bb6      0x1f6 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+ .debug_info    0x00000dac      0x11c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C.o)
+ .debug_info    0x00000ec8      0x469 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+ .debug_info    0x00001331      0x19a .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_scl.o)
+ .debug_info    0x000014cb      0x19a .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_sda.o)
+ .debug_info    0x00001665      0x8e3 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .debug_info    0x00001f48      0x1d5 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+ .debug_info    0x0000211d      0x211 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+ .debug_info    0x0000232e      0x230 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+ .debug_info    0x0000255e      0x401 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+ .debug_info    0x0000295f      0x19a .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Forward_out.o)
+ .debug_info    0x00002af9      0x19a .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Reverse_out.o)
+ .debug_info    0x00002c93      0x19a .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Left_out.o)
+ .debug_info    0x00002e2d      0x19a .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Right_out.o)
+ .debug_info    0x00002fc7      0x19a .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo.o)
+ .debug_info    0x00003161      0x19a .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr.o)
+ .debug_info    0x000032fb      0x19a .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED.o)
+ .debug_info    0x00003495      0x6f4 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .debug_info    0x00003b89      0x19a .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr_1.o)
+ .debug_info    0x00003d23      0x19a .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo_1.o)
+ .debug_info    0x00003ebd      0x19a .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED_1.o)
+ .debug_info    0x00004057       0xaf .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyBootAsmGnu.o)
+ .debug_info    0x00004106      0x18b .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_INT.o)
+
+.debug_abbrev   0x00000000     0x17e3
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x196 .\CortexM0\ARM_GCC_493\Debug\main.o
+ .debug_abbrev  0x00000196      0x1a5 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+ .debug_abbrev  0x0000033b       0x5d .\CortexM0\ARM_GCC_493\Debug\cymetadata.o
+ .debug_abbrev  0x00000398      0x18a .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o)
+ .debug_abbrev  0x00000522       0xf3 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+ .debug_abbrev  0x00000615       0x90 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C.o)
+ .debug_abbrev  0x000006a5      0x154 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+ .debug_abbrev  0x000007f9       0xaa .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_scl.o)
+ .debug_abbrev  0x000008a3       0xaa .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_sda.o)
+ .debug_abbrev  0x0000094d      0x1a7 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .debug_abbrev  0x00000af4       0xe3 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+ .debug_abbrev  0x00000bd7      0x140 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+ .debug_abbrev  0x00000d17       0xfd .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+ .debug_abbrev  0x00000e14      0x193 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+ .debug_abbrev  0x00000fa7       0xaa .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Forward_out.o)
+ .debug_abbrev  0x00001051       0xaa .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Reverse_out.o)
+ .debug_abbrev  0x000010fb       0xaa .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Left_out.o)
+ .debug_abbrev  0x000011a5       0xaa .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Right_out.o)
+ .debug_abbrev  0x0000124f       0xaa .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo.o)
+ .debug_abbrev  0x000012f9       0xaa .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr.o)
+ .debug_abbrev  0x000013a3       0xaa .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED.o)
+ .debug_abbrev  0x0000144d       0xfc .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .debug_abbrev  0x00001549       0xaa .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr_1.o)
+ .debug_abbrev  0x000015f3       0xaa .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo_1.o)
+ .debug_abbrev  0x0000169d       0xaa .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED_1.o)
+ .debug_abbrev  0x00001747       0x14 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyBootAsmGnu.o)
+ .debug_abbrev  0x0000175b       0x88 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_INT.o)
+
+.debug_line     0x00000000     0x232c
+ *(.debug_line)
+ .debug_line    0x00000000      0x205 .\CortexM0\ARM_GCC_493\Debug\main.o
+ .debug_line    0x00000205      0x1cf .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+ .debug_line    0x000003d4       0x51 .\CortexM0\ARM_GCC_493\Debug\cymetadata.o
+ .debug_line    0x00000425      0x1a2 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o)
+ .debug_line    0x000005c7      0x141 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+ .debug_line    0x00000708       0xa5 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C.o)
+ .debug_line    0x000007ad      0x2ae .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+ .debug_line    0x00000a5b       0xc5 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_scl.o)
+ .debug_line    0x00000b20       0xc5 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_sda.o)
+ .debug_line    0x00000be5      0x476 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .debug_line    0x0000105b      0x124 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+ .debug_line    0x0000117f      0x123 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+ .debug_line    0x000012a2      0x13b .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+ .debug_line    0x000013dd      0x25b .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+ .debug_line    0x00001638       0xc3 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Forward_out.o)
+ .debug_line    0x000016fb       0xc3 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Reverse_out.o)
+ .debug_line    0x000017be       0xc0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Left_out.o)
+ .debug_line    0x0000187e       0xc1 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Right_out.o)
+ .debug_line    0x0000193f       0xbc .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo.o)
+ .debug_line    0x000019fb       0xbd .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr.o)
+ .debug_line    0x00001ab8       0xbb .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED.o)
+ .debug_line    0x00001b73      0x373 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .debug_line    0x00001ee6       0xbf .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr_1.o)
+ .debug_line    0x00001fa5       0xbe .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo_1.o)
+ .debug_line    0x00002063       0xbd .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED_1.o)
+ .debug_line    0x00002120       0x69 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyBootAsmGnu.o)
+ .debug_line    0x00002189      0x1a3 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_INT.o)
+
+.debug_frame    0x00000000     0x20e8
+ *(.debug_frame)
+ .debug_frame   0x00000000      0x1e8 .\CortexM0\ARM_GCC_493\Debug\main.o
+ .debug_frame   0x000001e8       0xc8 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+ .debug_frame   0x000002b0       0xe8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o)
+ .debug_frame   0x00000398      0x150 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+ .debug_frame   0x000004e8       0x48 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C.o)
+ .debug_frame   0x00000530      0x1c0 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+ .debug_frame   0x000006f0       0xc8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_scl.o)
+ .debug_frame   0x000007b8       0xc8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_sda.o)
+ .debug_frame   0x00000880      0x588 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .debug_frame   0x00000e08      0x130 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+ .debug_frame   0x00000f38      0x128 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+ .debug_frame   0x00001060      0x124 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+ .debug_frame   0x00001184      0x15c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+ .debug_frame   0x000012e0       0xc8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Forward_out.o)
+ .debug_frame   0x000013a8       0xc8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Reverse_out.o)
+ .debug_frame   0x00001470       0xc8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Left_out.o)
+ .debug_frame   0x00001538       0xc8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Right_out.o)
+ .debug_frame   0x00001600       0xc8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo.o)
+ .debug_frame   0x000016c8       0xc8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr.o)
+ .debug_frame   0x00001790       0xc8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED.o)
+ .debug_frame   0x00001858      0x52c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .debug_frame   0x00001d84       0xc8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr_1.o)
+ .debug_frame   0x00001e4c       0xc8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo_1.o)
+ .debug_frame   0x00001f14       0xc8 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED_1.o)
+ .debug_frame   0x00001fdc       0x30 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_INT.o)
+ .debug_frame   0x0000200c       0x20 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
+ .debug_frame   0x0000202c       0x20 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x0000204c       0x28 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-exit.o)
+ .debug_frame   0x00002074       0x2c c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-init.o)
+ .debug_frame   0x000020a0       0x28 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memcpy.o)
+ .debug_frame   0x000020c8       0x20 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
+
+.debug_str      0x00000000     0x1ec0
+ *(.debug_str)
+ .debug_str     0x00000000      0x324 .\CortexM0\ARM_GCC_493\Debug\main.o
+                                0x377 (size before relaxing)
+ .debug_str     0x00000324      0x12d .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+                                0x2e1 (size before relaxing)
+ .debug_str     0x00000451       0x59 .\CortexM0\ARM_GCC_493\Debug\cymetadata.o
+                                0x1ed (size before relaxing)
+ .debug_str     0x000004aa       0xfb .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o)
+                                0x2d3 (size before relaxing)
+ .debug_str     0x000005a5      0x172 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+                                0x313 (size before relaxing)
+ .debug_str     0x00000717       0xa2 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C.o)
+                                0x24a (size before relaxing)
+ .debug_str     0x000007b9      0x2ad .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+                                0x4b3 (size before relaxing)
+ .debug_str     0x00000a66       0xe3 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_scl.o)
+                                0x28d (size before relaxing)
+ .debug_str     0x00000b49       0xbf .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_sda.o)
+                                0x28d (size before relaxing)
+ .debug_str     0x00000c08      0x4d4 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+                                0x69c (size before relaxing)
+ .debug_str     0x000010dc       0xe5 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+                                0x2a9 (size before relaxing)
+ .debug_str     0x000011c1      0x135 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+                                0x2e1 (size before relaxing)
+ .debug_str     0x000012f6      0x109 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+                                0x2ca (size before relaxing)
+ .debug_str     0x000013ff       0xbd .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+                                0x1d9 (size before relaxing)
+ .debug_str     0x000014bc       0xb1 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Forward_out.o)
+                                0x27f (size before relaxing)
+ .debug_str     0x0000156d       0xb1 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Reverse_out.o)
+                                0x27f (size before relaxing)
+ .debug_str     0x0000161e       0x9c .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Left_out.o)
+                                0x26a (size before relaxing)
+ .debug_str     0x000016ba       0xa3 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Right_out.o)
+                                0x271 (size before relaxing)
+ .debug_str     0x0000175d       0x80 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo.o)
+                                0x24e (size before relaxing)
+ .debug_str     0x000017dd       0x87 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr.o)
+                                0x255 (size before relaxing)
+ .debug_str     0x00001864       0x79 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED.o)
+                                0x247 (size before relaxing)
+ .debug_str     0x000018dd      0x3e6 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+                                0x597 (size before relaxing)
+ .debug_str     0x00001cc3       0x95 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr_1.o)
+                                0x263 (size before relaxing)
+ .debug_str     0x00001d58       0x8e .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo_1.o)
+                                0x25c (size before relaxing)
+ .debug_str     0x00001de6       0x87 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED_1.o)
+                                0x255 (size before relaxing)
+ .debug_str     0x00001e6d       0x53 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_INT.o)
+                                0x30b (size before relaxing)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_ranges   0x00000000      0x8b8
+ *(.debug_ranges)
+ .debug_ranges  0x00000000       0x80 .\CortexM0\ARM_GCC_493\Debug\main.o
+ .debug_ranges  0x00000080       0x38 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+ .debug_ranges  0x000000b8       0x40 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o)
+ .debug_ranges  0x000000f8       0x60 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+ .debug_ranges  0x00000158       0x18 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C.o)
+ .debug_ranges  0x00000170       0x78 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+ .debug_ranges  0x000001e8       0x38 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_scl.o)
+ .debug_ranges  0x00000220       0x38 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_sda.o)
+ .debug_ranges  0x00000258      0x170 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .debug_ranges  0x000003c8       0x58 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+ .debug_ranges  0x00000420       0x50 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+ .debug_ranges  0x00000470       0x50 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+ .debug_ranges  0x000004c0       0x70 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+ .debug_ranges  0x00000530       0x38 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Forward_out.o)
+ .debug_ranges  0x00000568       0x38 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Reverse_out.o)
+ .debug_ranges  0x000005a0       0x38 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Left_out.o)
+ .debug_ranges  0x000005d8       0x38 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Right_out.o)
+ .debug_ranges  0x00000610       0x38 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo.o)
+ .debug_ranges  0x00000648       0x38 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr.o)
+ .debug_ranges  0x00000680       0x38 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED.o)
+ .debug_ranges  0x000006b8      0x148 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .debug_ranges  0x00000800       0x38 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr_1.o)
+ .debug_ranges  0x00000838       0x38 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo_1.o)
+ .debug_ranges  0x00000870       0x38 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED_1.o)
+ .debug_ranges  0x000008a8       0x10 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_INT.o)
+
+.comment        0x00000000       0x70
+ .comment       0x00000000       0x70 .\CortexM0\ARM_GCC_493\Debug\main.o
+                                 0x71 (size before relaxing)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\cymetadata.o
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_scl.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_sda.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Forward_out.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Reverse_out.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Left_out.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Right_out.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr_1.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo_1.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED_1.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_INT.o)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.note.gnu.arm.ident
+ *(.note.gnu.arm.ident)
+
+.ARM.attributes
+                0x00000000       0x28
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x00000000       0x1e c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
+ .ARM.attributes
+                0x0000001e       0x2c c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+ .ARM.attributes
+                0x0000004a       0x1b c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .ARM.attributes
+                0x00000065       0x31 .\CortexM0\ARM_GCC_493\Debug\main.o
+ .ARM.attributes
+                0x00000096       0x31 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+ .ARM.attributes
+                0x000000c7       0x31 .\CortexM0\ARM_GCC_493\Debug\cymetadata.o
+ .ARM.attributes
+                0x000000f8       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(cyfitter_cfg.o)
+ .ARM.attributes
+                0x00000129       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel.o)
+ .ARM.attributes
+                0x0000015a       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C.o)
+ .ARM.attributes
+                0x0000018b       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_MASTER.o)
+ .ARM.attributes
+                0x000001bc       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_scl.o)
+ .ARM.attributes
+                0x000001ed       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_sda.o)
+ .ARM.attributes
+                0x0000021e       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyLib.o)
+ .ARM.attributes
+                0x0000024f       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART.o)
+ .ARM.attributes
+                0x00000280       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_SPI_UART.o)
+ .ARM.attributes
+                0x000002b1       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(UART_UART.o)
+ .ARM.attributes
+                0x000002e2       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(tinyprintf_printf.o)
+ .ARM.attributes
+                0x00000313       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Forward_out.o)
+ .ARM.attributes
+                0x00000344       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Reverse_out.o)
+ .ARM.attributes
+                0x00000375       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Left_out.o)
+ .ARM.attributes
+                0x000003a6       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Right_out.o)
+ .ARM.attributes
+                0x000003d7       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo.o)
+ .ARM.attributes
+                0x00000408       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr.o)
+ .ARM.attributes
+                0x00000439       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED.o)
+ .ARM.attributes
+                0x0000046a       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(PWM_2.o)
+ .ARM.attributes
+                0x0000049b       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Trigr_1.o)
+ .ARM.attributes
+                0x000004cc       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(Echo_1.o)
+ .ARM.attributes
+                0x000004fd       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(LED_1.o)
+ .ARM.attributes
+                0x0000052e       0x21 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(CyBootAsmGnu.o)
+ .ARM.attributes
+                0x0000054f       0x31 .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a(I2C_Accel_I2C_INT.o)
+ .ARM.attributes
+                0x00000580       0x1e c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x0000059e       0x1e c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x000005bc       0x2c c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-errno.o)
+ .ARM.attributes
+                0x000005e8       0x2c c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-exit.o)
+ .ARM.attributes
+                0x00000614       0x2c c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
+ .ARM.attributes
+                0x00000640       0x2c c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-init.o)
+ .ARM.attributes
+                0x0000066c       0x2c c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memcpy.o)
+ .ARM.attributes
+                0x00000698       0x2c c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
+ .ARM.attributes
+                0x000006c4       0x2c c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
+ .ARM.attributes
+                0x000006f0       0x1e c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
+
+/DISCARD/
+ *(.note.GNU-stack)
+OUTPUT(.\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.elf elf32-littlearm)

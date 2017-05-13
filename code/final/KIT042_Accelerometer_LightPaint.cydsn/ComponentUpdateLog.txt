@@ -1,0 +1,22 @@
+Last Modified Date & Time: 04/28/2017 13:33:04
+
+KIT042_Accelerometer_LightPaint: TopDesign.cysch
+	I2C_Accel [v1.10] to [v3.20]
+	UART_Debug [v1.10] to [v3.20]
+	Pin_LEDRed [v1.90] to [v2.20]
+	Pin_LEDGreen [v1.90] to [v2.20]
+	Pin_LEDBlue [v1.90] to [v2.20]
+	Pin_Button [v1.90] to [v2.20]
+	Pin_Accel_VDD [v1.90] to [v2.20]
+	Pin_Accel_GND [v1.90] to [v2.20]
+	Pin_Accel_INT1 [v1.90] to [v2.20]
+	Pin_Accel_INT2 [v1.90] to [v2.20]
+	Clock_PWM [v2.0] to [v2.20]
+	PWM_R [v1.0] to [v2.10]
+	PWM_G [v1.0] to [v2.10]
+	PWM_B [v1.0] to [v2.10]
+
+KIT042_Accelerometer_LightPaint: KIT042_Accelerometer_LightPaint.cydwr
+	cy_boot [v3.40] to [v5.50]
+
+

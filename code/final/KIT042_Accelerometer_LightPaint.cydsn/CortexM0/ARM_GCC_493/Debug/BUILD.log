@@ -1,0 +1,34 @@
+--------------- Build Started: 05/04/2017 19:20:09 Project: KIT042_Accelerometer_LightPaint, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+The code generation step is up to date.
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c main.c -o .\CortexM0\ARM_GCC_493\Debug\main.o
+main.c: In function 'getAccel':
+main.c:248:40: warning: unused variable 'accelZAbsIIR' [-Wunused-variable]
+     uint16 accelXAbsIIR, accelYAbsIIR, accelZAbsIIR;
+                                        ^
+main.c:248:26: warning: unused variable 'accelYAbsIIR' [-Wunused-variable]
+     uint16 accelXAbsIIR, accelYAbsIIR, accelZAbsIIR;
+                          ^
+main.c:248:12: warning: unused variable 'accelXAbsIIR' [-Wunused-variable]
+     uint16 accelXAbsIIR, accelYAbsIIR, accelZAbsIIR;
+            ^
+main.c:247:34: warning: variable 'accelZAbs' set but not used [-Wunused-but-set-variable]
+     uint16 accelXAbs, accelYAbs, accelZAbs;
+                                  ^
+main.c:247:23: warning: variable 'accelYAbs' set but not used [-Wunused-but-set-variable]
+     uint16 accelXAbs, accelYAbs, accelZAbs;
+                       ^
+main.c:244:11: warning: variable 'accelStatus' set but not used [-Wunused-but-set-variable]
+     uint8 accelStatus;
+           ^
+main.c: At top level:
+main.c:290:6: warning: return type of 'main' is not 'int' [-Wmain]
+ void main()
+      ^
+arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a .\CortexM0\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_493\Debug\I2C_Accel.o .\CortexM0\ARM_GCC_493\Debug\I2C_Accel_I2C_INT.o .\CortexM0\ARM_GCC_493\Debug\I2C_Accel_I2C.o .\CortexM0\ARM_GCC_493\Debug\I2C_Accel_I2C_BOOT.o .\CortexM0\ARM_GCC_493\Debug\I2C_Accel_I2C_MASTER.o .\CortexM0\ARM_GCC_493\Debug\I2C_Accel_PM.o .\CortexM0\ARM_GCC_493\Debug\I2C_Accel_BOOT.o .\CortexM0\ARM_GCC_493\Debug\Pin_Button.o .\CortexM0\ARM_GCC_493\Debug\Pin_Button_PM.o .\CortexM0\ARM_GCC_493\Debug\I2C_Accel_SCB_IRQ.o .\CortexM0\ARM_GCC_493\Debug\I2C_Accel_SCBCLK.o .\CortexM0\ARM_GCC_493\Debug\I2C_Accel_scl.o .\CortexM0\ARM_GCC_493\Debug\I2C_Accel_scl_PM.o .\CortexM0\ARM_GCC_493\Debug\I2C_Accel_sda.o .\CortexM0\ARM_GCC_493\Debug\I2C_Accel_sda_PM.o .\CortexM0\ARM_GCC_493\Debug\CyFlash.o .\CortexM0\ARM_GCC_493\Debug\CyLib.o .\CortexM0\ARM_GCC_493\Debug\cyPm.o .\CortexM0\ARM_GCC_493\Debug\cyutils.o .\CortexM0\ARM_GCC_493\Debug\Pin_Accel_VDD.o .\CortexM0\ARM_GCC_493\Debug\Pin_Accel_VDD_PM.o .\CortexM0\ARM_GCC_493\Debug\Pin_Accel_GND.o .\CortexM0\ARM_GCC_493\Debug\Pin_Accel_GND_PM.o .\CortexM0\ARM_GCC_493\Debug\Pin_Accel_INT1.o .\CortexM0\ARM_GCC_493\Debug\Pin_Accel_INT1_PM.o .\CortexM0\ARM_GCC_493\Debug\Pin_Accel_INT2.o .\CortexM0\ARM_GCC_493\Debug\Pin_Accel_INT2_PM.o .\CortexM0\ARM_GCC_493\Debug\CyLFClk.o .\CortexM0\ARM_GCC_493\Debug\UART.o .\CortexM0\ARM_GCC_493\Debug\UART_SPI_UART.o .\CortexM0\ARM_GCC_493\Debug\UART_SPI_UART_INT.o .\CortexM0\ARM_GCC_493\Debug\UART_PM.o .\CortexM0\ARM_GCC_493\Debug\UART_UART.o .\CortexM0\ARM_GCC_493\Debug\UART_BOOT.o .\CortexM0\ARM_GCC_493\Debug\UART_UART_BOOT.o .\CortexM0\ARM_GCC_493\Debug\UART_SCBCLK.o .\CortexM0\ARM_GCC_493\Debug\UART_tx.o .\CortexM0\ARM_GCC_493\Debug\UART_tx_PM.o .\CortexM0\ARM_GCC_493\Debug\UART_rx.o .\CortexM0\ARM_GCC_493\Debug\UART_rx_PM.o .\CortexM0\ARM_GCC_493\Debug\tinyprintf_printf.o .\CortexM0\ARM_GCC_493\Debug\Forward_out.o .\CortexM0\ARM_GCC_493\Debug\Forward_out_PM.o .\CortexM0\ARM_GCC_493\Debug\Reverse_out.o .\CortexM0\ARM_GCC_493\Debug\Reverse_out_PM.o .\CortexM0\ARM_GCC_493\Debug\Left_out.o .\CortexM0\ARM_GCC_493\Debug\Left_out_PM.o .\CortexM0\ARM_GCC_493\Debug\Right_out.o .\CortexM0\ARM_GCC_493\Debug\Right_out_PM.o .\CortexM0\ARM_GCC_493\Debug\Echo.o .\CortexM0\ARM_GCC_493\Debug\Echo_PM.o .\CortexM0\ARM_GCC_493\Debug\Trigr.o .\CortexM0\ARM_GCC_493\Debug\Trigr_PM.o .\CortexM0\ARM_GCC_493\Debug\LED.o .\CortexM0\ARM_GCC_493\Debug\LED_PM.o .\CortexM0\ARM_GCC_493\Debug\Timer_1.o .\CortexM0\ARM_GCC_493\Debug\Timer_1_PM.o .\CortexM0\ARM_GCC_493\Debug\Clock_2.o .\CortexM0\ARM_GCC_493\Debug\Timer_2.o .\CortexM0\ARM_GCC_493\Debug\Timer_2_PM.o .\CortexM0\ARM_GCC_493\Debug\isr_1.o .\CortexM0\ARM_GCC_493\Debug\back_wheels.o .\CortexM0\ARM_GCC_493\Debug\back_wheels_PM.o .\CortexM0\ARM_GCC_493\Debug\front_wheels.o .\CortexM0\ARM_GCC_493\Debug\front_wheels_PM.o .\CortexM0\ARM_GCC_493\Debug\PWM_2.o .\CortexM0\ARM_GCC_493\Debug\PWM_2_PM.o .\CortexM0\ARM_GCC_493\Debug\Clock_3.o .\CortexM0\ARM_GCC_493\Debug\Trigr_1.o .\CortexM0\ARM_GCC_493\Debug\Trigr_1_PM.o .\CortexM0\ARM_GCC_493\Debug\Echo_1.o .\CortexM0\ARM_GCC_493\Debug\Echo_1_PM.o .\CortexM0\ARM_GCC_493\Debug\LED_1.o .\CortexM0\ARM_GCC_493\Debug\LED_1_PM.o .\CortexM0\ARM_GCC_493\Debug\CyBootAsmGnu.o
+arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.elf .\CortexM0\ARM_GCC_493\Debug\main.o .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o .\CortexM0\ARM_GCC_493\Debug\cymetadata.o .\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m0 -mthumb -g -ffunction-sections -O0 -ffat-lto-objects -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0\ARM_GCC_493\Debug/KIT042_Accelerometer_LightPaint.map -T "C:\Users\Shahil Zhangada\OneDrive\Spring 2017\Mech Eng 135\KIT042_Accelerometer_LightPaint.cydsn\Generated_Source\PSoC4\cm0gcc.ld" -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
+cyelftool.exe -C "C:\Users\Shahil Zhangada\OneDrive\Spring 2017\Mech Eng 135\KIT042_Accelerometer_LightPaint.cydsn\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.elf" --flash_row_size 128 --flash_size 32768
+cyelftool.exe -S "C:\Users\Shahil Zhangada\OneDrive\Spring 2017\Mech Eng 135\KIT042_Accelerometer_LightPaint.cydsn\CortexM0\ARM_GCC_493\Debug\KIT042_Accelerometer_LightPaint.elf"
+Flash used: 10408 of 32768 bytes (31.8 %).
+SRAM used: 1692 of 4096 bytes (41.3 %). Stack: 1024 bytes. Heap: 256 bytes.
+--------------- Build Succeeded: 05/04/2017 19:20:10 ---------------

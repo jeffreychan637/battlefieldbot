@@ -1,0 +1,6 @@
+C:\Users\Shahil Zhangada\OneDrive\Spring 2017\Mech Eng 135\KIT042_Accelerometer_LightPaint.cydsn\KIT042_Accelerometer_LightPaint.cyprj|469d3448-0c39-4149-9008-c66da867b9a6
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|65b2fe56-5e52-4c4d-969a-0b96c496bf19
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|df546eb3-8ac7-4bba-baa4-d0549ae6cab7
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|5cce9552-d8e6-4ee2-8efd-6afe656db03d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|86c9d114-9e46-4294-a93c-c32d332de38d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|9d1ef3c5-478d-4ba8-baf8-a97ce96bcfcb

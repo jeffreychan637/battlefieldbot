@@ -1,0 +1,1886 @@
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"UART_Debug_UART.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.UART_Debug_UartInit,"ax",%progbits
+  18              		.align	2
+  19              		.global	UART_Debug_UartInit
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	UART_Debug_UartInit, %function
+  23              	UART_Debug_UartInit:
+  24              	.LFB0:
+  25              		.file 1 "Generated_Source\\PSoC4\\UART_Debug_UART.c"
+   1:Generated_Source\PSoC4/UART_Debug_UART.c **** /***************************************************************************//**
+   2:Generated_Source\PSoC4/UART_Debug_UART.c **** * \file UART_Debug_UART.c
+   3:Generated_Source\PSoC4/UART_Debug_UART.c **** * \version 3.20
+   4:Generated_Source\PSoC4/UART_Debug_UART.c **** *
+   5:Generated_Source\PSoC4/UART_Debug_UART.c **** * \brief
+   6:Generated_Source\PSoC4/UART_Debug_UART.c **** *  This file provides the source code to the API for the SCB Component in
+   7:Generated_Source\PSoC4/UART_Debug_UART.c **** *  UART mode.
+   8:Generated_Source\PSoC4/UART_Debug_UART.c **** *
+   9:Generated_Source\PSoC4/UART_Debug_UART.c **** * Note:
+  10:Generated_Source\PSoC4/UART_Debug_UART.c **** *
+  11:Generated_Source\PSoC4/UART_Debug_UART.c **** *******************************************************************************
+  12:Generated_Source\PSoC4/UART_Debug_UART.c **** * \copyright
+  13:Generated_Source\PSoC4/UART_Debug_UART.c **** * Copyright 2013-2016, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC4/UART_Debug_UART.c **** * You may use this file only in accordance with the license, terms, conditions,
+  15:Generated_Source\PSoC4/UART_Debug_UART.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  16:Generated_Source\PSoC4/UART_Debug_UART.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC4/UART_Debug_UART.c **** *******************************************************************************/
+  18:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+  19:Generated_Source\PSoC4/UART_Debug_UART.c **** #include "UART_Debug_PVT.h"
+  20:Generated_Source\PSoC4/UART_Debug_UART.c **** #include "UART_Debug_SPI_UART_PVT.h"
+  21:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+  22:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+  23:Generated_Source\PSoC4/UART_Debug_UART.c **** #if (UART_Debug_UART_WAKE_ENABLE_CONST && UART_Debug_UART_RX_WAKEUP_IRQ)
+  24:Generated_Source\PSoC4/UART_Debug_UART.c ****     /**
+  25:Generated_Source\PSoC4/UART_Debug_UART.c ****     * \addtogroup group_globals
+  26:Generated_Source\PSoC4/UART_Debug_UART.c ****     * \{
+  27:Generated_Source\PSoC4/UART_Debug_UART.c ****     */
+  28:Generated_Source\PSoC4/UART_Debug_UART.c ****     /** This global variable determines whether to enable Skip Start
+  29:Generated_Source\PSoC4/UART_Debug_UART.c ****     * functionality when UART_Debug_Sleep() function is called:
+  30:Generated_Source\PSoC4/UART_Debug_UART.c ****     * 0 – disable, other values – enable. Default value is 1.
+  31:Generated_Source\PSoC4/UART_Debug_UART.c ****     * It is only available when Enable wakeup from Deep Sleep Mode is enabled.
+  32:Generated_Source\PSoC4/UART_Debug_UART.c ****     */
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 2
+
+
+  33:Generated_Source\PSoC4/UART_Debug_UART.c ****     uint8 UART_Debug_skipStart = 1u;
+  34:Generated_Source\PSoC4/UART_Debug_UART.c ****     /** \} globals */
+  35:Generated_Source\PSoC4/UART_Debug_UART.c **** #endif /* (UART_Debug_UART_WAKE_ENABLE_CONST && UART_Debug_UART_RX_WAKEUP_IRQ) */
+  36:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+  37:Generated_Source\PSoC4/UART_Debug_UART.c **** #if(UART_Debug_SCB_MODE_UNCONFIG_CONST_CFG)
+  38:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+  39:Generated_Source\PSoC4/UART_Debug_UART.c ****     /***************************************
+  40:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  Configuration Structure Initialization
+  41:Generated_Source\PSoC4/UART_Debug_UART.c ****     ***************************************/
+  42:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+  43:Generated_Source\PSoC4/UART_Debug_UART.c ****     const UART_Debug_UART_INIT_STRUCT UART_Debug_configUart =
+  44:Generated_Source\PSoC4/UART_Debug_UART.c ****     {
+  45:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_SUB_MODE,
+  46:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_DIRECTION,
+  47:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_DATA_BITS_NUM,
+  48:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_PARITY_TYPE,
+  49:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_STOP_BITS_NUM,
+  50:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_OVS_FACTOR,
+  51:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_IRDA_LOW_POWER,
+  52:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_MEDIAN_FILTER_ENABLE,
+  53:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_RETRY_ON_NACK,
+  54:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_IRDA_POLARITY,
+  55:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_DROP_ON_PARITY_ERR,
+  56:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_DROP_ON_FRAME_ERR,
+  57:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_WAKE_ENABLE,
+  58:Generated_Source\PSoC4/UART_Debug_UART.c ****         0u,
+  59:Generated_Source\PSoC4/UART_Debug_UART.c ****         NULL,
+  60:Generated_Source\PSoC4/UART_Debug_UART.c ****         0u,
+  61:Generated_Source\PSoC4/UART_Debug_UART.c ****         NULL,
+  62:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_MP_MODE_ENABLE,
+  63:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_MP_ACCEPT_ADDRESS,
+  64:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_MP_RX_ADDRESS,
+  65:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_MP_RX_ADDRESS_MASK,
+  66:Generated_Source\PSoC4/UART_Debug_UART.c ****         (uint32) UART_Debug_SCB_IRQ_INTERNAL,
+  67:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_INTR_RX_MASK,
+  68:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_RX_TRIGGER_LEVEL,
+  69:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_INTR_TX_MASK,
+  70:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_TX_TRIGGER_LEVEL,
+  71:Generated_Source\PSoC4/UART_Debug_UART.c ****         (uint8) UART_Debug_UART_BYTE_MODE_ENABLE,
+  72:Generated_Source\PSoC4/UART_Debug_UART.c ****         (uint8) UART_Debug_UART_CTS_ENABLE,
+  73:Generated_Source\PSoC4/UART_Debug_UART.c ****         (uint8) UART_Debug_UART_CTS_POLARITY,
+  74:Generated_Source\PSoC4/UART_Debug_UART.c ****         (uint8) UART_Debug_UART_RTS_POLARITY,
+  75:Generated_Source\PSoC4/UART_Debug_UART.c ****         (uint8) UART_Debug_UART_RTS_FIFO_LEVEL
+  76:Generated_Source\PSoC4/UART_Debug_UART.c ****     };
+  77:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+  78:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+  79:Generated_Source\PSoC4/UART_Debug_UART.c ****     /*******************************************************************************
+  80:Generated_Source\PSoC4/UART_Debug_UART.c ****     * Function Name: UART_Debug_UartInit
+  81:Generated_Source\PSoC4/UART_Debug_UART.c ****     ****************************************************************************//**
+  82:Generated_Source\PSoC4/UART_Debug_UART.c ****     *
+  83:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  Configures the UART_Debug for UART operation.
+  84:Generated_Source\PSoC4/UART_Debug_UART.c ****     *
+  85:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  This function is intended specifically to be used when the UART_Debug
+  86:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  configuration is set to “Unconfigured UART_Debug” in the customizer.
+  87:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  After initializing the UART_Debug in UART mode using this function,
+  88:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  the component can be enabled using the UART_Debug_Start() or
+  89:Generated_Source\PSoC4/UART_Debug_UART.c ****     * UART_Debug_Enable() function.
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 3
+
+
+  90:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  This function uses a pointer to a structure that provides the configuration
+  91:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  settings. This structure contains the same information that would otherwise
+  92:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  be provided by the customizer settings.
+  93:Generated_Source\PSoC4/UART_Debug_UART.c ****     *
+  94:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  \param config: pointer to a structure that contains the following list of
+  95:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   fields. These fields match the selections available in the customizer.
+  96:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   Refer to the customizer for further description of the settings.
+  97:Generated_Source\PSoC4/UART_Debug_UART.c ****     *
+  98:Generated_Source\PSoC4/UART_Debug_UART.c ****     *******************************************************************************/
+  99:Generated_Source\PSoC4/UART_Debug_UART.c ****     void UART_Debug_UartInit(const UART_Debug_UART_INIT_STRUCT *config)
+ 100:Generated_Source\PSoC4/UART_Debug_UART.c ****     {
+ 101:Generated_Source\PSoC4/UART_Debug_UART.c ****         uint32 pinsConfig;
+ 102:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 103:Generated_Source\PSoC4/UART_Debug_UART.c ****         if (NULL == config)
+ 104:Generated_Source\PSoC4/UART_Debug_UART.c ****         {
+ 105:Generated_Source\PSoC4/UART_Debug_UART.c ****             CYASSERT(0u != 0u); /* Halt execution due to bad function parameter */
+ 106:Generated_Source\PSoC4/UART_Debug_UART.c ****         }
+ 107:Generated_Source\PSoC4/UART_Debug_UART.c ****         else
+ 108:Generated_Source\PSoC4/UART_Debug_UART.c ****         {
+ 109:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Get direction to configure UART pins: TX, RX or TX+RX */
+ 110:Generated_Source\PSoC4/UART_Debug_UART.c ****             pinsConfig  = config->direction;
+ 111:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 112:Generated_Source\PSoC4/UART_Debug_UART.c ****         #if !(UART_Debug_CY_SCBIP_V0 || UART_Debug_CY_SCBIP_V1)
+ 113:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Add RTS and CTS pins to configure */
+ 114:Generated_Source\PSoC4/UART_Debug_UART.c ****             pinsConfig |= (0u != config->rtsRxFifoLevel) ? (UART_Debug_UART_RTS_PIN_ENABLE) : (0u);
+ 115:Generated_Source\PSoC4/UART_Debug_UART.c ****             pinsConfig |= (0u != config->enableCts)      ? (UART_Debug_UART_CTS_PIN_ENABLE) : (0u);
+ 116:Generated_Source\PSoC4/UART_Debug_UART.c ****         #endif /* !(UART_Debug_CY_SCBIP_V0 || UART_Debug_CY_SCBIP_V1) */
+ 117:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 118:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Configure pins */
+ 119:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_SetPins(UART_Debug_SCB_MODE_UART, config->mode, pinsConfig);
+ 120:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 121:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Store internal configuration */
+ 122:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_scbMode       = (uint8) UART_Debug_SCB_MODE_UART;
+ 123:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_scbEnableWake = (uint8) config->enableWake;
+ 124:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_scbEnableIntr = (uint8) config->enableInterrupt;
+ 125:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 126:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Set RX direction internal variables */
+ 127:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_rxBuffer      =         config->rxBuffer;
+ 128:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_rxDataBits    = (uint8) config->dataBits;
+ 129:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_rxBufferSize  = (uint8) config->rxBufferSize;
+ 130:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 131:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Set TX direction internal variables */
+ 132:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_txBuffer      =         config->txBuffer;
+ 133:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_txDataBits    = (uint8) config->dataBits;
+ 134:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_txBufferSize  = (uint8) config->txBufferSize;
+ 135:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 136:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Configure UART interface */
+ 137:Generated_Source\PSoC4/UART_Debug_UART.c ****             if(UART_Debug_UART_MODE_IRDA == config->mode)
+ 138:Generated_Source\PSoC4/UART_Debug_UART.c ****             {
+ 139:Generated_Source\PSoC4/UART_Debug_UART.c ****                 /* OVS settings: IrDA */
+ 140:Generated_Source\PSoC4/UART_Debug_UART.c ****                 UART_Debug_CTRL_REG  = ((0u != config->enableIrdaLowPower) ?
+ 141:Generated_Source\PSoC4/UART_Debug_UART.c ****                                                 (UART_Debug_UART_GET_CTRL_OVS_IRDA_LP(config->overs
+ 142:Generated_Source\PSoC4/UART_Debug_UART.c ****                                                 (UART_Debug_CTRL_OVS_IRDA_OVS16));
+ 143:Generated_Source\PSoC4/UART_Debug_UART.c ****             }
+ 144:Generated_Source\PSoC4/UART_Debug_UART.c ****             else
+ 145:Generated_Source\PSoC4/UART_Debug_UART.c ****             {
+ 146:Generated_Source\PSoC4/UART_Debug_UART.c ****                 /* OVS settings: UART and SmartCard */
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 4
+
+
+ 147:Generated_Source\PSoC4/UART_Debug_UART.c ****                 UART_Debug_CTRL_REG  = UART_Debug_GET_CTRL_OVS(config->oversample);
+ 148:Generated_Source\PSoC4/UART_Debug_UART.c ****             }
+ 149:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 150:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_CTRL_REG     |= UART_Debug_GET_CTRL_BYTE_MODE  (config->enableByteMode)     
+ 151:Generated_Source\PSoC4/UART_Debug_UART.c ****                                              UART_Debug_GET_CTRL_ADDR_ACCEPT(config->multiprocAccep
+ 152:Generated_Source\PSoC4/UART_Debug_UART.c ****                                              UART_Debug_CTRL_UART;
+ 153:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 154:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Configure sub-mode: UART, SmartCard or IrDA */
+ 155:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_UART_CTRL_REG = UART_Debug_GET_UART_CTRL_MODE(config->mode);
+ 156:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 157:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Configure RX direction */
+ 158:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_UART_RX_CTRL_REG = UART_Debug_GET_UART_RX_CTRL_MODE(config->stopBits)       
+ 159:Generated_Source\PSoC4/UART_Debug_UART.c ****                                         UART_Debug_GET_UART_RX_CTRL_POLARITY(config->enableInverted
+ 160:Generated_Source\PSoC4/UART_Debug_UART.c ****                                         UART_Debug_GET_UART_RX_CTRL_MP_MODE(config->enableMultiproc
+ 161:Generated_Source\PSoC4/UART_Debug_UART.c ****                                         UART_Debug_GET_UART_RX_CTRL_DROP_ON_PARITY_ERR(config->drop
+ 162:Generated_Source\PSoC4/UART_Debug_UART.c ****                                         UART_Debug_GET_UART_RX_CTRL_DROP_ON_FRAME_ERR(config->dropO
+ 163:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 164:Generated_Source\PSoC4/UART_Debug_UART.c ****             if(UART_Debug_UART_PARITY_NONE != config->parity)
+ 165:Generated_Source\PSoC4/UART_Debug_UART.c ****             {
+ 166:Generated_Source\PSoC4/UART_Debug_UART.c ****                UART_Debug_UART_RX_CTRL_REG |= UART_Debug_GET_UART_RX_CTRL_PARITY(config->parity) |
+ 167:Generated_Source\PSoC4/UART_Debug_UART.c ****                                                     UART_Debug_UART_RX_CTRL_PARITY_ENABLED;
+ 168:Generated_Source\PSoC4/UART_Debug_UART.c ****             }
+ 169:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 170:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_RX_CTRL_REG      = UART_Debug_GET_RX_CTRL_DATA_WIDTH(config->dataBits)      
+ 171:Generated_Source\PSoC4/UART_Debug_UART.c ****                                                 UART_Debug_GET_RX_CTRL_MEDIAN(config->enableMedianF
+ 172:Generated_Source\PSoC4/UART_Debug_UART.c ****                                                 UART_Debug_GET_UART_RX_CTRL_ENABLED(config->directi
+ 173:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 174:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_RX_FIFO_CTRL_REG = UART_Debug_GET_RX_FIFO_CTRL_TRIGGER_LEVEL(config->rxTrigg
+ 175:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 176:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Configure MP address */
+ 177:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_RX_MATCH_REG     = UART_Debug_GET_RX_MATCH_ADDR(config->multiprocAddr) |
+ 178:Generated_Source\PSoC4/UART_Debug_UART.c ****                                                 UART_Debug_GET_RX_MATCH_MASK(config->multiprocAddrM
+ 179:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 180:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Configure RX direction */
+ 181:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_UART_TX_CTRL_REG = UART_Debug_GET_UART_TX_CTRL_MODE(config->stopBits) |
+ 182:Generated_Source\PSoC4/UART_Debug_UART.c ****                                                 UART_Debug_GET_UART_TX_CTRL_RETRY_NACK(config->enab
+ 183:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 184:Generated_Source\PSoC4/UART_Debug_UART.c ****             if(UART_Debug_UART_PARITY_NONE != config->parity)
+ 185:Generated_Source\PSoC4/UART_Debug_UART.c ****             {
+ 186:Generated_Source\PSoC4/UART_Debug_UART.c ****                UART_Debug_UART_TX_CTRL_REG |= UART_Debug_GET_UART_TX_CTRL_PARITY(config->parity) |
+ 187:Generated_Source\PSoC4/UART_Debug_UART.c ****                                                     UART_Debug_UART_TX_CTRL_PARITY_ENABLED;
+ 188:Generated_Source\PSoC4/UART_Debug_UART.c ****             }
+ 189:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 190:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_TX_CTRL_REG      = UART_Debug_GET_TX_CTRL_DATA_WIDTH(config->dataBits)    |
+ 191:Generated_Source\PSoC4/UART_Debug_UART.c ****                                                 UART_Debug_GET_UART_TX_CTRL_ENABLED(config->directi
+ 192:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 193:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_TX_FIFO_CTRL_REG = UART_Debug_GET_TX_FIFO_CTRL_TRIGGER_LEVEL(config->txTrigg
+ 194:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 195:Generated_Source\PSoC4/UART_Debug_UART.c ****         #if !(UART_Debug_CY_SCBIP_V0 || UART_Debug_CY_SCBIP_V1)
+ 196:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_UART_FLOW_CTRL_REG = UART_Debug_GET_UART_FLOW_CTRL_CTS_ENABLE(config->enable
+ 197:Generated_Source\PSoC4/UART_Debug_UART.c ****                                             UART_Debug_GET_UART_FLOW_CTRL_CTS_POLARITY (config->cts
+ 198:Generated_Source\PSoC4/UART_Debug_UART.c ****                                             UART_Debug_GET_UART_FLOW_CTRL_RTS_POLARITY (config->rts
+ 199:Generated_Source\PSoC4/UART_Debug_UART.c ****                                             UART_Debug_GET_UART_FLOW_CTRL_TRIGGER_LEVEL(config->rts
+ 200:Generated_Source\PSoC4/UART_Debug_UART.c ****         #endif /* !(UART_Debug_CY_SCBIP_V0 || UART_Debug_CY_SCBIP_V1) */
+ 201:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 202:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Configure interrupt with UART handler but do not enable it */
+ 203:Generated_Source\PSoC4/UART_Debug_UART.c ****             CyIntDisable    (UART_Debug_ISR_NUMBER);
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 5
+
+
+ 204:Generated_Source\PSoC4/UART_Debug_UART.c ****             CyIntSetPriority(UART_Debug_ISR_NUMBER, UART_Debug_ISR_PRIORITY);
+ 205:Generated_Source\PSoC4/UART_Debug_UART.c ****             (void) CyIntSetVector(UART_Debug_ISR_NUMBER, &UART_Debug_SPI_UART_ISR);
+ 206:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 207:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Configure WAKE interrupt */
+ 208:Generated_Source\PSoC4/UART_Debug_UART.c ****         #if(UART_Debug_UART_RX_WAKEUP_IRQ)
+ 209:Generated_Source\PSoC4/UART_Debug_UART.c ****             CyIntDisable    (UART_Debug_RX_WAKE_ISR_NUMBER);
+ 210:Generated_Source\PSoC4/UART_Debug_UART.c ****             CyIntSetPriority(UART_Debug_RX_WAKE_ISR_NUMBER, UART_Debug_RX_WAKE_ISR_PRIORITY);
+ 211:Generated_Source\PSoC4/UART_Debug_UART.c ****             (void) CyIntSetVector(UART_Debug_RX_WAKE_ISR_NUMBER, &UART_Debug_UART_WAKEUP_ISR);
+ 212:Generated_Source\PSoC4/UART_Debug_UART.c ****         #endif /* (UART_Debug_UART_RX_WAKEUP_IRQ) */
+ 213:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 214:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Configure interrupt sources */
+ 215:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_INTR_I2C_EC_MASK_REG = UART_Debug_NO_INTR_SOURCES;
+ 216:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_INTR_SPI_EC_MASK_REG = UART_Debug_NO_INTR_SOURCES;
+ 217:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_INTR_SLAVE_MASK_REG  = UART_Debug_NO_INTR_SOURCES;
+ 218:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_INTR_MASTER_MASK_REG = UART_Debug_NO_INTR_SOURCES;
+ 219:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_INTR_RX_MASK_REG     = config->rxInterruptMask;
+ 220:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_INTR_TX_MASK_REG     = config->txInterruptMask;
+ 221:Generated_Source\PSoC4/UART_Debug_UART.c ****         
+ 222:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Configure TX interrupt sources to restore. */
+ 223:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_IntrTxMask = LO16(UART_Debug_INTR_TX_MASK_REG);
+ 224:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 225:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Clear RX buffer indexes */
+ 226:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_rxBufferHead     = 0u;
+ 227:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_rxBufferTail     = 0u;
+ 228:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_rxBufferOverflow = 0u;
+ 229:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 230:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Clear TX buffer indexes */
+ 231:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_txBufferHead = 0u;
+ 232:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_txBufferTail = 0u;
+ 233:Generated_Source\PSoC4/UART_Debug_UART.c ****         }
+ 234:Generated_Source\PSoC4/UART_Debug_UART.c ****     }
+ 235:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 236:Generated_Source\PSoC4/UART_Debug_UART.c **** #else
+ 237:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 238:Generated_Source\PSoC4/UART_Debug_UART.c ****     /*******************************************************************************
+ 239:Generated_Source\PSoC4/UART_Debug_UART.c ****     * Function Name: UART_Debug_UartInit
+ 240:Generated_Source\PSoC4/UART_Debug_UART.c ****     ****************************************************************************//**
+ 241:Generated_Source\PSoC4/UART_Debug_UART.c ****     *
+ 242:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  Configures the SCB for the UART operation.
+ 243:Generated_Source\PSoC4/UART_Debug_UART.c ****     *
+ 244:Generated_Source\PSoC4/UART_Debug_UART.c ****     *******************************************************************************/
+ 245:Generated_Source\PSoC4/UART_Debug_UART.c ****     void UART_Debug_UartInit(void)
+ 246:Generated_Source\PSoC4/UART_Debug_UART.c ****     {
+  26              		.loc 1 246 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              		.cfi_def_cfa_offset 8
+  30              		.cfi_offset 7, -8
+  31              		.cfi_offset 14, -4
+  32 0002 00AF     		add	r7, sp, #0
+  33              		.cfi_def_cfa_register 7
+ 247:Generated_Source\PSoC4/UART_Debug_UART.c ****         /* Configure UART interface */
+ 248:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_CTRL_REG = UART_Debug_UART_DEFAULT_CTRL;
+  34              		.loc 1 248 0
+  35 0004 194B     		ldr	r3, .L2
+  36 0006 1A4A     		ldr	r2, .L2+4
+  37 0008 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 6
+
+
+ 249:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 250:Generated_Source\PSoC4/UART_Debug_UART.c ****         /* Configure sub-mode: UART, SmartCard or IrDA */
+ 251:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_CTRL_REG = UART_Debug_UART_DEFAULT_UART_CTRL;
+  38              		.loc 1 251 0
+  39 000a 1A4B     		ldr	r3, .L2+8
+  40 000c 0022     		mov	r2, #0
+  41 000e 1A60     		str	r2, [r3]
+ 252:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 253:Generated_Source\PSoC4/UART_Debug_UART.c ****         /* Configure RX direction */
+ 254:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_RX_CTRL_REG = UART_Debug_UART_DEFAULT_UART_RX_CTRL;
+  42              		.loc 1 254 0
+  43 0010 194B     		ldr	r3, .L2+12
+  44 0012 0122     		mov	r2, #1
+  45 0014 1A60     		str	r2, [r3]
+ 255:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_RX_CTRL_REG      = UART_Debug_UART_DEFAULT_RX_CTRL;
+  46              		.loc 1 255 0
+  47 0016 194B     		ldr	r3, .L2+16
+  48 0018 0722     		mov	r2, #7
+  49 001a 1A60     		str	r2, [r3]
+ 256:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_RX_FIFO_CTRL_REG = UART_Debug_UART_DEFAULT_RX_FIFO_CTRL;
+  50              		.loc 1 256 0
+  51 001c 184B     		ldr	r3, .L2+20
+  52 001e 0722     		mov	r2, #7
+  53 0020 1A60     		str	r2, [r3]
+ 257:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_RX_MATCH_REG     = UART_Debug_UART_DEFAULT_RX_MATCH_REG;
+  54              		.loc 1 257 0
+  55 0022 184B     		ldr	r3, .L2+24
+  56 0024 0022     		mov	r2, #0
+  57 0026 1A60     		str	r2, [r3]
+ 258:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 259:Generated_Source\PSoC4/UART_Debug_UART.c ****         /* Configure TX direction */
+ 260:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_TX_CTRL_REG = UART_Debug_UART_DEFAULT_UART_TX_CTRL;
+  58              		.loc 1 260 0
+  59 0028 174B     		ldr	r3, .L2+28
+  60 002a 0122     		mov	r2, #1
+  61 002c 1A60     		str	r2, [r3]
+ 261:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_TX_CTRL_REG      = UART_Debug_UART_DEFAULT_TX_CTRL;
+  62              		.loc 1 261 0
+  63 002e 174B     		ldr	r3, .L2+32
+  64 0030 174A     		ldr	r2, .L2+36
+  65 0032 1A60     		str	r2, [r3]
+ 262:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_TX_FIFO_CTRL_REG = UART_Debug_UART_DEFAULT_TX_FIFO_CTRL;
+  66              		.loc 1 262 0
+  67 0034 174B     		ldr	r3, .L2+40
+  68 0036 0022     		mov	r2, #0
+  69 0038 1A60     		str	r2, [r3]
+ 263:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 264:Generated_Source\PSoC4/UART_Debug_UART.c ****     #if !(UART_Debug_CY_SCBIP_V0 || UART_Debug_CY_SCBIP_V1)
+ 265:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UART_FLOW_CTRL_REG = UART_Debug_UART_DEFAULT_FLOW_CTRL;
+ 266:Generated_Source\PSoC4/UART_Debug_UART.c ****     #endif /* !(UART_Debug_CY_SCBIP_V0 || UART_Debug_CY_SCBIP_V1) */
+ 267:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 268:Generated_Source\PSoC4/UART_Debug_UART.c ****         /* Configure interrupt with UART handler but do not enable it */
+ 269:Generated_Source\PSoC4/UART_Debug_UART.c ****     #if(UART_Debug_SCB_IRQ_INTERNAL)
+ 270:Generated_Source\PSoC4/UART_Debug_UART.c ****         CyIntDisable    (UART_Debug_ISR_NUMBER);
+ 271:Generated_Source\PSoC4/UART_Debug_UART.c ****         CyIntSetPriority(UART_Debug_ISR_NUMBER, UART_Debug_ISR_PRIORITY);
+ 272:Generated_Source\PSoC4/UART_Debug_UART.c ****         (void) CyIntSetVector(UART_Debug_ISR_NUMBER, &UART_Debug_SPI_UART_ISR);
+ 273:Generated_Source\PSoC4/UART_Debug_UART.c ****     #endif /* (UART_Debug_SCB_IRQ_INTERNAL) */
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 7
+
+
+ 274:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 275:Generated_Source\PSoC4/UART_Debug_UART.c ****         /* Configure WAKE interrupt */
+ 276:Generated_Source\PSoC4/UART_Debug_UART.c ****     #if(UART_Debug_UART_RX_WAKEUP_IRQ)
+ 277:Generated_Source\PSoC4/UART_Debug_UART.c ****         CyIntDisable    (UART_Debug_RX_WAKE_ISR_NUMBER);
+ 278:Generated_Source\PSoC4/UART_Debug_UART.c ****         CyIntSetPriority(UART_Debug_RX_WAKE_ISR_NUMBER, UART_Debug_RX_WAKE_ISR_PRIORITY);
+ 279:Generated_Source\PSoC4/UART_Debug_UART.c ****         (void) CyIntSetVector(UART_Debug_RX_WAKE_ISR_NUMBER, &UART_Debug_UART_WAKEUP_ISR);
+ 280:Generated_Source\PSoC4/UART_Debug_UART.c ****     #endif /* (UART_Debug_UART_RX_WAKEUP_IRQ) */
+ 281:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 282:Generated_Source\PSoC4/UART_Debug_UART.c ****         /* Configure interrupt sources */
+ 283:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_INTR_I2C_EC_MASK_REG = UART_Debug_UART_DEFAULT_INTR_I2C_EC_MASK;
+  70              		.loc 1 283 0
+  71 003a 174B     		ldr	r3, .L2+44
+  72 003c 0022     		mov	r2, #0
+  73 003e 1A60     		str	r2, [r3]
+ 284:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_INTR_SPI_EC_MASK_REG = UART_Debug_UART_DEFAULT_INTR_SPI_EC_MASK;
+  74              		.loc 1 284 0
+  75 0040 164B     		ldr	r3, .L2+48
+  76 0042 0022     		mov	r2, #0
+  77 0044 1A60     		str	r2, [r3]
+ 285:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_INTR_SLAVE_MASK_REG  = UART_Debug_UART_DEFAULT_INTR_SLAVE_MASK;
+  78              		.loc 1 285 0
+  79 0046 164B     		ldr	r3, .L2+52
+  80 0048 0022     		mov	r2, #0
+  81 004a 1A60     		str	r2, [r3]
+ 286:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_INTR_MASTER_MASK_REG = UART_Debug_UART_DEFAULT_INTR_MASTER_MASK;
+  82              		.loc 1 286 0
+  83 004c 154B     		ldr	r3, .L2+56
+  84 004e 0022     		mov	r2, #0
+  85 0050 1A60     		str	r2, [r3]
+ 287:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_INTR_RX_MASK_REG     = UART_Debug_UART_DEFAULT_INTR_RX_MASK;
+  86              		.loc 1 287 0
+  87 0052 154B     		ldr	r3, .L2+60
+  88 0054 0022     		mov	r2, #0
+  89 0056 1A60     		str	r2, [r3]
+ 288:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_INTR_TX_MASK_REG     = UART_Debug_UART_DEFAULT_INTR_TX_MASK;
+  90              		.loc 1 288 0
+  91 0058 144B     		ldr	r3, .L2+64
+  92 005a 0022     		mov	r2, #0
+  93 005c 1A60     		str	r2, [r3]
+ 289:Generated_Source\PSoC4/UART_Debug_UART.c ****     
+ 290:Generated_Source\PSoC4/UART_Debug_UART.c ****         /* Configure TX interrupt sources to restore. */
+ 291:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_IntrTxMask = LO16(UART_Debug_INTR_TX_MASK_REG);
+  94              		.loc 1 291 0
+  95 005e 134B     		ldr	r3, .L2+64
+  96 0060 1B68     		ldr	r3, [r3]
+  97 0062 9AB2     		uxth	r2, r3
+  98 0064 124B     		ldr	r3, .L2+68
+  99 0066 1A80     		strh	r2, [r3]
+ 292:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 293:Generated_Source\PSoC4/UART_Debug_UART.c ****     #if(UART_Debug_INTERNAL_RX_SW_BUFFER_CONST)
+ 294:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_rxBufferHead     = 0u;
+ 295:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_rxBufferTail     = 0u;
+ 296:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_rxBufferOverflow = 0u;
+ 297:Generated_Source\PSoC4/UART_Debug_UART.c ****     #endif /* (UART_Debug_INTERNAL_RX_SW_BUFFER_CONST) */
+ 298:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 299:Generated_Source\PSoC4/UART_Debug_UART.c ****     #if(UART_Debug_INTERNAL_TX_SW_BUFFER_CONST)
+ 300:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_txBufferHead = 0u;
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 8
+
+
+ 301:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_txBufferTail = 0u;
+ 302:Generated_Source\PSoC4/UART_Debug_UART.c ****     #endif /* (UART_Debug_INTERNAL_TX_SW_BUFFER_CONST) */
+ 303:Generated_Source\PSoC4/UART_Debug_UART.c ****     }
+ 100              		.loc 1 303 0
+ 101 0068 BD46     		mov	sp, r7
+ 102              		@ sp needed
+ 103 006a 80BD     		pop	{r7, pc}
+ 104              	.L3:
+ 105              		.align	2
+ 106              	.L2:
+ 107 006c 00000640 		.word	1074135040
+ 108 0070 0B000002 		.word	33554443
+ 109 0074 40000640 		.word	1074135104
+ 110 0078 48000640 		.word	1074135112
+ 111 007c 00030640 		.word	1074135808
+ 112 0080 04030640 		.word	1074135812
+ 113 0084 10030640 		.word	1074135824
+ 114 0088 44000640 		.word	1074135108
+ 115 008c 00020640 		.word	1074135552
+ 116 0090 07000080 		.word	-2147483641
+ 117 0094 04020640 		.word	1074135556
+ 118 0098 880E0640 		.word	1074138760
+ 119 009c C80E0640 		.word	1074138824
+ 120 00a0 480F0640 		.word	1074138952
+ 121 00a4 080F0640 		.word	1074138888
+ 122 00a8 C80F0640 		.word	1074139080
+ 123 00ac 880F0640 		.word	1074139016
+ 124 00b0 00000000 		.word	UART_Debug_IntrTxMask
+ 125              		.cfi_endproc
+ 126              	.LFE0:
+ 127              		.size	UART_Debug_UartInit, .-UART_Debug_UartInit
+ 128              		.section	.text.UART_Debug_UartPostEnable,"ax",%progbits
+ 129              		.align	2
+ 130              		.global	UART_Debug_UartPostEnable
+ 131              		.code	16
+ 132              		.thumb_func
+ 133              		.type	UART_Debug_UartPostEnable, %function
+ 134              	UART_Debug_UartPostEnable:
+ 135              	.LFB1:
+ 304:Generated_Source\PSoC4/UART_Debug_UART.c **** #endif /* (UART_Debug_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 305:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 306:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 307:Generated_Source\PSoC4/UART_Debug_UART.c **** /*******************************************************************************
+ 308:Generated_Source\PSoC4/UART_Debug_UART.c **** * Function Name: UART_Debug_UartPostEnable
+ 309:Generated_Source\PSoC4/UART_Debug_UART.c **** ****************************************************************************//**
+ 310:Generated_Source\PSoC4/UART_Debug_UART.c **** *
+ 311:Generated_Source\PSoC4/UART_Debug_UART.c **** *  Restores HSIOM settings for the UART output pins (TX and/or RTS) to be
+ 312:Generated_Source\PSoC4/UART_Debug_UART.c **** *  controlled by the SCB UART.
+ 313:Generated_Source\PSoC4/UART_Debug_UART.c **** *
+ 314:Generated_Source\PSoC4/UART_Debug_UART.c **** *******************************************************************************/
+ 315:Generated_Source\PSoC4/UART_Debug_UART.c **** void UART_Debug_UartPostEnable(void)
+ 316:Generated_Source\PSoC4/UART_Debug_UART.c **** {
+ 136              		.loc 1 316 0
+ 137              		.cfi_startproc
+ 138 0000 80B5     		push	{r7, lr}
+ 139              		.cfi_def_cfa_offset 8
+ 140              		.cfi_offset 7, -8
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 9
+
+
+ 141              		.cfi_offset 14, -4
+ 142 0002 00AF     		add	r7, sp, #0
+ 143              		.cfi_def_cfa_register 7
+ 317:Generated_Source\PSoC4/UART_Debug_UART.c **** #if (UART_Debug_SCB_MODE_UNCONFIG_CONST_CFG)
+ 318:Generated_Source\PSoC4/UART_Debug_UART.c ****     #if (UART_Debug_TX_SDA_MISO_PIN)
+ 319:Generated_Source\PSoC4/UART_Debug_UART.c ****         if (UART_Debug_CHECK_TX_SDA_MISO_PIN_USED)
+ 320:Generated_Source\PSoC4/UART_Debug_UART.c ****         {
+ 321:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Set SCB UART to drive the output pin */
+ 322:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_SET_HSIOM_SEL(UART_Debug_TX_SDA_MISO_HSIOM_REG, UART_Debug_TX_SDA_MISO_HSIOM
+ 323:Generated_Source\PSoC4/UART_Debug_UART.c ****                                            UART_Debug_TX_SDA_MISO_HSIOM_POS, UART_Debug_TX_SDA_MISO
+ 324:Generated_Source\PSoC4/UART_Debug_UART.c ****         }
+ 325:Generated_Source\PSoC4/UART_Debug_UART.c ****     #endif /* (UART_Debug_TX_SDA_MISO_PIN_PIN) */
+ 326:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 327:Generated_Source\PSoC4/UART_Debug_UART.c ****     #if !(UART_Debug_CY_SCBIP_V0 || UART_Debug_CY_SCBIP_V1)
+ 328:Generated_Source\PSoC4/UART_Debug_UART.c ****         #if (UART_Debug_SS0_PIN)
+ 329:Generated_Source\PSoC4/UART_Debug_UART.c ****             if (UART_Debug_CHECK_SS0_PIN_USED)
+ 330:Generated_Source\PSoC4/UART_Debug_UART.c ****             {
+ 331:Generated_Source\PSoC4/UART_Debug_UART.c ****                 /* Set SCB UART to drive the output pin */
+ 332:Generated_Source\PSoC4/UART_Debug_UART.c ****                 UART_Debug_SET_HSIOM_SEL(UART_Debug_SS0_HSIOM_REG, UART_Debug_SS0_HSIOM_MASK,
+ 333:Generated_Source\PSoC4/UART_Debug_UART.c ****                                                UART_Debug_SS0_HSIOM_POS, UART_Debug_SS0_HSIOM_SEL_U
+ 334:Generated_Source\PSoC4/UART_Debug_UART.c ****             }
+ 335:Generated_Source\PSoC4/UART_Debug_UART.c ****         #endif /* (UART_Debug_SS0_PIN) */
+ 336:Generated_Source\PSoC4/UART_Debug_UART.c ****     #endif /* !(UART_Debug_CY_SCBIP_V0 || UART_Debug_CY_SCBIP_V1) */
+ 337:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 338:Generated_Source\PSoC4/UART_Debug_UART.c **** #else
+ 339:Generated_Source\PSoC4/UART_Debug_UART.c ****     #if (UART_Debug_UART_TX_PIN)
+ 340:Generated_Source\PSoC4/UART_Debug_UART.c ****          /* Set SCB UART to drive the output pin */
+ 341:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_SET_HSIOM_SEL(UART_Debug_TX_HSIOM_REG, UART_Debug_TX_HSIOM_MASK,
+ 144              		.loc 1 341 0
+ 145 0004 064B     		ldr	r3, .L5
+ 146 0006 064A     		ldr	r2, .L5
+ 147 0008 1268     		ldr	r2, [r2]
+ 148 000a F021     		mov	r1, #240
+ 149 000c 8A43     		bic	r2, r1
+ 150 000e 9021     		mov	r1, #144
+ 151 0010 0A43     		orr	r2, r1
+ 152 0012 1A60     		str	r2, [r3]
+ 342:Generated_Source\PSoC4/UART_Debug_UART.c ****                                        UART_Debug_TX_HSIOM_POS, UART_Debug_TX_HSIOM_SEL_UART);
+ 343:Generated_Source\PSoC4/UART_Debug_UART.c ****     #endif /* (UART_Debug_UART_TX_PIN) */
+ 344:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 345:Generated_Source\PSoC4/UART_Debug_UART.c ****     #if (UART_Debug_UART_RTS_PIN)
+ 346:Generated_Source\PSoC4/UART_Debug_UART.c ****         /* Set SCB UART to drive the output pin */
+ 347:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_SET_HSIOM_SEL(UART_Debug_RTS_HSIOM_REG, UART_Debug_RTS_HSIOM_MASK,
+ 348:Generated_Source\PSoC4/UART_Debug_UART.c ****                                        UART_Debug_RTS_HSIOM_POS, UART_Debug_RTS_HSIOM_SEL_UART);
+ 349:Generated_Source\PSoC4/UART_Debug_UART.c ****     #endif /* (UART_Debug_UART_RTS_PIN) */
+ 350:Generated_Source\PSoC4/UART_Debug_UART.c **** #endif /* (UART_Debug_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 351:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 352:Generated_Source\PSoC4/UART_Debug_UART.c ****     /* Restore TX interrupt sources. */
+ 353:Generated_Source\PSoC4/UART_Debug_UART.c ****     UART_Debug_SetTxInterruptMode(UART_Debug_IntrTxMask);
+ 153              		.loc 1 353 0
+ 154 0014 034B     		ldr	r3, .L5+4
+ 155 0016 044A     		ldr	r2, .L5+8
+ 156 0018 1288     		ldrh	r2, [r2]
+ 157 001a 1A60     		str	r2, [r3]
+ 354:Generated_Source\PSoC4/UART_Debug_UART.c **** }
+ 158              		.loc 1 354 0
+ 159 001c BD46     		mov	sp, r7
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 10
+
+
+ 160              		@ sp needed
+ 161 001e 80BD     		pop	{r7, pc}
+ 162              	.L6:
+ 163              		.align	2
+ 164              	.L5:
+ 165 0020 10000140 		.word	1073807376
+ 166 0024 880F0640 		.word	1074139016
+ 167 0028 00000000 		.word	UART_Debug_IntrTxMask
+ 168              		.cfi_endproc
+ 169              	.LFE1:
+ 170              		.size	UART_Debug_UartPostEnable, .-UART_Debug_UartPostEnable
+ 171              		.section	.text.UART_Debug_UartStop,"ax",%progbits
+ 172              		.align	2
+ 173              		.global	UART_Debug_UartStop
+ 174              		.code	16
+ 175              		.thumb_func
+ 176              		.type	UART_Debug_UartStop, %function
+ 177              	UART_Debug_UartStop:
+ 178              	.LFB2:
+ 355:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 356:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 357:Generated_Source\PSoC4/UART_Debug_UART.c **** /*******************************************************************************
+ 358:Generated_Source\PSoC4/UART_Debug_UART.c **** * Function Name: UART_Debug_UartStop
+ 359:Generated_Source\PSoC4/UART_Debug_UART.c **** ****************************************************************************//**
+ 360:Generated_Source\PSoC4/UART_Debug_UART.c **** *
+ 361:Generated_Source\PSoC4/UART_Debug_UART.c **** *  Changes the HSIOM settings for the UART output pins (TX and/or RTS) to keep
+ 362:Generated_Source\PSoC4/UART_Debug_UART.c **** *  them inactive after the block is disabled. The output pins are controlled by
+ 363:Generated_Source\PSoC4/UART_Debug_UART.c **** *  the GPIO data register. Also, the function disables the skip start feature
+ 364:Generated_Source\PSoC4/UART_Debug_UART.c **** *  to not cause it to trigger after the component is enabled.
+ 365:Generated_Source\PSoC4/UART_Debug_UART.c **** *
+ 366:Generated_Source\PSoC4/UART_Debug_UART.c **** *******************************************************************************/
+ 367:Generated_Source\PSoC4/UART_Debug_UART.c **** void UART_Debug_UartStop(void)
+ 368:Generated_Source\PSoC4/UART_Debug_UART.c **** {
+ 179              		.loc 1 368 0
+ 180              		.cfi_startproc
+ 181 0000 80B5     		push	{r7, lr}
+ 182              		.cfi_def_cfa_offset 8
+ 183              		.cfi_offset 7, -8
+ 184              		.cfi_offset 14, -4
+ 185 0002 00AF     		add	r7, sp, #0
+ 186              		.cfi_def_cfa_register 7
+ 369:Generated_Source\PSoC4/UART_Debug_UART.c **** #if(UART_Debug_SCB_MODE_UNCONFIG_CONST_CFG)
+ 370:Generated_Source\PSoC4/UART_Debug_UART.c ****     #if (UART_Debug_TX_SDA_MISO_PIN)
+ 371:Generated_Source\PSoC4/UART_Debug_UART.c ****         if (UART_Debug_CHECK_TX_SDA_MISO_PIN_USED)
+ 372:Generated_Source\PSoC4/UART_Debug_UART.c ****         {
+ 373:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Set GPIO to drive output pin */
+ 374:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_SET_HSIOM_SEL(UART_Debug_TX_SDA_MISO_HSIOM_REG, UART_Debug_TX_SDA_MISO_HSIOM
+ 375:Generated_Source\PSoC4/UART_Debug_UART.c ****                                            UART_Debug_TX_SDA_MISO_HSIOM_POS, UART_Debug_TX_SDA_MISO
+ 376:Generated_Source\PSoC4/UART_Debug_UART.c ****         }
+ 377:Generated_Source\PSoC4/UART_Debug_UART.c ****     #endif /* (UART_Debug_TX_SDA_MISO_PIN_PIN) */
+ 378:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 379:Generated_Source\PSoC4/UART_Debug_UART.c ****     #if !(UART_Debug_CY_SCBIP_V0 || UART_Debug_CY_SCBIP_V1)
+ 380:Generated_Source\PSoC4/UART_Debug_UART.c ****         #if (UART_Debug_SS0_PIN)
+ 381:Generated_Source\PSoC4/UART_Debug_UART.c ****             if (UART_Debug_CHECK_SS0_PIN_USED)
+ 382:Generated_Source\PSoC4/UART_Debug_UART.c ****             {
+ 383:Generated_Source\PSoC4/UART_Debug_UART.c ****                 /* Set output pin state after block is disabled */
+ 384:Generated_Source\PSoC4/UART_Debug_UART.c ****                 UART_Debug_spi_ss0_Write(UART_Debug_GET_UART_RTS_INACTIVE);
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 11
+
+
+ 385:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 386:Generated_Source\PSoC4/UART_Debug_UART.c ****                 /* Set GPIO to drive output pin */
+ 387:Generated_Source\PSoC4/UART_Debug_UART.c ****                 UART_Debug_SET_HSIOM_SEL(UART_Debug_SS0_HSIOM_REG, UART_Debug_SS0_HSIOM_MASK,
+ 388:Generated_Source\PSoC4/UART_Debug_UART.c ****                                                UART_Debug_SS0_HSIOM_POS, UART_Debug_SS0_HSIOM_SEL_G
+ 389:Generated_Source\PSoC4/UART_Debug_UART.c ****             }
+ 390:Generated_Source\PSoC4/UART_Debug_UART.c ****         #endif /* (UART_Debug_SS0_PIN) */
+ 391:Generated_Source\PSoC4/UART_Debug_UART.c ****     #endif /* !(UART_Debug_CY_SCBIP_V0 || UART_Debug_CY_SCBIP_V1) */
+ 392:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 393:Generated_Source\PSoC4/UART_Debug_UART.c **** #else
+ 394:Generated_Source\PSoC4/UART_Debug_UART.c ****     #if (UART_Debug_UART_TX_PIN)
+ 395:Generated_Source\PSoC4/UART_Debug_UART.c ****         /* Set GPIO to drive output pin */
+ 396:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_SET_HSIOM_SEL(UART_Debug_TX_HSIOM_REG, UART_Debug_TX_HSIOM_MASK,
+ 187              		.loc 1 396 0
+ 188 0004 084B     		ldr	r3, .L8
+ 189 0006 084A     		ldr	r2, .L8
+ 190 0008 1268     		ldr	r2, [r2]
+ 191 000a F021     		mov	r1, #240
+ 192 000c 8A43     		bic	r2, r1
+ 193 000e 1A60     		str	r2, [r3]
+ 397:Generated_Source\PSoC4/UART_Debug_UART.c ****                                        UART_Debug_TX_HSIOM_POS, UART_Debug_TX_HSIOM_SEL_GPIO);
+ 398:Generated_Source\PSoC4/UART_Debug_UART.c ****     #endif /* (UART_Debug_UART_TX_PIN) */
+ 399:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 400:Generated_Source\PSoC4/UART_Debug_UART.c ****     #if (UART_Debug_UART_RTS_PIN)
+ 401:Generated_Source\PSoC4/UART_Debug_UART.c ****         /* Set output pin state after block is disabled */
+ 402:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_rts_Write(UART_Debug_GET_UART_RTS_INACTIVE);
+ 403:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 404:Generated_Source\PSoC4/UART_Debug_UART.c ****         /* Set GPIO to drive output pin */
+ 405:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_SET_HSIOM_SEL(UART_Debug_RTS_HSIOM_REG, UART_Debug_RTS_HSIOM_MASK,
+ 406:Generated_Source\PSoC4/UART_Debug_UART.c ****                                        UART_Debug_RTS_HSIOM_POS, UART_Debug_RTS_HSIOM_SEL_GPIO);
+ 407:Generated_Source\PSoC4/UART_Debug_UART.c ****     #endif /* (UART_Debug_UART_RTS_PIN) */
+ 408:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 409:Generated_Source\PSoC4/UART_Debug_UART.c **** #endif /* (UART_Debug_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 410:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 411:Generated_Source\PSoC4/UART_Debug_UART.c **** #if (UART_Debug_UART_WAKE_ENABLE_CONST)
+ 412:Generated_Source\PSoC4/UART_Debug_UART.c ****     /* Disable skip start feature used for wakeup */
+ 413:Generated_Source\PSoC4/UART_Debug_UART.c ****     UART_Debug_UART_RX_CTRL_REG &= (uint32) ~UART_Debug_UART_RX_CTRL_SKIP_START;
+ 414:Generated_Source\PSoC4/UART_Debug_UART.c **** #endif /* (UART_Debug_UART_WAKE_ENABLE_CONST) */
+ 415:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 416:Generated_Source\PSoC4/UART_Debug_UART.c ****     /* Store TX interrupt sources (exclude level triggered). */
+ 417:Generated_Source\PSoC4/UART_Debug_UART.c ****     UART_Debug_IntrTxMask = LO16(UART_Debug_GetTxInterruptMode() & UART_Debug_INTR_UART_TX_RESTORE)
+ 194              		.loc 1 417 0
+ 195 0010 064B     		ldr	r3, .L8+4
+ 196 0012 1B68     		ldr	r3, [r3]
+ 197 0014 9AB2     		uxth	r2, r3
+ 198 0016 E423     		mov	r3, #228
+ 199 0018 DB00     		lsl	r3, r3, #3
+ 200 001a 1340     		and	r3, r2
+ 201 001c 9AB2     		uxth	r2, r3
+ 202 001e 044B     		ldr	r3, .L8+8
+ 203 0020 1A80     		strh	r2, [r3]
+ 418:Generated_Source\PSoC4/UART_Debug_UART.c **** }
+ 204              		.loc 1 418 0
+ 205 0022 BD46     		mov	sp, r7
+ 206              		@ sp needed
+ 207 0024 80BD     		pop	{r7, pc}
+ 208              	.L9:
+ 209 0026 C046     		.align	2
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 12
+
+
+ 210              	.L8:
+ 211 0028 10000140 		.word	1073807376
+ 212 002c 880F0640 		.word	1074139016
+ 213 0030 00000000 		.word	UART_Debug_IntrTxMask
+ 214              		.cfi_endproc
+ 215              	.LFE2:
+ 216              		.size	UART_Debug_UartStop, .-UART_Debug_UartStop
+ 217              		.section	.text.UART_Debug_UartSetRxAddress,"ax",%progbits
+ 218              		.align	2
+ 219              		.global	UART_Debug_UartSetRxAddress
+ 220              		.code	16
+ 221              		.thumb_func
+ 222              		.type	UART_Debug_UartSetRxAddress, %function
+ 223              	UART_Debug_UartSetRxAddress:
+ 224              	.LFB3:
+ 419:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 420:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 421:Generated_Source\PSoC4/UART_Debug_UART.c **** /*******************************************************************************
+ 422:Generated_Source\PSoC4/UART_Debug_UART.c **** * Function Name: UART_Debug_UartSetRxAddress
+ 423:Generated_Source\PSoC4/UART_Debug_UART.c **** ****************************************************************************//**
+ 424:Generated_Source\PSoC4/UART_Debug_UART.c **** *
+ 425:Generated_Source\PSoC4/UART_Debug_UART.c **** *  Sets the hardware detectable receiver address for the UART in the
+ 426:Generated_Source\PSoC4/UART_Debug_UART.c **** *  Multiprocessor mode.
+ 427:Generated_Source\PSoC4/UART_Debug_UART.c **** *
+ 428:Generated_Source\PSoC4/UART_Debug_UART.c **** *  \param address: Address for hardware address detection.
+ 429:Generated_Source\PSoC4/UART_Debug_UART.c **** *
+ 430:Generated_Source\PSoC4/UART_Debug_UART.c **** *******************************************************************************/
+ 431:Generated_Source\PSoC4/UART_Debug_UART.c **** void UART_Debug_UartSetRxAddress(uint32 address)
+ 432:Generated_Source\PSoC4/UART_Debug_UART.c **** {
+ 225              		.loc 1 432 0
+ 226              		.cfi_startproc
+ 227 0000 80B5     		push	{r7, lr}
+ 228              		.cfi_def_cfa_offset 8
+ 229              		.cfi_offset 7, -8
+ 230              		.cfi_offset 14, -4
+ 231 0002 84B0     		sub	sp, sp, #16
+ 232              		.cfi_def_cfa_offset 24
+ 233 0004 00AF     		add	r7, sp, #0
+ 234              		.cfi_def_cfa_register 7
+ 235 0006 7860     		str	r0, [r7, #4]
+ 433:Generated_Source\PSoC4/UART_Debug_UART.c ****      uint32 matchReg;
+ 434:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 435:Generated_Source\PSoC4/UART_Debug_UART.c ****     matchReg = UART_Debug_RX_MATCH_REG;
+ 236              		.loc 1 435 0
+ 237 0008 094B     		ldr	r3, .L11
+ 238 000a 1B68     		ldr	r3, [r3]
+ 239 000c FB60     		str	r3, [r7, #12]
+ 436:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 437:Generated_Source\PSoC4/UART_Debug_UART.c ****     matchReg &= ((uint32) ~UART_Debug_RX_MATCH_ADDR_MASK); /* Clear address bits */
+ 240              		.loc 1 437 0
+ 241 000e FB68     		ldr	r3, [r7, #12]
+ 242 0010 FF22     		mov	r2, #255
+ 243 0012 9343     		bic	r3, r2
+ 244 0014 FB60     		str	r3, [r7, #12]
+ 438:Generated_Source\PSoC4/UART_Debug_UART.c ****     matchReg |= ((uint32)  (address & UART_Debug_RX_MATCH_ADDR_MASK)); /* Set address  */
+ 245              		.loc 1 438 0
+ 246 0016 7B68     		ldr	r3, [r7, #4]
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 13
+
+
+ 247 0018 FF22     		mov	r2, #255
+ 248 001a 1340     		and	r3, r2
+ 249 001c FA68     		ldr	r2, [r7, #12]
+ 250 001e 1343     		orr	r3, r2
+ 251 0020 FB60     		str	r3, [r7, #12]
+ 439:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 440:Generated_Source\PSoC4/UART_Debug_UART.c ****     UART_Debug_RX_MATCH_REG = matchReg;
+ 252              		.loc 1 440 0
+ 253 0022 034B     		ldr	r3, .L11
+ 254 0024 FA68     		ldr	r2, [r7, #12]
+ 255 0026 1A60     		str	r2, [r3]
+ 441:Generated_Source\PSoC4/UART_Debug_UART.c **** }
+ 256              		.loc 1 441 0
+ 257 0028 BD46     		mov	sp, r7
+ 258 002a 04B0     		add	sp, sp, #16
+ 259              		@ sp needed
+ 260 002c 80BD     		pop	{r7, pc}
+ 261              	.L12:
+ 262 002e C046     		.align	2
+ 263              	.L11:
+ 264 0030 10030640 		.word	1074135824
+ 265              		.cfi_endproc
+ 266              	.LFE3:
+ 267              		.size	UART_Debug_UartSetRxAddress, .-UART_Debug_UartSetRxAddress
+ 268              		.section	.text.UART_Debug_UartSetRxAddressMask,"ax",%progbits
+ 269              		.align	2
+ 270              		.global	UART_Debug_UartSetRxAddressMask
+ 271              		.code	16
+ 272              		.thumb_func
+ 273              		.type	UART_Debug_UartSetRxAddressMask, %function
+ 274              	UART_Debug_UartSetRxAddressMask:
+ 275              	.LFB4:
+ 442:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 443:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 444:Generated_Source\PSoC4/UART_Debug_UART.c **** /*******************************************************************************
+ 445:Generated_Source\PSoC4/UART_Debug_UART.c **** * Function Name: UART_Debug_UartSetRxAddressMask
+ 446:Generated_Source\PSoC4/UART_Debug_UART.c **** ****************************************************************************//**
+ 447:Generated_Source\PSoC4/UART_Debug_UART.c **** *
+ 448:Generated_Source\PSoC4/UART_Debug_UART.c **** *  Sets the hardware address mask for the UART in the Multiprocessor mode.
+ 449:Generated_Source\PSoC4/UART_Debug_UART.c **** *
+ 450:Generated_Source\PSoC4/UART_Debug_UART.c **** *  \param addressMask: Address mask.
+ 451:Generated_Source\PSoC4/UART_Debug_UART.c **** *   - Bit value 0 – excludes bit from address comparison.
+ 452:Generated_Source\PSoC4/UART_Debug_UART.c **** *   - Bit value 1 – the bit needs to match with the corresponding bit
+ 453:Generated_Source\PSoC4/UART_Debug_UART.c **** *     of the address.
+ 454:Generated_Source\PSoC4/UART_Debug_UART.c **** *
+ 455:Generated_Source\PSoC4/UART_Debug_UART.c **** *******************************************************************************/
+ 456:Generated_Source\PSoC4/UART_Debug_UART.c **** void UART_Debug_UartSetRxAddressMask(uint32 addressMask)
+ 457:Generated_Source\PSoC4/UART_Debug_UART.c **** {
+ 276              		.loc 1 457 0
+ 277              		.cfi_startproc
+ 278 0000 80B5     		push	{r7, lr}
+ 279              		.cfi_def_cfa_offset 8
+ 280              		.cfi_offset 7, -8
+ 281              		.cfi_offset 14, -4
+ 282 0002 84B0     		sub	sp, sp, #16
+ 283              		.cfi_def_cfa_offset 24
+ 284 0004 00AF     		add	r7, sp, #0
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 14
+
+
+ 285              		.cfi_def_cfa_register 7
+ 286 0006 7860     		str	r0, [r7, #4]
+ 458:Generated_Source\PSoC4/UART_Debug_UART.c ****     uint32 matchReg;
+ 459:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 460:Generated_Source\PSoC4/UART_Debug_UART.c ****     matchReg = UART_Debug_RX_MATCH_REG;
+ 287              		.loc 1 460 0
+ 288 0008 084B     		ldr	r3, .L14
+ 289 000a 1B68     		ldr	r3, [r3]
+ 290 000c FB60     		str	r3, [r7, #12]
+ 461:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 462:Generated_Source\PSoC4/UART_Debug_UART.c ****     matchReg &= ((uint32) ~UART_Debug_RX_MATCH_MASK_MASK); /* Clear address mask bits */
+ 291              		.loc 1 462 0
+ 292 000e FB68     		ldr	r3, [r7, #12]
+ 293 0010 074A     		ldr	r2, .L14+4
+ 294 0012 1340     		and	r3, r2
+ 295 0014 FB60     		str	r3, [r7, #12]
+ 463:Generated_Source\PSoC4/UART_Debug_UART.c ****     matchReg |= ((uint32) (addressMask << UART_Debug_RX_MATCH_MASK_POS));
+ 296              		.loc 1 463 0
+ 297 0016 7B68     		ldr	r3, [r7, #4]
+ 298 0018 1B04     		lsl	r3, r3, #16
+ 299 001a FA68     		ldr	r2, [r7, #12]
+ 300 001c 1343     		orr	r3, r2
+ 301 001e FB60     		str	r3, [r7, #12]
+ 464:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 465:Generated_Source\PSoC4/UART_Debug_UART.c ****     UART_Debug_RX_MATCH_REG = matchReg;
+ 302              		.loc 1 465 0
+ 303 0020 024B     		ldr	r3, .L14
+ 304 0022 FA68     		ldr	r2, [r7, #12]
+ 305 0024 1A60     		str	r2, [r3]
+ 466:Generated_Source\PSoC4/UART_Debug_UART.c **** }
+ 306              		.loc 1 466 0
+ 307 0026 BD46     		mov	sp, r7
+ 308 0028 04B0     		add	sp, sp, #16
+ 309              		@ sp needed
+ 310 002a 80BD     		pop	{r7, pc}
+ 311              	.L15:
+ 312              		.align	2
+ 313              	.L14:
+ 314 002c 10030640 		.word	1074135824
+ 315 0030 FFFF00FF 		.word	-16711681
+ 316              		.cfi_endproc
+ 317              	.LFE4:
+ 318              		.size	UART_Debug_UartSetRxAddressMask, .-UART_Debug_UartSetRxAddressMask
+ 319              		.section	.text.UART_Debug_UartPutString,"ax",%progbits
+ 320              		.align	2
+ 321              		.global	UART_Debug_UartPutString
+ 322              		.code	16
+ 323              		.thumb_func
+ 324              		.type	UART_Debug_UartPutString, %function
+ 325              	UART_Debug_UartPutString:
+ 326              	.LFB5:
+ 467:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 468:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 469:Generated_Source\PSoC4/UART_Debug_UART.c **** #if(UART_Debug_UART_RX_DIRECTION)
+ 470:Generated_Source\PSoC4/UART_Debug_UART.c ****     /*******************************************************************************
+ 471:Generated_Source\PSoC4/UART_Debug_UART.c ****     * Function Name: UART_Debug_UartGetChar
+ 472:Generated_Source\PSoC4/UART_Debug_UART.c ****     ****************************************************************************//**
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 15
+
+
+ 473:Generated_Source\PSoC4/UART_Debug_UART.c ****     *
+ 474:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  Retrieves next data element from receive buffer.
+ 475:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  This function is designed for ASCII characters and returns a char where
+ 476:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  1 to 255 are valid characters and 0 indicates an error occurred or no data
+ 477:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  is present.
+ 478:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  - RX software buffer is disabled: Returns data element retrieved from RX
+ 479:Generated_Source\PSoC4/UART_Debug_UART.c ****     *    FIFO.
+ 480:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  - RX software buffer is enabled: Returns data element from the software
+ 481:Generated_Source\PSoC4/UART_Debug_UART.c ****     *    receive buffer.
+ 482:Generated_Source\PSoC4/UART_Debug_UART.c ****     *
+ 483:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  \return
+ 484:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   Next data element from the receive buffer. ASCII character values from
+ 485:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   1 to 255 are valid. A returned zero signifies an error condition or no
+ 486:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   data available.
+ 487:Generated_Source\PSoC4/UART_Debug_UART.c ****     *
+ 488:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  \sideeffect
+ 489:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   The errors bits may not correspond with reading characters due to
+ 490:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   RX FIFO and software buffer usage.
+ 491:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   RX software buffer is enabled: The internal software buffer overflow
+ 492:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   is not treated as an error condition.
+ 493:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   Check UART_Debug_rxBufferOverflow to capture that error condition.
+ 494:Generated_Source\PSoC4/UART_Debug_UART.c ****     *
+ 495:Generated_Source\PSoC4/UART_Debug_UART.c ****     *******************************************************************************/
+ 496:Generated_Source\PSoC4/UART_Debug_UART.c ****     uint32 UART_Debug_UartGetChar(void)
+ 497:Generated_Source\PSoC4/UART_Debug_UART.c ****     {
+ 498:Generated_Source\PSoC4/UART_Debug_UART.c ****         uint32 rxData = 0u;
+ 499:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 500:Generated_Source\PSoC4/UART_Debug_UART.c ****         /* Reads data only if there is data to read */
+ 501:Generated_Source\PSoC4/UART_Debug_UART.c ****         if (0u != UART_Debug_SpiUartGetRxBufferSize())
+ 502:Generated_Source\PSoC4/UART_Debug_UART.c ****         {
+ 503:Generated_Source\PSoC4/UART_Debug_UART.c ****             rxData = UART_Debug_SpiUartReadRxData();
+ 504:Generated_Source\PSoC4/UART_Debug_UART.c ****         }
+ 505:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 506:Generated_Source\PSoC4/UART_Debug_UART.c ****         if (UART_Debug_CHECK_INTR_RX(UART_Debug_INTR_RX_ERR))
+ 507:Generated_Source\PSoC4/UART_Debug_UART.c ****         {
+ 508:Generated_Source\PSoC4/UART_Debug_UART.c ****             rxData = 0u; /* Error occurred: returns zero */
+ 509:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_ClearRxInterruptSource(UART_Debug_INTR_RX_ERR);
+ 510:Generated_Source\PSoC4/UART_Debug_UART.c ****         }
+ 511:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 512:Generated_Source\PSoC4/UART_Debug_UART.c ****         return (rxData);
+ 513:Generated_Source\PSoC4/UART_Debug_UART.c ****     }
+ 514:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 515:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 516:Generated_Source\PSoC4/UART_Debug_UART.c ****     /*******************************************************************************
+ 517:Generated_Source\PSoC4/UART_Debug_UART.c ****     * Function Name: UART_Debug_UartGetByte
+ 518:Generated_Source\PSoC4/UART_Debug_UART.c ****     ****************************************************************************//**
+ 519:Generated_Source\PSoC4/UART_Debug_UART.c ****     *
+ 520:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  Retrieves the next data element from the receive buffer, returns the
+ 521:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  received byte and error condition.
+ 522:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   - The RX software buffer is disabled: returns the data element retrieved
+ 523:Generated_Source\PSoC4/UART_Debug_UART.c ****     *     from the RX FIFO. Undefined data will be returned if the RX FIFO is
+ 524:Generated_Source\PSoC4/UART_Debug_UART.c ****     *     empty.
+ 525:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   - The RX software buffer is enabled: returns data element from the
+ 526:Generated_Source\PSoC4/UART_Debug_UART.c ****     *     software receive buffer.
+ 527:Generated_Source\PSoC4/UART_Debug_UART.c ****     *
+ 528:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  \return
+ 529:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   Bits 7-0 contain the next data element from the receive buffer and
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 16
+
+
+ 530:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   other bits contain the error condition.
+ 531:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   - UART_Debug_UART_RX_OVERFLOW - Attempt to write to a full
+ 532:Generated_Source\PSoC4/UART_Debug_UART.c ****     *     receiver FIFO.
+ 533:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   - UART_Debug_UART_RX_UNDERFLOW	Attempt to read from an empty
+ 534:Generated_Source\PSoC4/UART_Debug_UART.c ****     *     receiver FIFO.
+ 535:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   - UART_Debug_UART_RX_FRAME_ERROR - UART framing error detected.
+ 536:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   - UART_Debug_UART_RX_PARITY_ERROR - UART parity error detected.
+ 537:Generated_Source\PSoC4/UART_Debug_UART.c ****     *
+ 538:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  \sideeffect
+ 539:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   The errors bits may not correspond with reading characters due to
+ 540:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   RX FIFO and software buffer usage.
+ 541:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   RX software buffer is enabled: The internal software buffer overflow
+ 542:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   is not treated as an error condition.
+ 543:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   Check UART_Debug_rxBufferOverflow to capture that error condition.
+ 544:Generated_Source\PSoC4/UART_Debug_UART.c ****     *
+ 545:Generated_Source\PSoC4/UART_Debug_UART.c ****     *******************************************************************************/
+ 546:Generated_Source\PSoC4/UART_Debug_UART.c ****     uint32 UART_Debug_UartGetByte(void)
+ 547:Generated_Source\PSoC4/UART_Debug_UART.c ****     {
+ 548:Generated_Source\PSoC4/UART_Debug_UART.c ****         uint32 rxData;
+ 549:Generated_Source\PSoC4/UART_Debug_UART.c ****         uint32 tmpStatus;
+ 550:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 551:Generated_Source\PSoC4/UART_Debug_UART.c ****         #if (UART_Debug_CHECK_RX_SW_BUFFER)
+ 552:Generated_Source\PSoC4/UART_Debug_UART.c ****         {
+ 553:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_DisableInt();
+ 554:Generated_Source\PSoC4/UART_Debug_UART.c ****         }
+ 555:Generated_Source\PSoC4/UART_Debug_UART.c ****         #endif
+ 556:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 557:Generated_Source\PSoC4/UART_Debug_UART.c ****         if (0u != UART_Debug_SpiUartGetRxBufferSize())
+ 558:Generated_Source\PSoC4/UART_Debug_UART.c ****         {
+ 559:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Enables interrupt to receive more bytes: at least one byte is in
+ 560:Generated_Source\PSoC4/UART_Debug_UART.c ****             * buffer.
+ 561:Generated_Source\PSoC4/UART_Debug_UART.c ****             */
+ 562:Generated_Source\PSoC4/UART_Debug_UART.c ****             #if (UART_Debug_CHECK_RX_SW_BUFFER)
+ 563:Generated_Source\PSoC4/UART_Debug_UART.c ****             {
+ 564:Generated_Source\PSoC4/UART_Debug_UART.c ****                 UART_Debug_EnableInt();
+ 565:Generated_Source\PSoC4/UART_Debug_UART.c ****             }
+ 566:Generated_Source\PSoC4/UART_Debug_UART.c ****             #endif
+ 567:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 568:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Get received byte */
+ 569:Generated_Source\PSoC4/UART_Debug_UART.c ****             rxData = UART_Debug_SpiUartReadRxData();
+ 570:Generated_Source\PSoC4/UART_Debug_UART.c ****         }
+ 571:Generated_Source\PSoC4/UART_Debug_UART.c ****         else
+ 572:Generated_Source\PSoC4/UART_Debug_UART.c ****         {
+ 573:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Reads a byte directly from RX FIFO: underflow is raised in the
+ 574:Generated_Source\PSoC4/UART_Debug_UART.c ****             * case of empty. Otherwise the first received byte will be read.
+ 575:Generated_Source\PSoC4/UART_Debug_UART.c ****             */
+ 576:Generated_Source\PSoC4/UART_Debug_UART.c ****             rxData = UART_Debug_RX_FIFO_RD_REG;
+ 577:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 578:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 579:Generated_Source\PSoC4/UART_Debug_UART.c ****             /* Enables interrupt to receive more bytes. */
+ 580:Generated_Source\PSoC4/UART_Debug_UART.c ****             #if (UART_Debug_CHECK_RX_SW_BUFFER)
+ 581:Generated_Source\PSoC4/UART_Debug_UART.c ****             {
+ 582:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 583:Generated_Source\PSoC4/UART_Debug_UART.c ****                 /* The byte has been read from RX FIFO. Clear RX interrupt to
+ 584:Generated_Source\PSoC4/UART_Debug_UART.c ****                 * not involve interrupt handler when RX FIFO is empty.
+ 585:Generated_Source\PSoC4/UART_Debug_UART.c ****                 */
+ 586:Generated_Source\PSoC4/UART_Debug_UART.c ****                 UART_Debug_ClearRxInterruptSource(UART_Debug_INTR_RX_NOT_EMPTY);
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 17
+
+
+ 587:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 588:Generated_Source\PSoC4/UART_Debug_UART.c ****                 UART_Debug_EnableInt();
+ 589:Generated_Source\PSoC4/UART_Debug_UART.c ****             }
+ 590:Generated_Source\PSoC4/UART_Debug_UART.c ****             #endif
+ 591:Generated_Source\PSoC4/UART_Debug_UART.c ****         }
+ 592:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 593:Generated_Source\PSoC4/UART_Debug_UART.c ****         /* Get and clear RX error mask */
+ 594:Generated_Source\PSoC4/UART_Debug_UART.c ****         tmpStatus = (UART_Debug_GetRxInterruptSource() & UART_Debug_INTR_RX_ERR);
+ 595:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_ClearRxInterruptSource(UART_Debug_INTR_RX_ERR);
+ 596:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 597:Generated_Source\PSoC4/UART_Debug_UART.c ****         /* Puts together data and error status:
+ 598:Generated_Source\PSoC4/UART_Debug_UART.c ****         * MP mode and accept address: 9th bit is set to notify mark.
+ 599:Generated_Source\PSoC4/UART_Debug_UART.c ****         */
+ 600:Generated_Source\PSoC4/UART_Debug_UART.c ****         rxData |= ((uint32) (tmpStatus << 8u));
+ 601:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 602:Generated_Source\PSoC4/UART_Debug_UART.c ****         return (rxData);
+ 603:Generated_Source\PSoC4/UART_Debug_UART.c ****     }
+ 604:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 605:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 606:Generated_Source\PSoC4/UART_Debug_UART.c ****     #if !(UART_Debug_CY_SCBIP_V0 || UART_Debug_CY_SCBIP_V1)
+ 607:Generated_Source\PSoC4/UART_Debug_UART.c ****         /*******************************************************************************
+ 608:Generated_Source\PSoC4/UART_Debug_UART.c ****         * Function Name: UART_Debug_UartSetRtsPolarity
+ 609:Generated_Source\PSoC4/UART_Debug_UART.c ****         ****************************************************************************//**
+ 610:Generated_Source\PSoC4/UART_Debug_UART.c ****         *
+ 611:Generated_Source\PSoC4/UART_Debug_UART.c ****         *  Sets active polarity of RTS output signal.
+ 612:Generated_Source\PSoC4/UART_Debug_UART.c ****         *  Only available for PSoC 4100 BLE / PSoC 4200 BLE / PSoC 4100M / PSoC 4200M /
+ 613:Generated_Source\PSoC4/UART_Debug_UART.c ****         *  PSoC 4200L / PSoC 4000S / PSoC 4100S / PSoC Analog Coprocessor devices.
+ 614:Generated_Source\PSoC4/UART_Debug_UART.c ****         *
+ 615:Generated_Source\PSoC4/UART_Debug_UART.c ****         *  \param polarity: Active polarity of RTS output signal.
+ 616:Generated_Source\PSoC4/UART_Debug_UART.c ****         *   - UART_Debug_UART_RTS_ACTIVE_LOW  - RTS signal is active low.
+ 617:Generated_Source\PSoC4/UART_Debug_UART.c ****         *   - UART_Debug_UART_RTS_ACTIVE_HIGH - RTS signal is active high.
+ 618:Generated_Source\PSoC4/UART_Debug_UART.c ****         *
+ 619:Generated_Source\PSoC4/UART_Debug_UART.c ****         *******************************************************************************/
+ 620:Generated_Source\PSoC4/UART_Debug_UART.c ****         void UART_Debug_UartSetRtsPolarity(uint32 polarity)
+ 621:Generated_Source\PSoC4/UART_Debug_UART.c ****         {
+ 622:Generated_Source\PSoC4/UART_Debug_UART.c ****             if(0u != polarity)
+ 623:Generated_Source\PSoC4/UART_Debug_UART.c ****             {
+ 624:Generated_Source\PSoC4/UART_Debug_UART.c ****                 UART_Debug_UART_FLOW_CTRL_REG |= (uint32)  UART_Debug_UART_FLOW_CTRL_RTS_POLARITY;
+ 625:Generated_Source\PSoC4/UART_Debug_UART.c ****             }
+ 626:Generated_Source\PSoC4/UART_Debug_UART.c ****             else
+ 627:Generated_Source\PSoC4/UART_Debug_UART.c ****             {
+ 628:Generated_Source\PSoC4/UART_Debug_UART.c ****                 UART_Debug_UART_FLOW_CTRL_REG &= (uint32) ~UART_Debug_UART_FLOW_CTRL_RTS_POLARITY;
+ 629:Generated_Source\PSoC4/UART_Debug_UART.c ****             }
+ 630:Generated_Source\PSoC4/UART_Debug_UART.c ****         }
+ 631:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 632:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 633:Generated_Source\PSoC4/UART_Debug_UART.c ****         /*******************************************************************************
+ 634:Generated_Source\PSoC4/UART_Debug_UART.c ****         * Function Name: UART_Debug_UartSetRtsFifoLevel
+ 635:Generated_Source\PSoC4/UART_Debug_UART.c ****         ****************************************************************************//**
+ 636:Generated_Source\PSoC4/UART_Debug_UART.c ****         *
+ 637:Generated_Source\PSoC4/UART_Debug_UART.c ****         *  Sets level in the RX FIFO for RTS signal activation.
+ 638:Generated_Source\PSoC4/UART_Debug_UART.c ****         *  While the RX FIFO has fewer entries than the RX FIFO level the RTS signal
+ 639:Generated_Source\PSoC4/UART_Debug_UART.c ****         *  remains active, otherwise the RTS signal becomes inactive.
+ 640:Generated_Source\PSoC4/UART_Debug_UART.c ****         *  Only available for PSoC 4100 BLE / PSoC 4200 BLE / PSoC 4100M / PSoC 4200M /
+ 641:Generated_Source\PSoC4/UART_Debug_UART.c ****         *  PSoC 4200L / PSoC 4000S / PSoC 4100S / PSoC Analog Coprocessor devices.
+ 642:Generated_Source\PSoC4/UART_Debug_UART.c ****         *
+ 643:Generated_Source\PSoC4/UART_Debug_UART.c ****         *  \param level: Level in the RX FIFO for RTS signal activation.
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 18
+
+
+ 644:Generated_Source\PSoC4/UART_Debug_UART.c ****         *   The range of valid level values is between 0 and RX FIFO depth - 1.
+ 645:Generated_Source\PSoC4/UART_Debug_UART.c ****         *   Setting level value to 0 disables RTS signal activation.
+ 646:Generated_Source\PSoC4/UART_Debug_UART.c ****         *
+ 647:Generated_Source\PSoC4/UART_Debug_UART.c ****         *******************************************************************************/
+ 648:Generated_Source\PSoC4/UART_Debug_UART.c ****         void UART_Debug_UartSetRtsFifoLevel(uint32 level)
+ 649:Generated_Source\PSoC4/UART_Debug_UART.c ****         {
+ 650:Generated_Source\PSoC4/UART_Debug_UART.c ****             uint32 uartFlowCtrl;
+ 651:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 652:Generated_Source\PSoC4/UART_Debug_UART.c ****             uartFlowCtrl = UART_Debug_UART_FLOW_CTRL_REG;
+ 653:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 654:Generated_Source\PSoC4/UART_Debug_UART.c ****             uartFlowCtrl &= ((uint32) ~UART_Debug_UART_FLOW_CTRL_TRIGGER_LEVEL_MASK); /* Clear leve
+ 655:Generated_Source\PSoC4/UART_Debug_UART.c ****             uartFlowCtrl |= ((uint32) (UART_Debug_UART_FLOW_CTRL_TRIGGER_LEVEL_MASK & level));
+ 656:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 657:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_UART_FLOW_CTRL_REG = uartFlowCtrl;
+ 658:Generated_Source\PSoC4/UART_Debug_UART.c ****         }
+ 659:Generated_Source\PSoC4/UART_Debug_UART.c ****     #endif /* !(UART_Debug_CY_SCBIP_V0 || UART_Debug_CY_SCBIP_V1) */
+ 660:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 661:Generated_Source\PSoC4/UART_Debug_UART.c **** #endif /* (UART_Debug_UART_RX_DIRECTION) */
+ 662:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 663:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 664:Generated_Source\PSoC4/UART_Debug_UART.c **** #if(UART_Debug_UART_TX_DIRECTION)
+ 665:Generated_Source\PSoC4/UART_Debug_UART.c ****     /*******************************************************************************
+ 666:Generated_Source\PSoC4/UART_Debug_UART.c ****     * Function Name: UART_Debug_UartPutString
+ 667:Generated_Source\PSoC4/UART_Debug_UART.c ****     ****************************************************************************//**
+ 668:Generated_Source\PSoC4/UART_Debug_UART.c ****     *
+ 669:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  Places a NULL terminated string in the transmit buffer to be sent at the
+ 670:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  next available bus time.
+ 671:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  This function is blocking and waits until there is a space available to put
+ 672:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  requested data in transmit buffer.
+ 673:Generated_Source\PSoC4/UART_Debug_UART.c ****     *
+ 674:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  \param string: pointer to the null terminated string array to be placed in the
+ 675:Generated_Source\PSoC4/UART_Debug_UART.c ****     *   transmit buffer.
+ 676:Generated_Source\PSoC4/UART_Debug_UART.c ****     *
+ 677:Generated_Source\PSoC4/UART_Debug_UART.c ****     *******************************************************************************/
+ 678:Generated_Source\PSoC4/UART_Debug_UART.c ****     void UART_Debug_UartPutString(const char8 string[])
+ 679:Generated_Source\PSoC4/UART_Debug_UART.c ****     {
+ 327              		.loc 1 679 0
+ 328              		.cfi_startproc
+ 329 0000 80B5     		push	{r7, lr}
+ 330              		.cfi_def_cfa_offset 8
+ 331              		.cfi_offset 7, -8
+ 332              		.cfi_offset 14, -4
+ 333 0002 84B0     		sub	sp, sp, #16
+ 334              		.cfi_def_cfa_offset 24
+ 335 0004 00AF     		add	r7, sp, #0
+ 336              		.cfi_def_cfa_register 7
+ 337 0006 7860     		str	r0, [r7, #4]
+ 680:Generated_Source\PSoC4/UART_Debug_UART.c ****         uint32 bufIndex;
+ 681:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 682:Generated_Source\PSoC4/UART_Debug_UART.c ****         bufIndex = 0u;
+ 338              		.loc 1 682 0
+ 339 0008 0023     		mov	r3, #0
+ 340 000a FB60     		str	r3, [r7, #12]
+ 683:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 684:Generated_Source\PSoC4/UART_Debug_UART.c ****         /* Blocks the control flow until all data has been sent */
+ 685:Generated_Source\PSoC4/UART_Debug_UART.c ****         while(string[bufIndex] != ((char8) 0))
+ 341              		.loc 1 685 0
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 19
+
+
+ 342 000c 09E0     		b	.L17
+ 343              	.L18:
+ 686:Generated_Source\PSoC4/UART_Debug_UART.c ****         {
+ 687:Generated_Source\PSoC4/UART_Debug_UART.c ****             UART_Debug_UartPutChar((uint32) string[bufIndex]);
+ 344              		.loc 1 687 0
+ 345 000e 7A68     		ldr	r2, [r7, #4]
+ 346 0010 FB68     		ldr	r3, [r7, #12]
+ 347 0012 D318     		add	r3, r2, r3
+ 348 0014 1B78     		ldrb	r3, [r3]
+ 349 0016 181C     		mov	r0, r3
+ 350 0018 FFF7FEFF 		bl	UART_Debug_SpiUartWriteTxData
+ 688:Generated_Source\PSoC4/UART_Debug_UART.c ****             bufIndex++;
+ 351              		.loc 1 688 0
+ 352 001c FB68     		ldr	r3, [r7, #12]
+ 353 001e 0133     		add	r3, r3, #1
+ 354 0020 FB60     		str	r3, [r7, #12]
+ 355              	.L17:
+ 685:Generated_Source\PSoC4/UART_Debug_UART.c ****         {
+ 356              		.loc 1 685 0
+ 357 0022 7A68     		ldr	r2, [r7, #4]
+ 358 0024 FB68     		ldr	r3, [r7, #12]
+ 359 0026 D318     		add	r3, r2, r3
+ 360 0028 1B78     		ldrb	r3, [r3]
+ 361 002a 002B     		cmp	r3, #0
+ 362 002c EFD1     		bne	.L18
+ 689:Generated_Source\PSoC4/UART_Debug_UART.c ****         }
+ 690:Generated_Source\PSoC4/UART_Debug_UART.c ****     }
+ 363              		.loc 1 690 0
+ 364 002e BD46     		mov	sp, r7
+ 365 0030 04B0     		add	sp, sp, #16
+ 366              		@ sp needed
+ 367 0032 80BD     		pop	{r7, pc}
+ 368              		.cfi_endproc
+ 369              	.LFE5:
+ 370              		.size	UART_Debug_UartPutString, .-UART_Debug_UartPutString
+ 371              		.section	.text.UART_Debug_UartPutCRLF,"ax",%progbits
+ 372              		.align	2
+ 373              		.global	UART_Debug_UartPutCRLF
+ 374              		.code	16
+ 375              		.thumb_func
+ 376              		.type	UART_Debug_UartPutCRLF, %function
+ 377              	UART_Debug_UartPutCRLF:
+ 378              	.LFB6:
+ 691:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 692:Generated_Source\PSoC4/UART_Debug_UART.c **** 
+ 693:Generated_Source\PSoC4/UART_Debug_UART.c ****     /*******************************************************************************
+ 694:Generated_Source\PSoC4/UART_Debug_UART.c ****     * Function Name: UART_Debug_UartPutCRLF
+ 695:Generated_Source\PSoC4/UART_Debug_UART.c ****     ****************************************************************************//**
+ 696:Generated_Source\PSoC4/UART_Debug_UART.c ****     *
+ 697:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  Places byte of data followed by a carriage return (0x0D) and line feed
+ 698:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  (0x0A) in the transmit buffer.
+ 699:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  This function is blocking and waits until there is a space available to put
+ 700:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  all requested data in transmit buffer.
+ 701:Generated_Source\PSoC4/UART_Debug_UART.c ****     *
+ 702:Generated_Source\PSoC4/UART_Debug_UART.c ****     *  \param txDataByte: the data to be transmitted.
+ 703:Generated_Source\PSoC4/UART_Debug_UART.c ****     *
+ 704:Generated_Source\PSoC4/UART_Debug_UART.c ****     *******************************************************************************/
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 20
+
+
+ 705:Generated_Source\PSoC4/UART_Debug_UART.c ****     void UART_Debug_UartPutCRLF(uint32 txDataByte)
+ 706:Generated_Source\PSoC4/UART_Debug_UART.c ****     {
+ 379              		.loc 1 706 0
+ 380              		.cfi_startproc
+ 381 0000 80B5     		push	{r7, lr}
+ 382              		.cfi_def_cfa_offset 8
+ 383              		.cfi_offset 7, -8
+ 384              		.cfi_offset 14, -4
+ 385 0002 82B0     		sub	sp, sp, #8
+ 386              		.cfi_def_cfa_offset 16
+ 387 0004 00AF     		add	r7, sp, #0
+ 388              		.cfi_def_cfa_register 7
+ 389 0006 7860     		str	r0, [r7, #4]
+ 707:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UartPutChar(txDataByte);  /* Blocks control flow until all data has been sent */
+ 390              		.loc 1 707 0
+ 391 0008 7B68     		ldr	r3, [r7, #4]
+ 392 000a 181C     		mov	r0, r3
+ 393 000c FFF7FEFF 		bl	UART_Debug_SpiUartWriteTxData
+ 708:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UartPutChar(0x0Du);       /* Blocks control flow until all data has been sent */
+ 394              		.loc 1 708 0
+ 395 0010 0D20     		mov	r0, #13
+ 396 0012 FFF7FEFF 		bl	UART_Debug_SpiUartWriteTxData
+ 709:Generated_Source\PSoC4/UART_Debug_UART.c ****         UART_Debug_UartPutChar(0x0Au);       /* Blocks control flow until all data has been sent */
+ 397              		.loc 1 709 0
+ 398 0016 0A20     		mov	r0, #10
+ 399 0018 FFF7FEFF 		bl	UART_Debug_SpiUartWriteTxData
+ 710:Generated_Source\PSoC4/UART_Debug_UART.c ****     }
+ 400              		.loc 1 710 0
+ 401 001c BD46     		mov	sp, r7
+ 402 001e 02B0     		add	sp, sp, #8
+ 403              		@ sp needed
+ 404 0020 80BD     		pop	{r7, pc}
+ 405              		.cfi_endproc
+ 406              	.LFE6:
+ 407              		.size	UART_Debug_UartPutCRLF, .-UART_Debug_UartPutCRLF
+ 408 0022 C046     		.text
+ 409              	.Letext0:
+ 410              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 411              		.file 3 "Generated_Source\\PSoC4\\UART_Debug_PVT.h"
+ 412              		.section	.debug_info,"",%progbits
+ 413              	.Ldebug_info0:
+ 414 0000 C9010000 		.4byte	0x1c9
+ 415 0004 0400     		.2byte	0x4
+ 416 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 417 000a 04       		.byte	0x4
+ 418 000b 01       		.uleb128 0x1
+ 419 000c 0D010000 		.4byte	.LASF30
+ 420 0010 01       		.byte	0x1
+ 421 0011 74020000 		.4byte	.LASF31
+ 422 0015 14000000 		.4byte	.LASF32
+ 423 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 424 001d 00000000 		.4byte	0
+ 425 0021 00000000 		.4byte	.Ldebug_line0
+ 426 0025 02       		.uleb128 0x2
+ 427 0026 01       		.byte	0x1
+ 428 0027 06       		.byte	0x6
+ 429 0028 9D020000 		.4byte	.LASF0
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 21
+
+
+ 430 002c 02       		.uleb128 0x2
+ 431 002d 01       		.byte	0x1
+ 432 002e 08       		.byte	0x8
+ 433 002f 91000000 		.4byte	.LASF1
+ 434 0033 02       		.uleb128 0x2
+ 435 0034 02       		.byte	0x2
+ 436 0035 05       		.byte	0x5
+ 437 0036 58020000 		.4byte	.LASF2
+ 438 003a 02       		.uleb128 0x2
+ 439 003b 02       		.byte	0x2
+ 440 003c 07       		.byte	0x7
+ 441 003d CB000000 		.4byte	.LASF3
+ 442 0041 02       		.uleb128 0x2
+ 443 0042 04       		.byte	0x4
+ 444 0043 05       		.byte	0x5
+ 445 0044 62020000 		.4byte	.LASF4
+ 446 0048 02       		.uleb128 0x2
+ 447 0049 04       		.byte	0x4
+ 448 004a 07       		.byte	0x7
+ 449 004b A5000000 		.4byte	.LASF5
+ 450 004f 02       		.uleb128 0x2
+ 451 0050 08       		.byte	0x8
+ 452 0051 05       		.byte	0x5
+ 453 0052 00000000 		.4byte	.LASF6
+ 454 0056 02       		.uleb128 0x2
+ 455 0057 08       		.byte	0x8
+ 456 0058 07       		.byte	0x7
+ 457 0059 F5010000 		.4byte	.LASF7
+ 458 005d 03       		.uleb128 0x3
+ 459 005e 04       		.byte	0x4
+ 460 005f 05       		.byte	0x5
+ 461 0060 696E7400 		.ascii	"int\000"
+ 462 0064 02       		.uleb128 0x2
+ 463 0065 04       		.byte	0x4
+ 464 0066 07       		.byte	0x7
+ 465 0067 C9010000 		.4byte	.LASF8
+ 466 006b 04       		.uleb128 0x4
+ 467 006c 9B010000 		.4byte	.LASF9
+ 468 0070 02       		.byte	0x2
+ 469 0071 BA01     		.2byte	0x1ba
+ 470 0073 3A000000 		.4byte	0x3a
+ 471 0077 04       		.uleb128 0x4
+ 472 0078 C2010000 		.4byte	.LASF10
+ 473 007c 02       		.byte	0x2
+ 474 007d BB01     		.2byte	0x1bb
+ 475 007f 48000000 		.4byte	0x48
+ 476 0083 02       		.uleb128 0x2
+ 477 0084 04       		.byte	0x4
+ 478 0085 04       		.byte	0x4
+ 479 0086 8B000000 		.4byte	.LASF11
+ 480 008a 02       		.uleb128 0x2
+ 481 008b 08       		.byte	0x8
+ 482 008c 04       		.byte	0x4
+ 483 008d 06010000 		.4byte	.LASF12
+ 484 0091 04       		.uleb128 0x4
+ 485 0092 9F000000 		.4byte	.LASF13
+ 486 0096 02       		.byte	0x2
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 22
+
+
+ 487 0097 CA01     		.2byte	0x1ca
+ 488 0099 9D000000 		.4byte	0x9d
+ 489 009d 02       		.uleb128 0x2
+ 490 009e 01       		.byte	0x1
+ 491 009f 08       		.byte	0x8
+ 492 00a0 53020000 		.4byte	.LASF14
+ 493 00a4 04       		.uleb128 0x4
+ 494 00a5 0E000000 		.4byte	.LASF15
+ 495 00a9 02       		.byte	0x2
+ 496 00aa 6502     		.2byte	0x265
+ 497 00ac B0000000 		.4byte	0xb0
+ 498 00b0 05       		.uleb128 0x5
+ 499 00b1 77000000 		.4byte	0x77
+ 500 00b5 02       		.uleb128 0x2
+ 501 00b6 04       		.byte	0x4
+ 502 00b7 07       		.byte	0x7
+ 503 00b8 29020000 		.4byte	.LASF16
+ 504 00bc 06       		.uleb128 0x6
+ 505 00bd B7000000 		.4byte	.LASF17
+ 506 00c1 01       		.byte	0x1
+ 507 00c2 F5       		.byte	0xf5
+ 508 00c3 00000000 		.4byte	.LFB0
+ 509 00c7 B4000000 		.4byte	.LFE0-.LFB0
+ 510 00cb 01       		.uleb128 0x1
+ 511 00cc 9C       		.byte	0x9c
+ 512 00cd 07       		.uleb128 0x7
+ 513 00ce 6A000000 		.4byte	.LASF18
+ 514 00d2 01       		.byte	0x1
+ 515 00d3 3B01     		.2byte	0x13b
+ 516 00d5 00000000 		.4byte	.LFB1
+ 517 00d9 2C000000 		.4byte	.LFE1-.LFB1
+ 518 00dd 01       		.uleb128 0x1
+ 519 00de 9C       		.byte	0x9c
+ 520 00df 07       		.uleb128 0x7
+ 521 00e0 15020000 		.4byte	.LASF19
+ 522 00e4 01       		.byte	0x1
+ 523 00e5 6F01     		.2byte	0x16f
+ 524 00e7 00000000 		.4byte	.LFB2
+ 525 00eb 34000000 		.4byte	.LFE2-.LFB2
+ 526 00ef 01       		.uleb128 0x1
+ 527 00f0 9C       		.byte	0x9c
+ 528 00f1 08       		.uleb128 0x8
+ 529 00f2 EA000000 		.4byte	.LASF20
+ 530 00f6 01       		.byte	0x1
+ 531 00f7 AF01     		.2byte	0x1af
+ 532 00f9 00000000 		.4byte	.LFB3
+ 533 00fd 34000000 		.4byte	.LFE3-.LFB3
+ 534 0101 01       		.uleb128 0x1
+ 535 0102 9C       		.byte	0x9c
+ 536 0103 26010000 		.4byte	0x126
+ 537 0107 09       		.uleb128 0x9
+ 538 0108 ED010000 		.4byte	.LASF22
+ 539 010c 01       		.byte	0x1
+ 540 010d AF01     		.2byte	0x1af
+ 541 010f 77000000 		.4byte	0x77
+ 542 0113 02       		.uleb128 0x2
+ 543 0114 91       		.byte	0x91
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 23
+
+
+ 544 0115 6C       		.sleb128 -20
+ 545 0116 0A       		.uleb128 0xa
+ 546 0117 6B020000 		.4byte	.LASF24
+ 547 011b 01       		.byte	0x1
+ 548 011c B101     		.2byte	0x1b1
+ 549 011e 77000000 		.4byte	0x77
+ 550 0122 02       		.uleb128 0x2
+ 551 0123 91       		.byte	0x91
+ 552 0124 74       		.sleb128 -12
+ 553 0125 00       		.byte	0
+ 554 0126 08       		.uleb128 0x8
+ 555 0127 A2010000 		.4byte	.LASF21
+ 556 012b 01       		.byte	0x1
+ 557 012c C801     		.2byte	0x1c8
+ 558 012e 00000000 		.4byte	.LFB4
+ 559 0132 34000000 		.4byte	.LFE4-.LFB4
+ 560 0136 01       		.uleb128 0x1
+ 561 0137 9C       		.byte	0x9c
+ 562 0138 5B010000 		.4byte	0x15b
+ 563 013c 09       		.uleb128 0x9
+ 564 013d DE000000 		.4byte	.LASF23
+ 565 0141 01       		.byte	0x1
+ 566 0142 C801     		.2byte	0x1c8
+ 567 0144 77000000 		.4byte	0x77
+ 568 0148 02       		.uleb128 0x2
+ 569 0149 91       		.byte	0x91
+ 570 014a 6C       		.sleb128 -20
+ 571 014b 0A       		.uleb128 0xa
+ 572 014c 6B020000 		.4byte	.LASF24
+ 573 0150 01       		.byte	0x1
+ 574 0151 CA01     		.2byte	0x1ca
+ 575 0153 77000000 		.4byte	0x77
+ 576 0157 02       		.uleb128 0x2
+ 577 0158 91       		.byte	0x91
+ 578 0159 74       		.sleb128 -12
+ 579 015a 00       		.byte	0
+ 580 015b 0B       		.uleb128 0xb
+ 581 015c 51000000 		.4byte	.LASF25
+ 582 0160 01       		.byte	0x1
+ 583 0161 A602     		.2byte	0x2a6
+ 584 0163 00000000 		.4byte	.LFB5
+ 585 0167 34000000 		.4byte	.LFE5-.LFB5
+ 586 016b 01       		.uleb128 0x1
+ 587 016c 9C       		.byte	0x9c
+ 588 016d 90010000 		.4byte	0x190
+ 589 0171 09       		.uleb128 0x9
+ 590 0172 84000000 		.4byte	.LASF26
+ 591 0176 01       		.byte	0x1
+ 592 0177 A602     		.2byte	0x2a6
+ 593 0179 90010000 		.4byte	0x190
+ 594 017d 02       		.uleb128 0x2
+ 595 017e 91       		.byte	0x91
+ 596 017f 6C       		.sleb128 -20
+ 597 0180 0A       		.uleb128 0xa
+ 598 0181 0C020000 		.4byte	.LASF27
+ 599 0185 01       		.byte	0x1
+ 600 0186 A802     		.2byte	0x2a8
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 24
+
+
+ 601 0188 77000000 		.4byte	0x77
+ 602 018c 02       		.uleb128 0x2
+ 603 018d 91       		.byte	0x91
+ 604 018e 74       		.sleb128 -12
+ 605 018f 00       		.byte	0
+ 606 0190 0C       		.uleb128 0xc
+ 607 0191 04       		.byte	0x4
+ 608 0192 96010000 		.4byte	0x196
+ 609 0196 0D       		.uleb128 0xd
+ 610 0197 91000000 		.4byte	0x91
+ 611 019b 0B       		.uleb128 0xb
+ 612 019c D6010000 		.4byte	.LASF28
+ 613 01a0 01       		.byte	0x1
+ 614 01a1 C102     		.2byte	0x2c1
+ 615 01a3 00000000 		.4byte	.LFB6
+ 616 01a7 22000000 		.4byte	.LFE6-.LFB6
+ 617 01ab 01       		.uleb128 0x1
+ 618 01ac 9C       		.byte	0x9c
+ 619 01ad C1010000 		.4byte	0x1c1
+ 620 01b1 09       		.uleb128 0x9
+ 621 01b2 48020000 		.4byte	.LASF29
+ 622 01b6 01       		.byte	0x1
+ 623 01b7 C102     		.2byte	0x2c1
+ 624 01b9 77000000 		.4byte	0x77
+ 625 01bd 02       		.uleb128 0x2
+ 626 01be 91       		.byte	0x91
+ 627 01bf 74       		.sleb128 -12
+ 628 01c0 00       		.byte	0
+ 629 01c1 0E       		.uleb128 0xe
+ 630 01c2 32020000 		.4byte	.LASF33
+ 631 01c6 03       		.byte	0x3
+ 632 01c7 5B       		.byte	0x5b
+ 633 01c8 6B000000 		.4byte	0x6b
+ 634 01cc 00       		.byte	0
+ 635              		.section	.debug_abbrev,"",%progbits
+ 636              	.Ldebug_abbrev0:
+ 637 0000 01       		.uleb128 0x1
+ 638 0001 11       		.uleb128 0x11
+ 639 0002 01       		.byte	0x1
+ 640 0003 25       		.uleb128 0x25
+ 641 0004 0E       		.uleb128 0xe
+ 642 0005 13       		.uleb128 0x13
+ 643 0006 0B       		.uleb128 0xb
+ 644 0007 03       		.uleb128 0x3
+ 645 0008 0E       		.uleb128 0xe
+ 646 0009 1B       		.uleb128 0x1b
+ 647 000a 0E       		.uleb128 0xe
+ 648 000b 55       		.uleb128 0x55
+ 649 000c 17       		.uleb128 0x17
+ 650 000d 11       		.uleb128 0x11
+ 651 000e 01       		.uleb128 0x1
+ 652 000f 10       		.uleb128 0x10
+ 653 0010 17       		.uleb128 0x17
+ 654 0011 00       		.byte	0
+ 655 0012 00       		.byte	0
+ 656 0013 02       		.uleb128 0x2
+ 657 0014 24       		.uleb128 0x24
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 25
+
+
+ 658 0015 00       		.byte	0
+ 659 0016 0B       		.uleb128 0xb
+ 660 0017 0B       		.uleb128 0xb
+ 661 0018 3E       		.uleb128 0x3e
+ 662 0019 0B       		.uleb128 0xb
+ 663 001a 03       		.uleb128 0x3
+ 664 001b 0E       		.uleb128 0xe
+ 665 001c 00       		.byte	0
+ 666 001d 00       		.byte	0
+ 667 001e 03       		.uleb128 0x3
+ 668 001f 24       		.uleb128 0x24
+ 669 0020 00       		.byte	0
+ 670 0021 0B       		.uleb128 0xb
+ 671 0022 0B       		.uleb128 0xb
+ 672 0023 3E       		.uleb128 0x3e
+ 673 0024 0B       		.uleb128 0xb
+ 674 0025 03       		.uleb128 0x3
+ 675 0026 08       		.uleb128 0x8
+ 676 0027 00       		.byte	0
+ 677 0028 00       		.byte	0
+ 678 0029 04       		.uleb128 0x4
+ 679 002a 16       		.uleb128 0x16
+ 680 002b 00       		.byte	0
+ 681 002c 03       		.uleb128 0x3
+ 682 002d 0E       		.uleb128 0xe
+ 683 002e 3A       		.uleb128 0x3a
+ 684 002f 0B       		.uleb128 0xb
+ 685 0030 3B       		.uleb128 0x3b
+ 686 0031 05       		.uleb128 0x5
+ 687 0032 49       		.uleb128 0x49
+ 688 0033 13       		.uleb128 0x13
+ 689 0034 00       		.byte	0
+ 690 0035 00       		.byte	0
+ 691 0036 05       		.uleb128 0x5
+ 692 0037 35       		.uleb128 0x35
+ 693 0038 00       		.byte	0
+ 694 0039 49       		.uleb128 0x49
+ 695 003a 13       		.uleb128 0x13
+ 696 003b 00       		.byte	0
+ 697 003c 00       		.byte	0
+ 698 003d 06       		.uleb128 0x6
+ 699 003e 2E       		.uleb128 0x2e
+ 700 003f 00       		.byte	0
+ 701 0040 3F       		.uleb128 0x3f
+ 702 0041 19       		.uleb128 0x19
+ 703 0042 03       		.uleb128 0x3
+ 704 0043 0E       		.uleb128 0xe
+ 705 0044 3A       		.uleb128 0x3a
+ 706 0045 0B       		.uleb128 0xb
+ 707 0046 3B       		.uleb128 0x3b
+ 708 0047 0B       		.uleb128 0xb
+ 709 0048 27       		.uleb128 0x27
+ 710 0049 19       		.uleb128 0x19
+ 711 004a 11       		.uleb128 0x11
+ 712 004b 01       		.uleb128 0x1
+ 713 004c 12       		.uleb128 0x12
+ 714 004d 06       		.uleb128 0x6
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 26
+
+
+ 715 004e 40       		.uleb128 0x40
+ 716 004f 18       		.uleb128 0x18
+ 717 0050 9742     		.uleb128 0x2117
+ 718 0052 19       		.uleb128 0x19
+ 719 0053 00       		.byte	0
+ 720 0054 00       		.byte	0
+ 721 0055 07       		.uleb128 0x7
+ 722 0056 2E       		.uleb128 0x2e
+ 723 0057 00       		.byte	0
+ 724 0058 3F       		.uleb128 0x3f
+ 725 0059 19       		.uleb128 0x19
+ 726 005a 03       		.uleb128 0x3
+ 727 005b 0E       		.uleb128 0xe
+ 728 005c 3A       		.uleb128 0x3a
+ 729 005d 0B       		.uleb128 0xb
+ 730 005e 3B       		.uleb128 0x3b
+ 731 005f 05       		.uleb128 0x5
+ 732 0060 27       		.uleb128 0x27
+ 733 0061 19       		.uleb128 0x19
+ 734 0062 11       		.uleb128 0x11
+ 735 0063 01       		.uleb128 0x1
+ 736 0064 12       		.uleb128 0x12
+ 737 0065 06       		.uleb128 0x6
+ 738 0066 40       		.uleb128 0x40
+ 739 0067 18       		.uleb128 0x18
+ 740 0068 9742     		.uleb128 0x2117
+ 741 006a 19       		.uleb128 0x19
+ 742 006b 00       		.byte	0
+ 743 006c 00       		.byte	0
+ 744 006d 08       		.uleb128 0x8
+ 745 006e 2E       		.uleb128 0x2e
+ 746 006f 01       		.byte	0x1
+ 747 0070 3F       		.uleb128 0x3f
+ 748 0071 19       		.uleb128 0x19
+ 749 0072 03       		.uleb128 0x3
+ 750 0073 0E       		.uleb128 0xe
+ 751 0074 3A       		.uleb128 0x3a
+ 752 0075 0B       		.uleb128 0xb
+ 753 0076 3B       		.uleb128 0x3b
+ 754 0077 05       		.uleb128 0x5
+ 755 0078 27       		.uleb128 0x27
+ 756 0079 19       		.uleb128 0x19
+ 757 007a 11       		.uleb128 0x11
+ 758 007b 01       		.uleb128 0x1
+ 759 007c 12       		.uleb128 0x12
+ 760 007d 06       		.uleb128 0x6
+ 761 007e 40       		.uleb128 0x40
+ 762 007f 18       		.uleb128 0x18
+ 763 0080 9742     		.uleb128 0x2117
+ 764 0082 19       		.uleb128 0x19
+ 765 0083 01       		.uleb128 0x1
+ 766 0084 13       		.uleb128 0x13
+ 767 0085 00       		.byte	0
+ 768 0086 00       		.byte	0
+ 769 0087 09       		.uleb128 0x9
+ 770 0088 05       		.uleb128 0x5
+ 771 0089 00       		.byte	0
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 27
+
+
+ 772 008a 03       		.uleb128 0x3
+ 773 008b 0E       		.uleb128 0xe
+ 774 008c 3A       		.uleb128 0x3a
+ 775 008d 0B       		.uleb128 0xb
+ 776 008e 3B       		.uleb128 0x3b
+ 777 008f 05       		.uleb128 0x5
+ 778 0090 49       		.uleb128 0x49
+ 779 0091 13       		.uleb128 0x13
+ 780 0092 02       		.uleb128 0x2
+ 781 0093 18       		.uleb128 0x18
+ 782 0094 00       		.byte	0
+ 783 0095 00       		.byte	0
+ 784 0096 0A       		.uleb128 0xa
+ 785 0097 34       		.uleb128 0x34
+ 786 0098 00       		.byte	0
+ 787 0099 03       		.uleb128 0x3
+ 788 009a 0E       		.uleb128 0xe
+ 789 009b 3A       		.uleb128 0x3a
+ 790 009c 0B       		.uleb128 0xb
+ 791 009d 3B       		.uleb128 0x3b
+ 792 009e 05       		.uleb128 0x5
+ 793 009f 49       		.uleb128 0x49
+ 794 00a0 13       		.uleb128 0x13
+ 795 00a1 02       		.uleb128 0x2
+ 796 00a2 18       		.uleb128 0x18
+ 797 00a3 00       		.byte	0
+ 798 00a4 00       		.byte	0
+ 799 00a5 0B       		.uleb128 0xb
+ 800 00a6 2E       		.uleb128 0x2e
+ 801 00a7 01       		.byte	0x1
+ 802 00a8 3F       		.uleb128 0x3f
+ 803 00a9 19       		.uleb128 0x19
+ 804 00aa 03       		.uleb128 0x3
+ 805 00ab 0E       		.uleb128 0xe
+ 806 00ac 3A       		.uleb128 0x3a
+ 807 00ad 0B       		.uleb128 0xb
+ 808 00ae 3B       		.uleb128 0x3b
+ 809 00af 05       		.uleb128 0x5
+ 810 00b0 27       		.uleb128 0x27
+ 811 00b1 19       		.uleb128 0x19
+ 812 00b2 11       		.uleb128 0x11
+ 813 00b3 01       		.uleb128 0x1
+ 814 00b4 12       		.uleb128 0x12
+ 815 00b5 06       		.uleb128 0x6
+ 816 00b6 40       		.uleb128 0x40
+ 817 00b7 18       		.uleb128 0x18
+ 818 00b8 9642     		.uleb128 0x2116
+ 819 00ba 19       		.uleb128 0x19
+ 820 00bb 01       		.uleb128 0x1
+ 821 00bc 13       		.uleb128 0x13
+ 822 00bd 00       		.byte	0
+ 823 00be 00       		.byte	0
+ 824 00bf 0C       		.uleb128 0xc
+ 825 00c0 0F       		.uleb128 0xf
+ 826 00c1 00       		.byte	0
+ 827 00c2 0B       		.uleb128 0xb
+ 828 00c3 0B       		.uleb128 0xb
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 28
+
+
+ 829 00c4 49       		.uleb128 0x49
+ 830 00c5 13       		.uleb128 0x13
+ 831 00c6 00       		.byte	0
+ 832 00c7 00       		.byte	0
+ 833 00c8 0D       		.uleb128 0xd
+ 834 00c9 26       		.uleb128 0x26
+ 835 00ca 00       		.byte	0
+ 836 00cb 49       		.uleb128 0x49
+ 837 00cc 13       		.uleb128 0x13
+ 838 00cd 00       		.byte	0
+ 839 00ce 00       		.byte	0
+ 840 00cf 0E       		.uleb128 0xe
+ 841 00d0 34       		.uleb128 0x34
+ 842 00d1 00       		.byte	0
+ 843 00d2 03       		.uleb128 0x3
+ 844 00d3 0E       		.uleb128 0xe
+ 845 00d4 3A       		.uleb128 0x3a
+ 846 00d5 0B       		.uleb128 0xb
+ 847 00d6 3B       		.uleb128 0x3b
+ 848 00d7 0B       		.uleb128 0xb
+ 849 00d8 49       		.uleb128 0x49
+ 850 00d9 13       		.uleb128 0x13
+ 851 00da 3F       		.uleb128 0x3f
+ 852 00db 19       		.uleb128 0x19
+ 853 00dc 3C       		.uleb128 0x3c
+ 854 00dd 19       		.uleb128 0x19
+ 855 00de 00       		.byte	0
+ 856 00df 00       		.byte	0
+ 857 00e0 00       		.byte	0
+ 858              		.section	.debug_aranges,"",%progbits
+ 859 0000 4C000000 		.4byte	0x4c
+ 860 0004 0200     		.2byte	0x2
+ 861 0006 00000000 		.4byte	.Ldebug_info0
+ 862 000a 04       		.byte	0x4
+ 863 000b 00       		.byte	0
+ 864 000c 0000     		.2byte	0
+ 865 000e 0000     		.2byte	0
+ 866 0010 00000000 		.4byte	.LFB0
+ 867 0014 B4000000 		.4byte	.LFE0-.LFB0
+ 868 0018 00000000 		.4byte	.LFB1
+ 869 001c 2C000000 		.4byte	.LFE1-.LFB1
+ 870 0020 00000000 		.4byte	.LFB2
+ 871 0024 34000000 		.4byte	.LFE2-.LFB2
+ 872 0028 00000000 		.4byte	.LFB3
+ 873 002c 34000000 		.4byte	.LFE3-.LFB3
+ 874 0030 00000000 		.4byte	.LFB4
+ 875 0034 34000000 		.4byte	.LFE4-.LFB4
+ 876 0038 00000000 		.4byte	.LFB5
+ 877 003c 34000000 		.4byte	.LFE5-.LFB5
+ 878 0040 00000000 		.4byte	.LFB6
+ 879 0044 22000000 		.4byte	.LFE6-.LFB6
+ 880 0048 00000000 		.4byte	0
+ 881 004c 00000000 		.4byte	0
+ 882              		.section	.debug_ranges,"",%progbits
+ 883              	.Ldebug_ranges0:
+ 884 0000 00000000 		.4byte	.LFB0
+ 885 0004 B4000000 		.4byte	.LFE0
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 29
+
+
+ 886 0008 00000000 		.4byte	.LFB1
+ 887 000c 2C000000 		.4byte	.LFE1
+ 888 0010 00000000 		.4byte	.LFB2
+ 889 0014 34000000 		.4byte	.LFE2
+ 890 0018 00000000 		.4byte	.LFB3
+ 891 001c 34000000 		.4byte	.LFE3
+ 892 0020 00000000 		.4byte	.LFB4
+ 893 0024 34000000 		.4byte	.LFE4
+ 894 0028 00000000 		.4byte	.LFB5
+ 895 002c 34000000 		.4byte	.LFE5
+ 896 0030 00000000 		.4byte	.LFB6
+ 897 0034 22000000 		.4byte	.LFE6
+ 898 0038 00000000 		.4byte	0
+ 899 003c 00000000 		.4byte	0
+ 900              		.section	.debug_line,"",%progbits
+ 901              	.Ldebug_line0:
+ 902 0000 0D010000 		.section	.debug_str,"MS",%progbits,1
+ 902      02006000 
+ 902      00000201 
+ 902      FB0E0D00 
+ 902      01010101 
+ 903              	.LASF6:
+ 904 0000 6C6F6E67 		.ascii	"long long int\000"
+ 904      206C6F6E 
+ 904      6720696E 
+ 904      7400
+ 905              	.LASF15:
+ 906 000e 72656733 		.ascii	"reg32\000"
+ 906      3200
+ 907              	.LASF32:
+ 908 0014 433A5C55 		.ascii	"C:\\Users\\edmun\\Desktop\\KIT042_Accelerometer_Lig"
+ 908      73657273 
+ 908      5C65646D 
+ 908      756E5C44 
+ 908      65736B74 
+ 909 0043 68745061 		.ascii	"htPaint.cydsn\000"
+ 909      696E742E 
+ 909      63796473 
+ 909      6E00
+ 910              	.LASF25:
+ 911 0051 55415254 		.ascii	"UART_Debug_UartPutString\000"
+ 911      5F446562 
+ 911      75675F55 
+ 911      61727450 
+ 911      75745374 
+ 912              	.LASF18:
+ 913 006a 55415254 		.ascii	"UART_Debug_UartPostEnable\000"
+ 913      5F446562 
+ 913      75675F55 
+ 913      61727450 
+ 913      6F737445 
+ 914              	.LASF26:
+ 915 0084 73747269 		.ascii	"string\000"
+ 915      6E6700
+ 916              	.LASF11:
+ 917 008b 666C6F61 		.ascii	"float\000"
+ 917      7400
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 30
+
+
+ 918              	.LASF1:
+ 919 0091 756E7369 		.ascii	"unsigned char\000"
+ 919      676E6564 
+ 919      20636861 
+ 919      7200
+ 920              	.LASF13:
+ 921 009f 63686172 		.ascii	"char8\000"
+ 921      3800
+ 922              	.LASF5:
+ 923 00a5 6C6F6E67 		.ascii	"long unsigned int\000"
+ 923      20756E73 
+ 923      69676E65 
+ 923      6420696E 
+ 923      7400
+ 924              	.LASF17:
+ 925 00b7 55415254 		.ascii	"UART_Debug_UartInit\000"
+ 925      5F446562 
+ 925      75675F55 
+ 925      61727449 
+ 925      6E697400 
+ 926              	.LASF3:
+ 927 00cb 73686F72 		.ascii	"short unsigned int\000"
+ 927      7420756E 
+ 927      7369676E 
+ 927      65642069 
+ 927      6E7400
+ 928              	.LASF23:
+ 929 00de 61646472 		.ascii	"addressMask\000"
+ 929      6573734D 
+ 929      61736B00 
+ 930              	.LASF20:
+ 931 00ea 55415254 		.ascii	"UART_Debug_UartSetRxAddress\000"
+ 931      5F446562 
+ 931      75675F55 
+ 931      61727453 
+ 931      65745278 
+ 932              	.LASF12:
+ 933 0106 646F7562 		.ascii	"double\000"
+ 933      6C6500
+ 934              	.LASF30:
+ 935 010d 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 935      4320342E 
+ 935      392E3320 
+ 935      32303135 
+ 935      30333033 
+ 936 0140 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 936      20726576 
+ 936      6973696F 
+ 936      6E203232 
+ 936      31323230 
+ 937 0173 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 937      66756E63 
+ 937      74696F6E 
+ 937      2D736563 
+ 937      74696F6E 
+ 938              	.LASF9:
+ 939 019b 75696E74 		.ascii	"uint16\000"
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 31
+
+
+ 939      313600
+ 940              	.LASF21:
+ 941 01a2 55415254 		.ascii	"UART_Debug_UartSetRxAddressMask\000"
+ 941      5F446562 
+ 941      75675F55 
+ 941      61727453 
+ 941      65745278 
+ 942              	.LASF10:
+ 943 01c2 75696E74 		.ascii	"uint32\000"
+ 943      333200
+ 944              	.LASF8:
+ 945 01c9 756E7369 		.ascii	"unsigned int\000"
+ 945      676E6564 
+ 945      20696E74 
+ 945      00
+ 946              	.LASF28:
+ 947 01d6 55415254 		.ascii	"UART_Debug_UartPutCRLF\000"
+ 947      5F446562 
+ 947      75675F55 
+ 947      61727450 
+ 947      75744352 
+ 948              	.LASF22:
+ 949 01ed 61646472 		.ascii	"address\000"
+ 949      65737300 
+ 950              	.LASF7:
+ 951 01f5 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 951      206C6F6E 
+ 951      6720756E 
+ 951      7369676E 
+ 951      65642069 
+ 952              	.LASF27:
+ 953 020c 62756649 		.ascii	"bufIndex\000"
+ 953      6E646578 
+ 953      00
+ 954              	.LASF19:
+ 955 0215 55415254 		.ascii	"UART_Debug_UartStop\000"
+ 955      5F446562 
+ 955      75675F55 
+ 955      61727453 
+ 955      746F7000 
+ 956              	.LASF16:
+ 957 0229 73697A65 		.ascii	"sizetype\000"
+ 957      74797065 
+ 957      00
+ 958              	.LASF33:
+ 959 0232 55415254 		.ascii	"UART_Debug_IntrTxMask\000"
+ 959      5F446562 
+ 959      75675F49 
+ 959      6E747254 
+ 959      784D6173 
+ 960              	.LASF29:
+ 961 0248 74784461 		.ascii	"txDataByte\000"
+ 961      74614279 
+ 961      746500
+ 962              	.LASF14:
+ 963 0253 63686172 		.ascii	"char\000"
+ 963      00
+ARM GAS  C:\Users\edmun\AppData\Local\Temp\ccB9aXxI.s 			page 32
+
+
+ 964              	.LASF2:
+ 965 0258 73686F72 		.ascii	"short int\000"
+ 965      7420696E 
+ 965      7400
+ 966              	.LASF4:
+ 967 0262 6C6F6E67 		.ascii	"long int\000"
+ 967      20696E74 
+ 967      00
+ 968              	.LASF24:
+ 969 026b 6D617463 		.ascii	"matchReg\000"
+ 969      68526567 
+ 969      00
+ 970              	.LASF31:
+ 971 0274 47656E65 		.ascii	"Generated_Source\\PSoC4\\UART_Debug_UART.c\000"
+ 971      72617465 
+ 971      645F536F 
+ 971      75726365 
+ 971      5C50536F 
+ 972              	.LASF0:
+ 973 029d 7369676E 		.ascii	"signed char\000"
+ 973      65642063 
+ 973      68617200 
+ 974              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

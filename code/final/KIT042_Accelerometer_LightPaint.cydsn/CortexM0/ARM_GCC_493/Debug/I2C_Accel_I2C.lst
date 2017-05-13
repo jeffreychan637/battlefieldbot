@@ -1,0 +1,954 @@
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\cck8ee7A.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"I2C_Accel_I2C.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.comm	I2C_Accel_state,1,1
+  18              		.section	.text.I2C_Accel_I2CInit,"ax",%progbits
+  19              		.align	2
+  20              		.global	I2C_Accel_I2CInit
+  21              		.code	16
+  22              		.thumb_func
+  23              		.type	I2C_Accel_I2CInit, %function
+  24              	I2C_Accel_I2CInit:
+  25              	.LFB0:
+  26              		.file 1 "Generated_Source\\PSoC4\\I2C_Accel_I2C.c"
+   1:Generated_Source\PSoC4/I2C_Accel_I2C.c **** /***************************************************************************//**
+   2:Generated_Source\PSoC4/I2C_Accel_I2C.c **** * \file I2C_Accel_I2C.c
+   3:Generated_Source\PSoC4/I2C_Accel_I2C.c **** * \version 3.20
+   4:Generated_Source\PSoC4/I2C_Accel_I2C.c **** *
+   5:Generated_Source\PSoC4/I2C_Accel_I2C.c **** * \brief
+   6:Generated_Source\PSoC4/I2C_Accel_I2C.c **** *  This file provides the source code to the API for the SCB Component in
+   7:Generated_Source\PSoC4/I2C_Accel_I2C.c **** *  I2C mode.
+   8:Generated_Source\PSoC4/I2C_Accel_I2C.c **** *
+   9:Generated_Source\PSoC4/I2C_Accel_I2C.c **** * Note:
+  10:Generated_Source\PSoC4/I2C_Accel_I2C.c **** *
+  11:Generated_Source\PSoC4/I2C_Accel_I2C.c **** *******************************************************************************
+  12:Generated_Source\PSoC4/I2C_Accel_I2C.c **** * \copyright
+  13:Generated_Source\PSoC4/I2C_Accel_I2C.c **** * Copyright 2013-2016, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC4/I2C_Accel_I2C.c **** * You may use this file only in accordance with the license, terms, conditions,
+  15:Generated_Source\PSoC4/I2C_Accel_I2C.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  16:Generated_Source\PSoC4/I2C_Accel_I2C.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC4/I2C_Accel_I2C.c **** *******************************************************************************/
+  18:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+  19:Generated_Source\PSoC4/I2C_Accel_I2C.c **** #include "I2C_Accel_PVT.h"
+  20:Generated_Source\PSoC4/I2C_Accel_I2C.c **** #include "I2C_Accel_I2C_PVT.h"
+  21:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+  22:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+  23:Generated_Source\PSoC4/I2C_Accel_I2C.c **** /***************************************
+  24:Generated_Source\PSoC4/I2C_Accel_I2C.c **** *      I2C Private Vars
+  25:Generated_Source\PSoC4/I2C_Accel_I2C.c **** ***************************************/
+  26:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+  27:Generated_Source\PSoC4/I2C_Accel_I2C.c **** volatile uint8 I2C_Accel_state;  /* Current state of I2C FSM */
+  28:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+  29:Generated_Source\PSoC4/I2C_Accel_I2C.c **** #if(I2C_Accel_SCB_MODE_UNCONFIG_CONST_CFG)
+  30:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+  31:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     /***************************************
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\cck8ee7A.s 			page 2
+
+
+  32:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *  Configuration Structure Initialization
+  33:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     ***************************************/
+  34:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+  35:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     /* Constant configuration of I2C */
+  36:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     const I2C_Accel_I2C_INIT_STRUCT I2C_Accel_configI2C =
+  37:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     {
+  38:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_I2C_MODE,
+  39:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_I2C_OVS_FACTOR_LOW,
+  40:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_I2C_OVS_FACTOR_HIGH,
+  41:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_I2C_MEDIAN_FILTER_ENABLE,
+  42:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_I2C_SLAVE_ADDRESS,
+  43:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_I2C_SLAVE_ADDRESS_MASK,
+  44:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_I2C_ACCEPT_ADDRESS,
+  45:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_I2C_WAKE_ENABLE,
+  46:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_I2C_BYTE_MODE_ENABLE,
+  47:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_I2C_DATA_RATE,
+  48:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_I2C_ACCEPT_GENERAL_CALL,
+  49:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     };
+  50:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+  51:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     /*******************************************************************************
+  52:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     * Function Name: I2C_Accel_I2CInit
+  53:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     ****************************************************************************//**
+  54:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *
+  55:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *
+  56:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *  Configures the I2C_Accel for I2C operation.
+  57:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *
+  58:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *  This function is intended specifically to be used when the I2C_Accel 
+  59:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *  configuration is set to “Unconfigured I2C_Accel” in the customizer. 
+  60:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *  After initializing the I2C_Accel in I2C mode using this function, 
+  61:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *  the component can be enabled using the I2C_Accel_Start() or 
+  62:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     * I2C_Accel_Enable() function.
+  63:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *  This function uses a pointer to a structure that provides the configuration 
+  64:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *  settings. This structure contains the same information that would otherwise 
+  65:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *  be provided by the customizer settings.
+  66:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *
+  67:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *  \param config: pointer to a structure that contains the following list of 
+  68:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *   fields. These fields match the selections available in the customizer. 
+  69:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *   Refer to the customizer for further description of the settings.
+  70:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *
+  71:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *******************************************************************************/
+  72:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     void I2C_Accel_I2CInit(const I2C_Accel_I2C_INIT_STRUCT *config)
+  73:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     {
+  74:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         uint32 medianFilter;
+  75:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         uint32 locEnableWake;
+  76:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+  77:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         if(NULL == config)
+  78:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         {
+  79:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             CYASSERT(0u != 0u); /* Halt execution due to bad function parameter */
+  80:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         }
+  81:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         else
+  82:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         {
+  83:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             /* Configure pins */
+  84:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_SetPins(I2C_Accel_SCB_MODE_I2C, I2C_Accel_DUMMY_PARAM,
+  85:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                                      I2C_Accel_DUMMY_PARAM);
+  86:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+  87:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             /* Store internal configuration */
+  88:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_scbMode       = (uint8) I2C_Accel_SCB_MODE_I2C;
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\cck8ee7A.s 			page 3
+
+
+  89:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_scbEnableWake = (uint8) config->enableWake;
+  90:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_scbEnableIntr = (uint8) I2C_Accel_SCB_IRQ_INTERNAL;
+  91:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+  92:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_mode          = (uint8) config->mode;
+  93:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_acceptAddr    = (uint8) config->acceptAddr;
+  94:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+  95:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         #if (I2C_Accel_CY_SCBIP_V0)
+  96:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             /* Adjust SDA filter settings. Ticket ID#150521 */
+  97:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_SET_I2C_CFG_SDA_FILT_TRIM(I2C_Accel_EC_AM_I2C_CFG_SDA_FILT_TRIM);
+  98:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         #endif /* (I2C_Accel_CY_SCBIP_V0) */
+  99:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 100:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             /* Adjust AF and DF filter settings. Ticket ID#176179 */
+ 101:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             if (((I2C_Accel_I2C_MODE_SLAVE != config->mode) &&
+ 102:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                  (config->dataRate <= I2C_Accel_I2C_DATA_RATE_FS_MODE_MAX)) ||
+ 103:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                  (I2C_Accel_I2C_MODE_SLAVE == config->mode))
+ 104:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             {
+ 105:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                 /* AF = 1, DF = 0 */
+ 106:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                 I2C_Accel_I2C_CFG_ANALOG_FITER_ENABLE;
+ 107:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                 medianFilter = I2C_Accel_DIGITAL_FILTER_DISABLE;
+ 108:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             }
+ 109:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             else
+ 110:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             {
+ 111:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                 /* AF = 0, DF = 1 */
+ 112:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                 I2C_Accel_I2C_CFG_ANALOG_FITER_DISABLE;
+ 113:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                 medianFilter = I2C_Accel_DIGITAL_FILTER_ENABLE;
+ 114:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             }
+ 115:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 116:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         #if (!I2C_Accel_CY_SCBIP_V0)
+ 117:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             locEnableWake = (I2C_Accel_I2C_MULTI_MASTER_SLAVE) ? (0u) : (config->enableWake);
+ 118:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         #else
+ 119:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             locEnableWake = config->enableWake;
+ 120:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         #endif /* (!I2C_Accel_CY_SCBIP_V0) */
+ 121:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 122:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             /* Configure I2C interface */
+ 123:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_CTRL_REG     = I2C_Accel_GET_CTRL_BYTE_MODE  (config->enableByteMode) |
+ 124:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                                             I2C_Accel_GET_CTRL_ADDR_ACCEPT(config->acceptAddr)     
+ 125:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                                             I2C_Accel_GET_CTRL_EC_AM_MODE (locEnableWake);
+ 126:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 127:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_I2C_CTRL_REG = I2C_Accel_GET_I2C_CTRL_HIGH_PHASE_OVS(config->oversampleHigh) 
+ 128:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                     I2C_Accel_GET_I2C_CTRL_LOW_PHASE_OVS (config->oversampleLow)                   
+ 129:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                     I2C_Accel_GET_I2C_CTRL_S_GENERAL_IGNORE((uint32)(0u == config->acceptGeneralAdd
+ 130:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                     I2C_Accel_GET_I2C_CTRL_SL_MSTR_MODE  (config->mode);
+ 131:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 132:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             /* Configure RX direction */
+ 133:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_RX_CTRL_REG      = I2C_Accel_GET_RX_CTRL_MEDIAN(medianFilter) |
+ 134:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                                                 I2C_Accel_I2C_RX_CTRL;
+ 135:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_RX_FIFO_CTRL_REG = I2C_Accel_CLEAR_REG;
+ 136:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 137:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             /* Set default address and mask */
+ 138:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_RX_MATCH_REG    = ((I2C_Accel_I2C_SLAVE) ?
+ 139:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                                                 (I2C_Accel_GET_I2C_8BIT_ADDRESS(config->slaveAddr) 
+ 140:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                                                  I2C_Accel_GET_RX_MATCH_MASK(config->slaveAddrMask)
+ 141:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                                                 (I2C_Accel_CLEAR_REG));
+ 142:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 143:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 144:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             /* Configure TX direction */
+ 145:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_TX_CTRL_REG      = I2C_Accel_I2C_TX_CTRL;
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\cck8ee7A.s 			page 4
+
+
+ 146:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_TX_FIFO_CTRL_REG = I2C_Accel_CLEAR_REG;
+ 147:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 148:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             /* Configure interrupt with I2C handler but do not enable it */
+ 149:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             CyIntDisable    (I2C_Accel_ISR_NUMBER);
+ 150:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             CyIntSetPriority(I2C_Accel_ISR_NUMBER, I2C_Accel_ISR_PRIORITY);
+ 151:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             (void) CyIntSetVector(I2C_Accel_ISR_NUMBER, &I2C_Accel_I2C_ISR);
+ 152:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 153:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             /* Configure interrupt sources */
+ 154:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         #if(!I2C_Accel_CY_SCBIP_V1)
+ 155:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_INTR_SPI_EC_MASK_REG = I2C_Accel_NO_INTR_SOURCES;
+ 156:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         #endif /* (!I2C_Accel_CY_SCBIP_V1) */
+ 157:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 158:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_INTR_I2C_EC_MASK_REG = I2C_Accel_NO_INTR_SOURCES;
+ 159:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_INTR_RX_MASK_REG     = I2C_Accel_NO_INTR_SOURCES;
+ 160:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_INTR_TX_MASK_REG     = I2C_Accel_NO_INTR_SOURCES;
+ 161:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 162:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_INTR_SLAVE_MASK_REG  = ((I2C_Accel_I2C_SLAVE) ?
+ 163:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                             (I2C_Accel_GET_INTR_SLAVE_I2C_GENERAL(config->acceptGeneralAddr) |
+ 164:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                              I2C_Accel_I2C_INTR_SLAVE_MASK) : (I2C_Accel_CLEAR_REG));
+ 165:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 166:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_INTR_MASTER_MASK_REG = ((I2C_Accel_I2C_MASTER) ?
+ 167:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                                                      (I2C_Accel_I2C_INTR_MASTER_MASK) :
+ 168:Generated_Source\PSoC4/I2C_Accel_I2C.c ****                                                      (I2C_Accel_CLEAR_REG));
+ 169:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 170:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             /* Configure global variables */
+ 171:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_state = I2C_Accel_I2C_FSM_IDLE;
+ 172:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 173:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             /* Internal slave variables */
+ 174:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_slStatus        = 0u;
+ 175:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_slRdBufIndex    = 0u;
+ 176:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_slWrBufIndex    = 0u;
+ 177:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_slOverFlowCount = 0u;
+ 178:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 179:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             /* Internal master variables */
+ 180:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_mstrStatus     = 0u;
+ 181:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_mstrRdBufIndex = 0u;
+ 182:Generated_Source\PSoC4/I2C_Accel_I2C.c ****             I2C_Accel_mstrWrBufIndex = 0u;
+ 183:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         }
+ 184:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     }
+ 185:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 186:Generated_Source\PSoC4/I2C_Accel_I2C.c **** #else
+ 187:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 188:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     /*******************************************************************************
+ 189:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     * Function Name: I2C_Accel_I2CInit
+ 190:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     ****************************************************************************//**
+ 191:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *
+ 192:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *  Configures the SCB for the I2C operation.
+ 193:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *
+ 194:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     *******************************************************************************/
+ 195:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     void I2C_Accel_I2CInit(void)
+ 196:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     {
+  27              		.loc 1 196 0
+  28              		.cfi_startproc
+  29 0000 80B5     		push	{r7, lr}
+  30              		.cfi_def_cfa_offset 8
+  31              		.cfi_offset 7, -8
+  32              		.cfi_offset 14, -4
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\cck8ee7A.s 			page 5
+
+
+  33 0002 00AF     		add	r7, sp, #0
+  34              		.cfi_def_cfa_register 7
+ 197:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     #if(I2C_Accel_CY_SCBIP_V0)
+ 198:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         /* Adjust SDA filter settings. Ticket ID#150521 */
+ 199:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_SET_I2C_CFG_SDA_FILT_TRIM(I2C_Accel_EC_AM_I2C_CFG_SDA_FILT_TRIM);
+  35              		.loc 1 199 0
+  36 0004 234B     		ldr	r3, .L2
+  37 0006 234A     		ldr	r2, .L2
+  38 0008 1268     		ldr	r2, [r2]
+  39 000a 0C21     		mov	r1, #12
+  40 000c 0A43     		orr	r2, r1
+  41 000e 1A60     		str	r2, [r3]
+ 200:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     #endif /* (I2C_Accel_CY_SCBIP_V0) */
+ 201:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 202:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         /* Adjust AF and DF filter settings. Ticket ID#176179 */
+ 203:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_I2C_CFG_ANALOG_FITER_ENABLE_ADJ;
+ 204:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 205:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         /* Configure I2C interface */
+ 206:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_CTRL_REG     = I2C_Accel_I2C_DEFAULT_CTRL;
+  42              		.loc 1 206 0
+  43 0010 214B     		ldr	r3, .L2+4
+  44 0012 0022     		mov	r2, #0
+  45 0014 1A60     		str	r2, [r3]
+ 207:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_I2C_CTRL_REG = I2C_Accel_I2C_DEFAULT_I2C_CTRL;
+  46              		.loc 1 207 0
+  47 0016 214B     		ldr	r3, .L2+8
+  48 0018 214A     		ldr	r2, .L2+12
+  49 001a 1A60     		str	r2, [r3]
+ 208:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 209:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         /* Configure RX direction */
+ 210:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_RX_CTRL_REG      = I2C_Accel_I2C_DEFAULT_RX_CTRL;
+  50              		.loc 1 210 0
+  51 001c 214B     		ldr	r3, .L2+16
+  52 001e 224A     		ldr	r2, .L2+20
+  53 0020 1A60     		str	r2, [r3]
+ 211:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_RX_FIFO_CTRL_REG = I2C_Accel_I2C_DEFAULT_RX_FIFO_CTRL;
+  54              		.loc 1 211 0
+  55 0022 224B     		ldr	r3, .L2+24
+  56 0024 0022     		mov	r2, #0
+  57 0026 1A60     		str	r2, [r3]
+ 212:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 213:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         /* Set default address and mask */
+ 214:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_RX_MATCH_REG     = I2C_Accel_I2C_DEFAULT_RX_MATCH;
+  58              		.loc 1 214 0
+  59 0028 214B     		ldr	r3, .L2+28
+  60 002a 0022     		mov	r2, #0
+  61 002c 1A60     		str	r2, [r3]
+ 215:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 216:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         /* Configure TX direction */
+ 217:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_TX_CTRL_REG      = I2C_Accel_I2C_DEFAULT_TX_CTRL;
+  62              		.loc 1 217 0
+  63 002e 214B     		ldr	r3, .L2+32
+  64 0030 1D4A     		ldr	r2, .L2+20
+  65 0032 1A60     		str	r2, [r3]
+ 218:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_TX_FIFO_CTRL_REG = I2C_Accel_I2C_DEFAULT_TX_FIFO_CTRL;
+  66              		.loc 1 218 0
+  67 0034 204B     		ldr	r3, .L2+36
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\cck8ee7A.s 			page 6
+
+
+  68 0036 0022     		mov	r2, #0
+  69 0038 1A60     		str	r2, [r3]
+ 219:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 220:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         /* Configure interrupt with I2C handler but do not enable it */
+ 221:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         CyIntDisable    (I2C_Accel_ISR_NUMBER);
+  70              		.loc 1 221 0
+  71 003a 0B20     		mov	r0, #11
+  72 003c FFF7FEFF 		bl	CyIntDisable
+ 222:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         CyIntSetPriority(I2C_Accel_ISR_NUMBER, I2C_Accel_ISR_PRIORITY);
+  73              		.loc 1 222 0
+  74 0040 0B20     		mov	r0, #11
+  75 0042 0321     		mov	r1, #3
+  76 0044 FFF7FEFF 		bl	CyIntSetPriority
+ 223:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     #if(!I2C_Accel_I2C_EXTERN_INTR_HANDLER)
+ 224:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         (void) CyIntSetVector(I2C_Accel_ISR_NUMBER, &I2C_Accel_I2C_ISR);
+  77              		.loc 1 224 0
+  78 0048 1C4B     		ldr	r3, .L2+40
+  79 004a 0B20     		mov	r0, #11
+  80 004c 191C     		mov	r1, r3
+  81 004e FFF7FEFF 		bl	CyIntSetVector
+ 225:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     #endif /* (I2C_Accel_I2C_EXTERN_INTR_HANDLER) */
+ 226:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 227:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         /* Configure interrupt sources */
+ 228:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     #if(!I2C_Accel_CY_SCBIP_V1)
+ 229:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_INTR_SPI_EC_MASK_REG = I2C_Accel_I2C_DEFAULT_INTR_SPI_EC_MASK;
+  82              		.loc 1 229 0
+  83 0052 1B4B     		ldr	r3, .L2+44
+  84 0054 0022     		mov	r2, #0
+  85 0056 1A60     		str	r2, [r3]
+ 230:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     #endif /* (!I2C_Accel_CY_SCBIP_V1) */
+ 231:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 232:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_INTR_I2C_EC_MASK_REG = I2C_Accel_I2C_DEFAULT_INTR_I2C_EC_MASK;
+  86              		.loc 1 232 0
+  87 0058 1A4B     		ldr	r3, .L2+48
+  88 005a 0022     		mov	r2, #0
+  89 005c 1A60     		str	r2, [r3]
+ 233:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_INTR_SLAVE_MASK_REG  = I2C_Accel_I2C_DEFAULT_INTR_SLAVE_MASK;
+  90              		.loc 1 233 0
+  91 005e 1A4B     		ldr	r3, .L2+52
+  92 0060 0022     		mov	r2, #0
+  93 0062 1A60     		str	r2, [r3]
+ 234:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_INTR_MASTER_MASK_REG = I2C_Accel_I2C_DEFAULT_INTR_MASTER_MASK;
+  94              		.loc 1 234 0
+  95 0064 194B     		ldr	r3, .L2+56
+  96 0066 1422     		mov	r2, #20
+  97 0068 FF32     		add	r2, r2, #255
+  98 006a 1A60     		str	r2, [r3]
+ 235:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_INTR_RX_MASK_REG     = I2C_Accel_I2C_DEFAULT_INTR_RX_MASK;
+  99              		.loc 1 235 0
+ 100 006c 184B     		ldr	r3, .L2+60
+ 101 006e 0022     		mov	r2, #0
+ 102 0070 1A60     		str	r2, [r3]
+ 236:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_INTR_TX_MASK_REG     = I2C_Accel_I2C_DEFAULT_INTR_TX_MASK;
+ 103              		.loc 1 236 0
+ 104 0072 184B     		ldr	r3, .L2+64
+ 105 0074 0022     		mov	r2, #0
+ 106 0076 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\cck8ee7A.s 			page 7
+
+
+ 237:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 238:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         /* Configure global variables */
+ 239:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_state = I2C_Accel_I2C_FSM_IDLE;
+ 107              		.loc 1 239 0
+ 108 0078 174B     		ldr	r3, .L2+68
+ 109 007a 1022     		mov	r2, #16
+ 110 007c 1A70     		strb	r2, [r3]
+ 240:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 241:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     #if(I2C_Accel_I2C_SLAVE)
+ 242:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         /* Internal slave variable */
+ 243:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_slStatus        = 0u;
+ 244:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_slRdBufIndex    = 0u;
+ 245:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_slWrBufIndex    = 0u;
+ 246:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_slOverFlowCount = 0u;
+ 247:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     #endif /* (I2C_Accel_I2C_SLAVE) */
+ 248:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 249:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     #if(I2C_Accel_I2C_MASTER)
+ 250:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     /* Internal master variable */
+ 251:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_mstrStatus     = 0u;
+ 111              		.loc 1 251 0
+ 112 007e 174B     		ldr	r3, .L2+72
+ 113 0080 0022     		mov	r2, #0
+ 114 0082 1A80     		strh	r2, [r3]
+ 252:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_mstrRdBufIndex = 0u;
+ 115              		.loc 1 252 0
+ 116 0084 164B     		ldr	r3, .L2+76
+ 117 0086 0022     		mov	r2, #0
+ 118 0088 1A60     		str	r2, [r3]
+ 253:Generated_Source\PSoC4/I2C_Accel_I2C.c ****         I2C_Accel_mstrWrBufIndex = 0u;
+ 119              		.loc 1 253 0
+ 120 008a 164B     		ldr	r3, .L2+80
+ 121 008c 0022     		mov	r2, #0
+ 122 008e 1A60     		str	r2, [r3]
+ 254:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     #endif /* (I2C_Accel_I2C_MASTER) */
+ 255:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     }
+ 123              		.loc 1 255 0
+ 124 0090 BD46     		mov	sp, r7
+ 125              		@ sp needed
+ 126 0092 80BD     		pop	{r7, pc}
+ 127              	.L3:
+ 128              		.align	2
+ 129              	.L2:
+ 130 0094 70000740 		.word	1074200688
+ 131 0098 00000740 		.word	1074200576
+ 132 009c 60000740 		.word	1074200672
+ 133 00a0 77080080 		.word	-2147481481
+ 134 00a4 00030740 		.word	1074201344
+ 135 00a8 07010080 		.word	-2147483385
+ 136 00ac 04030740 		.word	1074201348
+ 137 00b0 10030740 		.word	1074201360
+ 138 00b4 00020740 		.word	1074201088
+ 139 00b8 04020740 		.word	1074201092
+ 140 00bc 00000000 		.word	I2C_Accel_I2C_ISR
+ 141 00c0 C80E0740 		.word	1074204360
+ 142 00c4 880E0740 		.word	1074204296
+ 143 00c8 480F0740 		.word	1074204488
+ 144 00cc 080F0740 		.word	1074204424
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\cck8ee7A.s 			page 8
+
+
+ 145 00d0 C80F0740 		.word	1074204616
+ 146 00d4 880F0740 		.word	1074204552
+ 147 00d8 00000000 		.word	I2C_Accel_state
+ 148 00dc 00000000 		.word	I2C_Accel_mstrStatus
+ 149 00e0 00000000 		.word	I2C_Accel_mstrRdBufIndex
+ 150 00e4 00000000 		.word	I2C_Accel_mstrWrBufIndex
+ 151              		.cfi_endproc
+ 152              	.LFE0:
+ 153              		.size	I2C_Accel_I2CInit, .-I2C_Accel_I2CInit
+ 154              		.section	.text.I2C_Accel_I2CStop,"ax",%progbits
+ 155              		.align	2
+ 156              		.global	I2C_Accel_I2CStop
+ 157              		.code	16
+ 158              		.thumb_func
+ 159              		.type	I2C_Accel_I2CStop, %function
+ 160              	I2C_Accel_I2CStop:
+ 161              	.LFB1:
+ 256:Generated_Source\PSoC4/I2C_Accel_I2C.c **** #endif /* (I2C_Accel_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 257:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 258:Generated_Source\PSoC4/I2C_Accel_I2C.c **** 
+ 259:Generated_Source\PSoC4/I2C_Accel_I2C.c **** /*******************************************************************************
+ 260:Generated_Source\PSoC4/I2C_Accel_I2C.c **** * Function Name: I2C_Accel_I2CStop
+ 261:Generated_Source\PSoC4/I2C_Accel_I2C.c **** ****************************************************************************//**
+ 262:Generated_Source\PSoC4/I2C_Accel_I2C.c **** *
+ 263:Generated_Source\PSoC4/I2C_Accel_I2C.c **** *  Resets the I2C FSM into the default state.
+ 264:Generated_Source\PSoC4/I2C_Accel_I2C.c **** *
+ 265:Generated_Source\PSoC4/I2C_Accel_I2C.c **** *******************************************************************************/
+ 266:Generated_Source\PSoC4/I2C_Accel_I2C.c **** void I2C_Accel_I2CStop(void)
+ 267:Generated_Source\PSoC4/I2C_Accel_I2C.c **** {
+ 162              		.loc 1 267 0
+ 163              		.cfi_startproc
+ 164 0000 80B5     		push	{r7, lr}
+ 165              		.cfi_def_cfa_offset 8
+ 166              		.cfi_offset 7, -8
+ 167              		.cfi_offset 14, -4
+ 168 0002 00AF     		add	r7, sp, #0
+ 169              		.cfi_def_cfa_register 7
+ 268:Generated_Source\PSoC4/I2C_Accel_I2C.c ****     I2C_Accel_state = I2C_Accel_I2C_FSM_IDLE;
+ 170              		.loc 1 268 0
+ 171 0004 024B     		ldr	r3, .L5
+ 172 0006 1022     		mov	r2, #16
+ 173 0008 1A70     		strb	r2, [r3]
+ 269:Generated_Source\PSoC4/I2C_Accel_I2C.c **** }
+ 174              		.loc 1 269 0
+ 175 000a BD46     		mov	sp, r7
+ 176              		@ sp needed
+ 177 000c 80BD     		pop	{r7, pc}
+ 178              	.L6:
+ 179 000e C046     		.align	2
+ 180              	.L5:
+ 181 0010 00000000 		.word	I2C_Accel_state
+ 182              		.cfi_endproc
+ 183              	.LFE1:
+ 184              		.size	I2C_Accel_I2CStop, .-I2C_Accel_I2CStop
+ 185              		.text
+ 186              	.Letext0:
+ 187              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\cck8ee7A.s 			page 9
+
+
+ 188              		.file 3 "Generated_Source\\PSoC4\\I2C_Accel_I2C_PVT.h"
+ 189              		.section	.debug_info,"",%progbits
+ 190              	.Ldebug_info0:
+ 191 0000 18010000 		.4byte	0x118
+ 192 0004 0400     		.2byte	0x4
+ 193 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 194 000a 04       		.byte	0x4
+ 195 000b 01       		.uleb128 0x1
+ 196 000c 04010000 		.4byte	.LASF23
+ 197 0010 01       		.byte	0x1
+ 198 0011 CE010000 		.4byte	.LASF24
+ 199 0015 91000000 		.4byte	.LASF25
+ 200 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 201 001d 00000000 		.4byte	0
+ 202 0021 00000000 		.4byte	.Ldebug_line0
+ 203 0025 02       		.uleb128 0x2
+ 204 0026 01       		.byte	0x1
+ 205 0027 06       		.byte	0x6
+ 206 0028 1E020000 		.4byte	.LASF0
+ 207 002c 02       		.uleb128 0x2
+ 208 002d 01       		.byte	0x1
+ 209 002e 08       		.byte	0x8
+ 210 002f 22000000 		.4byte	.LASF1
+ 211 0033 02       		.uleb128 0x2
+ 212 0034 02       		.byte	0x2
+ 213 0035 05       		.byte	0x5
+ 214 0036 30020000 		.4byte	.LASF2
+ 215 003a 02       		.uleb128 0x2
+ 216 003b 02       		.byte	0x2
+ 217 003c 07       		.byte	0x7
+ 218 003d 0B020000 		.4byte	.LASF3
+ 219 0041 02       		.uleb128 0x2
+ 220 0042 04       		.byte	0x4
+ 221 0043 05       		.byte	0x5
+ 222 0044 F5010000 		.4byte	.LASF4
+ 223 0048 02       		.uleb128 0x2
+ 224 0049 04       		.byte	0x4
+ 225 004a 07       		.byte	0x7
+ 226 004b 4F000000 		.4byte	.LASF5
+ 227 004f 02       		.uleb128 0x2
+ 228 0050 08       		.byte	0x8
+ 229 0051 05       		.byte	0x5
+ 230 0052 00000000 		.4byte	.LASF6
+ 231 0056 02       		.uleb128 0x2
+ 232 0057 08       		.byte	0x8
+ 233 0058 07       		.byte	0x7
+ 234 0059 61000000 		.4byte	.LASF7
+ 235 005d 03       		.uleb128 0x3
+ 236 005e 04       		.byte	0x4
+ 237 005f 05       		.byte	0x5
+ 238 0060 696E7400 		.ascii	"int\000"
+ 239 0064 02       		.uleb128 0x2
+ 240 0065 04       		.byte	0x4
+ 241 0066 07       		.byte	0x7
+ 242 0067 15000000 		.4byte	.LASF8
+ 243 006b 04       		.uleb128 0x4
+ 244 006c 49000000 		.4byte	.LASF9
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\cck8ee7A.s 			page 10
+
+
+ 245 0070 02       		.byte	0x2
+ 246 0071 B901     		.2byte	0x1b9
+ 247 0073 2C000000 		.4byte	0x2c
+ 248 0077 04       		.uleb128 0x4
+ 249 0078 3A020000 		.4byte	.LASF10
+ 250 007c 02       		.byte	0x2
+ 251 007d BA01     		.2byte	0x1ba
+ 252 007f 3A000000 		.4byte	0x3a
+ 253 0083 04       		.uleb128 0x4
+ 254 0084 0E000000 		.4byte	.LASF11
+ 255 0088 02       		.byte	0x2
+ 256 0089 BB01     		.2byte	0x1bb
+ 257 008b 48000000 		.4byte	0x48
+ 258 008f 02       		.uleb128 0x2
+ 259 0090 04       		.byte	0x4
+ 260 0091 04       		.byte	0x4
+ 261 0092 2A020000 		.4byte	.LASF12
+ 262 0096 02       		.uleb128 0x2
+ 263 0097 08       		.byte	0x8
+ 264 0098 04       		.byte	0x4
+ 265 0099 FE010000 		.4byte	.LASF13
+ 266 009d 02       		.uleb128 0x2
+ 267 009e 01       		.byte	0x1
+ 268 009f 08       		.byte	0x8
+ 269 00a0 B9010000 		.4byte	.LASF14
+ 270 00a4 05       		.uleb128 0x5
+ 271 00a5 6B000000 		.4byte	0x6b
+ 272 00a9 05       		.uleb128 0x5
+ 273 00aa 77000000 		.4byte	0x77
+ 274 00ae 04       		.uleb128 0x4
+ 275 00af 05020000 		.4byte	.LASF15
+ 276 00b3 02       		.byte	0x2
+ 277 00b4 6502     		.2byte	0x265
+ 278 00b6 BA000000 		.4byte	0xba
+ 279 00ba 05       		.uleb128 0x5
+ 280 00bb 83000000 		.4byte	0x83
+ 281 00bf 02       		.uleb128 0x2
+ 282 00c0 04       		.byte	0x4
+ 283 00c1 07       		.byte	0x7
+ 284 00c2 41020000 		.4byte	.LASF16
+ 285 00c6 06       		.uleb128 0x6
+ 286 00c7 F2000000 		.4byte	.LASF17
+ 287 00cb 01       		.byte	0x1
+ 288 00cc C3       		.byte	0xc3
+ 289 00cd 00000000 		.4byte	.LFB0
+ 290 00d1 E8000000 		.4byte	.LFE0-.LFB0
+ 291 00d5 01       		.uleb128 0x1
+ 292 00d6 9C       		.byte	0x9c
+ 293 00d7 07       		.uleb128 0x7
+ 294 00d8 A7010000 		.4byte	.LASF18
+ 295 00dc 01       		.byte	0x1
+ 296 00dd 0A01     		.2byte	0x10a
+ 297 00df 00000000 		.4byte	.LFB1
+ 298 00e3 14000000 		.4byte	.LFE1-.LFB1
+ 299 00e7 01       		.uleb128 0x1
+ 300 00e8 9C       		.byte	0x9c
+ 301 00e9 08       		.uleb128 0x8
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\cck8ee7A.s 			page 11
+
+
+ 302 00ea BE010000 		.4byte	.LASF19
+ 303 00ee 01       		.byte	0x1
+ 304 00ef 1B       		.byte	0x1b
+ 305 00f0 A4000000 		.4byte	0xa4
+ 306 00f4 05       		.uleb128 0x5
+ 307 00f5 03       		.byte	0x3
+ 308 00f6 00000000 		.4byte	I2C_Accel_state
+ 309 00fa 09       		.uleb128 0x9
+ 310 00fb 92010000 		.4byte	.LASF20
+ 311 00ff 03       		.byte	0x3
+ 312 0100 31       		.byte	0x31
+ 313 0101 A9000000 		.4byte	0xa9
+ 314 0105 09       		.uleb128 0x9
+ 315 0106 78000000 		.4byte	.LASF21
+ 316 010a 03       		.byte	0x3
+ 317 010b 37       		.byte	0x37
+ 318 010c BA000000 		.4byte	0xba
+ 319 0110 09       		.uleb128 0x9
+ 320 0111 30000000 		.4byte	.LASF22
+ 321 0115 03       		.byte	0x3
+ 322 0116 3C       		.byte	0x3c
+ 323 0117 BA000000 		.4byte	0xba
+ 324 011b 00       		.byte	0
+ 325              		.section	.debug_abbrev,"",%progbits
+ 326              	.Ldebug_abbrev0:
+ 327 0000 01       		.uleb128 0x1
+ 328 0001 11       		.uleb128 0x11
+ 329 0002 01       		.byte	0x1
+ 330 0003 25       		.uleb128 0x25
+ 331 0004 0E       		.uleb128 0xe
+ 332 0005 13       		.uleb128 0x13
+ 333 0006 0B       		.uleb128 0xb
+ 334 0007 03       		.uleb128 0x3
+ 335 0008 0E       		.uleb128 0xe
+ 336 0009 1B       		.uleb128 0x1b
+ 337 000a 0E       		.uleb128 0xe
+ 338 000b 55       		.uleb128 0x55
+ 339 000c 17       		.uleb128 0x17
+ 340 000d 11       		.uleb128 0x11
+ 341 000e 01       		.uleb128 0x1
+ 342 000f 10       		.uleb128 0x10
+ 343 0010 17       		.uleb128 0x17
+ 344 0011 00       		.byte	0
+ 345 0012 00       		.byte	0
+ 346 0013 02       		.uleb128 0x2
+ 347 0014 24       		.uleb128 0x24
+ 348 0015 00       		.byte	0
+ 349 0016 0B       		.uleb128 0xb
+ 350 0017 0B       		.uleb128 0xb
+ 351 0018 3E       		.uleb128 0x3e
+ 352 0019 0B       		.uleb128 0xb
+ 353 001a 03       		.uleb128 0x3
+ 354 001b 0E       		.uleb128 0xe
+ 355 001c 00       		.byte	0
+ 356 001d 00       		.byte	0
+ 357 001e 03       		.uleb128 0x3
+ 358 001f 24       		.uleb128 0x24
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\cck8ee7A.s 			page 12
+
+
+ 359 0020 00       		.byte	0
+ 360 0021 0B       		.uleb128 0xb
+ 361 0022 0B       		.uleb128 0xb
+ 362 0023 3E       		.uleb128 0x3e
+ 363 0024 0B       		.uleb128 0xb
+ 364 0025 03       		.uleb128 0x3
+ 365 0026 08       		.uleb128 0x8
+ 366 0027 00       		.byte	0
+ 367 0028 00       		.byte	0
+ 368 0029 04       		.uleb128 0x4
+ 369 002a 16       		.uleb128 0x16
+ 370 002b 00       		.byte	0
+ 371 002c 03       		.uleb128 0x3
+ 372 002d 0E       		.uleb128 0xe
+ 373 002e 3A       		.uleb128 0x3a
+ 374 002f 0B       		.uleb128 0xb
+ 375 0030 3B       		.uleb128 0x3b
+ 376 0031 05       		.uleb128 0x5
+ 377 0032 49       		.uleb128 0x49
+ 378 0033 13       		.uleb128 0x13
+ 379 0034 00       		.byte	0
+ 380 0035 00       		.byte	0
+ 381 0036 05       		.uleb128 0x5
+ 382 0037 35       		.uleb128 0x35
+ 383 0038 00       		.byte	0
+ 384 0039 49       		.uleb128 0x49
+ 385 003a 13       		.uleb128 0x13
+ 386 003b 00       		.byte	0
+ 387 003c 00       		.byte	0
+ 388 003d 06       		.uleb128 0x6
+ 389 003e 2E       		.uleb128 0x2e
+ 390 003f 00       		.byte	0
+ 391 0040 3F       		.uleb128 0x3f
+ 392 0041 19       		.uleb128 0x19
+ 393 0042 03       		.uleb128 0x3
+ 394 0043 0E       		.uleb128 0xe
+ 395 0044 3A       		.uleb128 0x3a
+ 396 0045 0B       		.uleb128 0xb
+ 397 0046 3B       		.uleb128 0x3b
+ 398 0047 0B       		.uleb128 0xb
+ 399 0048 27       		.uleb128 0x27
+ 400 0049 19       		.uleb128 0x19
+ 401 004a 11       		.uleb128 0x11
+ 402 004b 01       		.uleb128 0x1
+ 403 004c 12       		.uleb128 0x12
+ 404 004d 06       		.uleb128 0x6
+ 405 004e 40       		.uleb128 0x40
+ 406 004f 18       		.uleb128 0x18
+ 407 0050 9642     		.uleb128 0x2116
+ 408 0052 19       		.uleb128 0x19
+ 409 0053 00       		.byte	0
+ 410 0054 00       		.byte	0
+ 411 0055 07       		.uleb128 0x7
+ 412 0056 2E       		.uleb128 0x2e
+ 413 0057 00       		.byte	0
+ 414 0058 3F       		.uleb128 0x3f
+ 415 0059 19       		.uleb128 0x19
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\cck8ee7A.s 			page 13
+
+
+ 416 005a 03       		.uleb128 0x3
+ 417 005b 0E       		.uleb128 0xe
+ 418 005c 3A       		.uleb128 0x3a
+ 419 005d 0B       		.uleb128 0xb
+ 420 005e 3B       		.uleb128 0x3b
+ 421 005f 05       		.uleb128 0x5
+ 422 0060 27       		.uleb128 0x27
+ 423 0061 19       		.uleb128 0x19
+ 424 0062 11       		.uleb128 0x11
+ 425 0063 01       		.uleb128 0x1
+ 426 0064 12       		.uleb128 0x12
+ 427 0065 06       		.uleb128 0x6
+ 428 0066 40       		.uleb128 0x40
+ 429 0067 18       		.uleb128 0x18
+ 430 0068 9742     		.uleb128 0x2117
+ 431 006a 19       		.uleb128 0x19
+ 432 006b 00       		.byte	0
+ 433 006c 00       		.byte	0
+ 434 006d 08       		.uleb128 0x8
+ 435 006e 34       		.uleb128 0x34
+ 436 006f 00       		.byte	0
+ 437 0070 03       		.uleb128 0x3
+ 438 0071 0E       		.uleb128 0xe
+ 439 0072 3A       		.uleb128 0x3a
+ 440 0073 0B       		.uleb128 0xb
+ 441 0074 3B       		.uleb128 0x3b
+ 442 0075 0B       		.uleb128 0xb
+ 443 0076 49       		.uleb128 0x49
+ 444 0077 13       		.uleb128 0x13
+ 445 0078 3F       		.uleb128 0x3f
+ 446 0079 19       		.uleb128 0x19
+ 447 007a 02       		.uleb128 0x2
+ 448 007b 18       		.uleb128 0x18
+ 449 007c 00       		.byte	0
+ 450 007d 00       		.byte	0
+ 451 007e 09       		.uleb128 0x9
+ 452 007f 34       		.uleb128 0x34
+ 453 0080 00       		.byte	0
+ 454 0081 03       		.uleb128 0x3
+ 455 0082 0E       		.uleb128 0xe
+ 456 0083 3A       		.uleb128 0x3a
+ 457 0084 0B       		.uleb128 0xb
+ 458 0085 3B       		.uleb128 0x3b
+ 459 0086 0B       		.uleb128 0xb
+ 460 0087 49       		.uleb128 0x49
+ 461 0088 13       		.uleb128 0x13
+ 462 0089 3F       		.uleb128 0x3f
+ 463 008a 19       		.uleb128 0x19
+ 464 008b 3C       		.uleb128 0x3c
+ 465 008c 19       		.uleb128 0x19
+ 466 008d 00       		.byte	0
+ 467 008e 00       		.byte	0
+ 468 008f 00       		.byte	0
+ 469              		.section	.debug_aranges,"",%progbits
+ 470 0000 24000000 		.4byte	0x24
+ 471 0004 0200     		.2byte	0x2
+ 472 0006 00000000 		.4byte	.Ldebug_info0
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\cck8ee7A.s 			page 14
+
+
+ 473 000a 04       		.byte	0x4
+ 474 000b 00       		.byte	0
+ 475 000c 0000     		.2byte	0
+ 476 000e 0000     		.2byte	0
+ 477 0010 00000000 		.4byte	.LFB0
+ 478 0014 E8000000 		.4byte	.LFE0-.LFB0
+ 479 0018 00000000 		.4byte	.LFB1
+ 480 001c 14000000 		.4byte	.LFE1-.LFB1
+ 481 0020 00000000 		.4byte	0
+ 482 0024 00000000 		.4byte	0
+ 483              		.section	.debug_ranges,"",%progbits
+ 484              	.Ldebug_ranges0:
+ 485 0000 00000000 		.4byte	.LFB0
+ 486 0004 E8000000 		.4byte	.LFE0
+ 487 0008 00000000 		.4byte	.LFB1
+ 488 000c 14000000 		.4byte	.LFE1
+ 489 0010 00000000 		.4byte	0
+ 490 0014 00000000 		.4byte	0
+ 491              		.section	.debug_line,"",%progbits
+ 492              	.Ldebug_line0:
+ 493 0000 A1000000 		.section	.debug_str,"MS",%progbits,1
+ 493      02006100 
+ 493      00000201 
+ 493      FB0E0D00 
+ 493      01010101 
+ 494              	.LASF6:
+ 495 0000 6C6F6E67 		.ascii	"long long int\000"
+ 495      206C6F6E 
+ 495      6720696E 
+ 495      7400
+ 496              	.LASF11:
+ 497 000e 75696E74 		.ascii	"uint32\000"
+ 497      333200
+ 498              	.LASF8:
+ 499 0015 756E7369 		.ascii	"unsigned int\000"
+ 499      676E6564 
+ 499      20696E74 
+ 499      00
+ 500              	.LASF1:
+ 501 0022 756E7369 		.ascii	"unsigned char\000"
+ 501      676E6564 
+ 501      20636861 
+ 501      7200
+ 502              	.LASF22:
+ 503 0030 4932435F 		.ascii	"I2C_Accel_mstrWrBufIndex\000"
+ 503      41636365 
+ 503      6C5F6D73 
+ 503      74725772 
+ 503      42756649 
+ 504              	.LASF9:
+ 505 0049 75696E74 		.ascii	"uint8\000"
+ 505      3800
+ 506              	.LASF5:
+ 507 004f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 507      20756E73 
+ 507      69676E65 
+ 507      6420696E 
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\cck8ee7A.s 			page 15
+
+
+ 507      7400
+ 508              	.LASF7:
+ 509 0061 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 509      206C6F6E 
+ 509      6720756E 
+ 509      7369676E 
+ 509      65642069 
+ 510              	.LASF21:
+ 511 0078 4932435F 		.ascii	"I2C_Accel_mstrRdBufIndex\000"
+ 511      41636365 
+ 511      6C5F6D73 
+ 511      74725264 
+ 511      42756649 
+ 512              	.LASF25:
+ 513 0091 433A5C55 		.ascii	"C:\\Users\\Shahil Zhangada\\OneDrive\\Spring 2017\\"
+ 513      73657273 
+ 513      5C536861 
+ 513      68696C20 
+ 513      5A68616E 
+ 514 00bf 4D656368 		.ascii	"Mech Eng 135\\KIT042_Accelerometer_LightPaint.cydsn"
+ 514      20456E67 
+ 514      20313335 
+ 514      5C4B4954 
+ 514      3034325F 
+ 515 00f1 00       		.ascii	"\000"
+ 516              	.LASF17:
+ 517 00f2 4932435F 		.ascii	"I2C_Accel_I2CInit\000"
+ 517      41636365 
+ 517      6C5F4932 
+ 517      43496E69 
+ 517      7400
+ 518              	.LASF23:
+ 519 0104 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 519      4320342E 
+ 519      392E3320 
+ 519      32303135 
+ 519      30333033 
+ 520 0137 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 520      20726576 
+ 520      6973696F 
+ 520      6E203232 
+ 520      31323230 
+ 521 016a 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 521      66756E63 
+ 521      74696F6E 
+ 521      2D736563 
+ 521      74696F6E 
+ 522              	.LASF20:
+ 523 0192 4932435F 		.ascii	"I2C_Accel_mstrStatus\000"
+ 523      41636365 
+ 523      6C5F6D73 
+ 523      74725374 
+ 523      61747573 
+ 524              	.LASF18:
+ 525 01a7 4932435F 		.ascii	"I2C_Accel_I2CStop\000"
+ 525      41636365 
+ 525      6C5F4932 
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\cck8ee7A.s 			page 16
+
+
+ 525      4353746F 
+ 525      7000
+ 526              	.LASF14:
+ 527 01b9 63686172 		.ascii	"char\000"
+ 527      00
+ 528              	.LASF19:
+ 529 01be 4932435F 		.ascii	"I2C_Accel_state\000"
+ 529      41636365 
+ 529      6C5F7374 
+ 529      61746500 
+ 530              	.LASF24:
+ 531 01ce 47656E65 		.ascii	"Generated_Source\\PSoC4\\I2C_Accel_I2C.c\000"
+ 531      72617465 
+ 531      645F536F 
+ 531      75726365 
+ 531      5C50536F 
+ 532              	.LASF4:
+ 533 01f5 6C6F6E67 		.ascii	"long int\000"
+ 533      20696E74 
+ 533      00
+ 534              	.LASF13:
+ 535 01fe 646F7562 		.ascii	"double\000"
+ 535      6C6500
+ 536              	.LASF15:
+ 537 0205 72656733 		.ascii	"reg32\000"
+ 537      3200
+ 538              	.LASF3:
+ 539 020b 73686F72 		.ascii	"short unsigned int\000"
+ 539      7420756E 
+ 539      7369676E 
+ 539      65642069 
+ 539      6E7400
+ 540              	.LASF0:
+ 541 021e 7369676E 		.ascii	"signed char\000"
+ 541      65642063 
+ 541      68617200 
+ 542              	.LASF12:
+ 543 022a 666C6F61 		.ascii	"float\000"
+ 543      7400
+ 544              	.LASF2:
+ 545 0230 73686F72 		.ascii	"short int\000"
+ 545      7420696E 
+ 545      7400
+ 546              	.LASF10:
+ 547 023a 75696E74 		.ascii	"uint16\000"
+ 547      313600
+ 548              	.LASF16:
+ 549 0241 73697A65 		.ascii	"sizetype\000"
+ 549      74797065 
+ 549      00
+ 550              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

@@ -1,0 +1,2509 @@
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"tinyprintf_printf.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.bss
+  18              		.align	2
+  19              	stdout_putf:
+  20 0000 00000000 		.space	4
+  21              		.align	2
+  22              	stdout_putp:
+  23 0004 00000000 		.space	4
+  24              		.global	__aeabi_uidiv
+  25              		.global	__aeabi_uidivmod
+  26              		.section	.text.ui2a,"ax",%progbits
+  27              		.align	2
+  28              		.code	16
+  29              		.thumb_func
+  30              		.type	ui2a, %function
+  31              	ui2a:
+  32              	.LFB0:
+  33              		.file 1 "Generated_Source\\PSoC4\\tinyprintf_printf.c"
+   1:Generated_Source\PSoC4/tinyprintf_printf.c **** /*
+   2:Generated_Source\PSoC4/tinyprintf_printf.c ****  * Copyright (c) 2004,2012 Kustaa Nyholm / SpareTimeLabs
+   3:Generated_Source\PSoC4/tinyprintf_printf.c ****  *
+   4:Generated_Source\PSoC4/tinyprintf_printf.c ****  * All rights reserved.
+   5:Generated_Source\PSoC4/tinyprintf_printf.c ****  *
+   6:Generated_Source\PSoC4/tinyprintf_printf.c ****  * Redistribution and use in source and binary forms, with or without modification, 
+   7:Generated_Source\PSoC4/tinyprintf_printf.c ****  * are permitted provided that the following conditions are met:
+   8:Generated_Source\PSoC4/tinyprintf_printf.c ****  *
+   9:Generated_Source\PSoC4/tinyprintf_printf.c ****  * Redistributions of source code must retain the above copyright notice, this list 
+  10:Generated_Source\PSoC4/tinyprintf_printf.c ****  * of conditions and the following disclaimer.
+  11:Generated_Source\PSoC4/tinyprintf_printf.c ****  * 
+  12:Generated_Source\PSoC4/tinyprintf_printf.c ****  * Redistributions in binary form must reproduce the above copyright notice, this 
+  13:Generated_Source\PSoC4/tinyprintf_printf.c ****  * list of conditions and the following disclaimer in the documentation and/or other
+  14:Generated_Source\PSoC4/tinyprintf_printf.c ****  * materials provided with the distribution.
+  15:Generated_Source\PSoC4/tinyprintf_printf.c ****  *  
+  16:Generated_Source\PSoC4/tinyprintf_printf.c ****  * Neither the name of the Kustaa Nyholm or SpareTimeLabs nor the names of its 
+  17:Generated_Source\PSoC4/tinyprintf_printf.c ****  * contributors may be used to endorse or promote products derived from this software 
+  18:Generated_Source\PSoC4/tinyprintf_printf.c ****  * without specific prior written permission.
+  19:Generated_Source\PSoC4/tinyprintf_printf.c ****  * 
+  20:Generated_Source\PSoC4/tinyprintf_printf.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+  21:Generated_Source\PSoC4/tinyprintf_printf.c ****  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  22:Generated_Source\PSoC4/tinyprintf_printf.c ****  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  23:Generated_Source\PSoC4/tinyprintf_printf.c ****  * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  24:Generated_Source\PSoC4/tinyprintf_printf.c ****  * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 2
+
+
+  25:Generated_Source\PSoC4/tinyprintf_printf.c ****  * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
+  26:Generated_Source\PSoC4/tinyprintf_printf.c ****  * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  27:Generated_Source\PSoC4/tinyprintf_printf.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  28:Generated_Source\PSoC4/tinyprintf_printf.c ****  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+  29:Generated_Source\PSoC4/tinyprintf_printf.c ****  * OF SUCH DAMAGE.
+  30:Generated_Source\PSoC4/tinyprintf_printf.c ****  */
+  31:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+  32:Generated_Source\PSoC4/tinyprintf_printf.c **** #include "tinyprintf_printf.h"
+  33:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+  34:Generated_Source\PSoC4/tinyprintf_printf.c **** typedef void (*putcf) (void*,char);
+  35:Generated_Source\PSoC4/tinyprintf_printf.c **** static putcf stdout_putf;
+  36:Generated_Source\PSoC4/tinyprintf_printf.c **** static void* stdout_putp;
+  37:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+  38:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+  39:Generated_Source\PSoC4/tinyprintf_printf.c **** #ifdef PRINTF_LONG_SUPPORT
+  40:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+  41:Generated_Source\PSoC4/tinyprintf_printf.c **** static void uli2a(unsigned long int num, unsigned int base, int uc,char * bf)
+  42:Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+  43:Generated_Source\PSoC4/tinyprintf_printf.c **** 	int n=0;
+  44:Generated_Source\PSoC4/tinyprintf_printf.c **** 	unsigned int d=1;
+  45:Generated_Source\PSoC4/tinyprintf_printf.c **** 	while (num/d >= base)
+  46:Generated_Source\PSoC4/tinyprintf_printf.c **** 		d*=base;		 
+  47:Generated_Source\PSoC4/tinyprintf_printf.c **** 	while (d!=0) {
+  48:Generated_Source\PSoC4/tinyprintf_printf.c **** 		int dgt = num / d;
+  49:Generated_Source\PSoC4/tinyprintf_printf.c **** 		num%=d;
+  50:Generated_Source\PSoC4/tinyprintf_printf.c **** 		d/=base;
+  51:Generated_Source\PSoC4/tinyprintf_printf.c **** 		if (n || dgt>0|| d==0) {
+  52:Generated_Source\PSoC4/tinyprintf_printf.c **** 			*bf++ = dgt+(dgt<10 ? '0' : (uc ? 'A' : 'a')-10);
+  53:Generated_Source\PSoC4/tinyprintf_printf.c **** 			++n;
+  54:Generated_Source\PSoC4/tinyprintf_printf.c **** 			}
+  55:Generated_Source\PSoC4/tinyprintf_printf.c **** 		}
+  56:Generated_Source\PSoC4/tinyprintf_printf.c **** 	*bf=0;
+  57:Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+  58:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+  59:Generated_Source\PSoC4/tinyprintf_printf.c **** static void li2a (long num, char * bf)
+  60:Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+  61:Generated_Source\PSoC4/tinyprintf_printf.c **** 	if (num<0) {
+  62:Generated_Source\PSoC4/tinyprintf_printf.c **** 		num=-num;
+  63:Generated_Source\PSoC4/tinyprintf_printf.c **** 		*bf++ = '-';
+  64:Generated_Source\PSoC4/tinyprintf_printf.c **** 		}
+  65:Generated_Source\PSoC4/tinyprintf_printf.c **** 	uli2a(num,10,0,bf);
+  66:Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+  67:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+  68:Generated_Source\PSoC4/tinyprintf_printf.c **** #endif
+  69:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+  70:Generated_Source\PSoC4/tinyprintf_printf.c **** static void ui2a(unsigned int num, unsigned int base, int uc,char * bf)
+  71:Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+  34              		.loc 1 71 0
+  35              		.cfi_startproc
+  36 0000 80B5     		push	{r7, lr}
+  37              		.cfi_def_cfa_offset 8
+  38              		.cfi_offset 7, -8
+  39              		.cfi_offset 14, -4
+  40 0002 88B0     		sub	sp, sp, #32
+  41              		.cfi_def_cfa_offset 40
+  42 0004 00AF     		add	r7, sp, #0
+  43              		.cfi_def_cfa_register 7
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 3
+
+
+  44 0006 F860     		str	r0, [r7, #12]
+  45 0008 B960     		str	r1, [r7, #8]
+  46 000a 7A60     		str	r2, [r7, #4]
+  47 000c 3B60     		str	r3, [r7]
+  72:Generated_Source\PSoC4/tinyprintf_printf.c **** 	int n=0;
+  48              		.loc 1 72 0
+  49 000e 0023     		mov	r3, #0
+  50 0010 FB61     		str	r3, [r7, #28]
+  73:Generated_Source\PSoC4/tinyprintf_printf.c **** 	unsigned int d=1;
+  51              		.loc 1 73 0
+  52 0012 0123     		mov	r3, #1
+  53 0014 BB61     		str	r3, [r7, #24]
+  74:Generated_Source\PSoC4/tinyprintf_printf.c **** 	while (num/d >= base)
+  54              		.loc 1 74 0
+  55 0016 03E0     		b	.L2
+  56              	.L3:
+  75:Generated_Source\PSoC4/tinyprintf_printf.c **** 		d*=base;		
+  57              		.loc 1 75 0
+  58 0018 BB69     		ldr	r3, [r7, #24]
+  59 001a BA68     		ldr	r2, [r7, #8]
+  60 001c 5343     		mul	r3, r2
+  61 001e BB61     		str	r3, [r7, #24]
+  62              	.L2:
+  74:Generated_Source\PSoC4/tinyprintf_printf.c **** 	while (num/d >= base)
+  63              		.loc 1 74 0
+  64 0020 F868     		ldr	r0, [r7, #12]
+  65 0022 B969     		ldr	r1, [r7, #24]
+  66 0024 FFF7FEFF 		bl	__aeabi_uidiv
+  67 0028 031C     		mov	r3, r0
+  68 002a 1A1E     		sub	r2, r3, #0
+  69 002c BB68     		ldr	r3, [r7, #8]
+  70 002e 9A42     		cmp	r2, r3
+  71 0030 F2D2     		bcs	.L3
+  76:Generated_Source\PSoC4/tinyprintf_printf.c **** 	while (d!=0) {
+  72              		.loc 1 76 0
+  73 0032 31E0     		b	.L4
+  74              	.L10:
+  75              	.LBB2:
+  77:Generated_Source\PSoC4/tinyprintf_printf.c **** 		int dgt = num / d;
+  76              		.loc 1 77 0
+  77 0034 F868     		ldr	r0, [r7, #12]
+  78 0036 B969     		ldr	r1, [r7, #24]
+  79 0038 FFF7FEFF 		bl	__aeabi_uidiv
+  80 003c 031C     		mov	r3, r0
+  81 003e 7B61     		str	r3, [r7, #20]
+  78:Generated_Source\PSoC4/tinyprintf_printf.c **** 		num%= d;
+  82              		.loc 1 78 0
+  83 0040 FB68     		ldr	r3, [r7, #12]
+  84 0042 181C     		mov	r0, r3
+  85 0044 B969     		ldr	r1, [r7, #24]
+  86 0046 FFF7FEFF 		bl	__aeabi_uidivmod
+  87 004a 0B1C     		mov	r3, r1
+  88 004c FB60     		str	r3, [r7, #12]
+  79:Generated_Source\PSoC4/tinyprintf_printf.c **** 		d/=base;
+  89              		.loc 1 79 0
+  90 004e B869     		ldr	r0, [r7, #24]
+  91 0050 B968     		ldr	r1, [r7, #8]
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 4
+
+
+  92 0052 FFF7FEFF 		bl	__aeabi_uidiv
+  93 0056 031C     		mov	r3, r0
+  94 0058 BB61     		str	r3, [r7, #24]
+  80:Generated_Source\PSoC4/tinyprintf_printf.c **** 		if (n || dgt>0 || d==0) {
+  95              		.loc 1 80 0
+  96 005a FB69     		ldr	r3, [r7, #28]
+  97 005c 002B     		cmp	r3, #0
+  98 005e 05D1     		bne	.L5
+  99              		.loc 1 80 0 is_stmt 0 discriminator 1
+ 100 0060 7B69     		ldr	r3, [r7, #20]
+ 101 0062 002B     		cmp	r3, #0
+ 102 0064 02DC     		bgt	.L5
+ 103              		.loc 1 80 0 discriminator 2
+ 104 0066 BB69     		ldr	r3, [r7, #24]
+ 105 0068 002B     		cmp	r3, #0
+ 106 006a 15D1     		bne	.L4
+ 107              	.L5:
+  81:Generated_Source\PSoC4/tinyprintf_printf.c **** 			*bf++ = dgt+(dgt<10 ? '0' : (uc ? 'A' : 'a')-10);
+ 108              		.loc 1 81 0 is_stmt 1
+ 109 006c 3A68     		ldr	r2, [r7]
+ 110 006e 531C     		add	r3, r2, #1
+ 111 0070 3B60     		str	r3, [r7]
+ 112 0072 7B69     		ldr	r3, [r7, #20]
+ 113 0074 092B     		cmp	r3, #9
+ 114 0076 06DD     		ble	.L6
+ 115              		.loc 1 81 0 is_stmt 0 discriminator 1
+ 116 0078 7B68     		ldr	r3, [r7, #4]
+ 117 007a 002B     		cmp	r3, #0
+ 118 007c 01D0     		beq	.L7
+ 119              		.loc 1 81 0 discriminator 3
+ 120 007e 3723     		mov	r3, #55
+ 121 0080 02E0     		b	.L9
+ 122              	.L7:
+ 123              		.loc 1 81 0 discriminator 4
+ 124 0082 5723     		mov	r3, #87
+ 125 0084 00E0     		b	.L9
+ 126              	.L6:
+ 127              		.loc 1 81 0 discriminator 2
+ 128 0086 3023     		mov	r3, #48
+ 129              	.L9:
+ 130              		.loc 1 81 0 discriminator 8
+ 131 0088 7969     		ldr	r1, [r7, #20]
+ 132 008a C9B2     		uxtb	r1, r1
+ 133 008c 5B18     		add	r3, r3, r1
+ 134 008e DBB2     		uxtb	r3, r3
+ 135 0090 1370     		strb	r3, [r2]
+  82:Generated_Source\PSoC4/tinyprintf_printf.c **** 			++n;
+ 136              		.loc 1 82 0 is_stmt 1 discriminator 8
+ 137 0092 FB69     		ldr	r3, [r7, #28]
+ 138 0094 0133     		add	r3, r3, #1
+ 139 0096 FB61     		str	r3, [r7, #28]
+ 140              	.L4:
+ 141              	.LBE2:
+  76:Generated_Source\PSoC4/tinyprintf_printf.c **** 		int dgt = num / d;
+ 142              		.loc 1 76 0
+ 143 0098 BB69     		ldr	r3, [r7, #24]
+ 144 009a 002B     		cmp	r3, #0
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 5
+
+
+ 145 009c CAD1     		bne	.L10
+  83:Generated_Source\PSoC4/tinyprintf_printf.c **** 			}
+  84:Generated_Source\PSoC4/tinyprintf_printf.c **** 		}
+  85:Generated_Source\PSoC4/tinyprintf_printf.c **** 	*bf=0;
+ 146              		.loc 1 85 0
+ 147 009e 3B68     		ldr	r3, [r7]
+ 148 00a0 0022     		mov	r2, #0
+ 149 00a2 1A70     		strb	r2, [r3]
+  86:Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+ 150              		.loc 1 86 0
+ 151 00a4 BD46     		mov	sp, r7
+ 152 00a6 08B0     		add	sp, sp, #32
+ 153              		@ sp needed
+ 154 00a8 80BD     		pop	{r7, pc}
+ 155              		.cfi_endproc
+ 156              	.LFE0:
+ 157              		.size	ui2a, .-ui2a
+ 158 00aa C046     		.section	.text.i2a,"ax",%progbits
+ 159              		.align	2
+ 160              		.code	16
+ 161              		.thumb_func
+ 162              		.type	i2a, %function
+ 163              	i2a:
+ 164              	.LFB1:
+  87:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+  88:Generated_Source\PSoC4/tinyprintf_printf.c **** static void i2a (int num, char * bf)
+  89:Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+ 165              		.loc 1 89 0
+ 166              		.cfi_startproc
+ 167 0000 80B5     		push	{r7, lr}
+ 168              		.cfi_def_cfa_offset 8
+ 169              		.cfi_offset 7, -8
+ 170              		.cfi_offset 14, -4
+ 171 0002 82B0     		sub	sp, sp, #8
+ 172              		.cfi_def_cfa_offset 16
+ 173 0004 00AF     		add	r7, sp, #0
+ 174              		.cfi_def_cfa_register 7
+ 175 0006 7860     		str	r0, [r7, #4]
+ 176 0008 3960     		str	r1, [r7]
+  90:Generated_Source\PSoC4/tinyprintf_printf.c **** 	if (num<0) {
+ 177              		.loc 1 90 0
+ 178 000a 7B68     		ldr	r3, [r7, #4]
+ 179 000c 002B     		cmp	r3, #0
+ 180 000e 07DA     		bge	.L12
+  91:Generated_Source\PSoC4/tinyprintf_printf.c **** 		num=-num;
+ 181              		.loc 1 91 0
+ 182 0010 7B68     		ldr	r3, [r7, #4]
+ 183 0012 5B42     		neg	r3, r3
+ 184 0014 7B60     		str	r3, [r7, #4]
+  92:Generated_Source\PSoC4/tinyprintf_printf.c **** 		*bf++ = '-';
+ 185              		.loc 1 92 0
+ 186 0016 3B68     		ldr	r3, [r7]
+ 187 0018 5A1C     		add	r2, r3, #1
+ 188 001a 3A60     		str	r2, [r7]
+ 189 001c 2D22     		mov	r2, #45
+ 190 001e 1A70     		strb	r2, [r3]
+ 191              	.L12:
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 6
+
+
+  93:Generated_Source\PSoC4/tinyprintf_printf.c **** 		}
+  94:Generated_Source\PSoC4/tinyprintf_printf.c **** 	ui2a(num,10,0,bf);
+ 192              		.loc 1 94 0
+ 193 0020 7A68     		ldr	r2, [r7, #4]
+ 194 0022 3B68     		ldr	r3, [r7]
+ 195 0024 101C     		mov	r0, r2
+ 196 0026 0A21     		mov	r1, #10
+ 197 0028 0022     		mov	r2, #0
+ 198 002a FFF7FEFF 		bl	ui2a
+  95:Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+ 199              		.loc 1 95 0
+ 200 002e BD46     		mov	sp, r7
+ 201 0030 02B0     		add	sp, sp, #8
+ 202              		@ sp needed
+ 203 0032 80BD     		pop	{r7, pc}
+ 204              		.cfi_endproc
+ 205              	.LFE1:
+ 206              		.size	i2a, .-i2a
+ 207              		.section	.text.a2d,"ax",%progbits
+ 208              		.align	2
+ 209              		.code	16
+ 210              		.thumb_func
+ 211              		.type	a2d, %function
+ 212              	a2d:
+ 213              	.LFB2:
+  96:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+  97:Generated_Source\PSoC4/tinyprintf_printf.c **** static int a2d(char ch)
+  98:Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+ 214              		.loc 1 98 0
+ 215              		.cfi_startproc
+ 216 0000 80B5     		push	{r7, lr}
+ 217              		.cfi_def_cfa_offset 8
+ 218              		.cfi_offset 7, -8
+ 219              		.cfi_offset 14, -4
+ 220 0002 82B0     		sub	sp, sp, #8
+ 221              		.cfi_def_cfa_offset 16
+ 222 0004 00AF     		add	r7, sp, #0
+ 223              		.cfi_def_cfa_register 7
+ 224 0006 021C     		mov	r2, r0
+ 225 0008 FB1D     		add	r3, r7, #7
+ 226 000a 1A70     		strb	r2, [r3]
+  99:Generated_Source\PSoC4/tinyprintf_printf.c **** 	if (ch>='0' && ch<='9') 
+ 227              		.loc 1 99 0
+ 228 000c FB1D     		add	r3, r7, #7
+ 229 000e 1B78     		ldrb	r3, [r3]
+ 230 0010 2F2B     		cmp	r3, #47
+ 231 0012 07D9     		bls	.L14
+ 232              		.loc 1 99 0 is_stmt 0 discriminator 1
+ 233 0014 FB1D     		add	r3, r7, #7
+ 234 0016 1B78     		ldrb	r3, [r3]
+ 235 0018 392B     		cmp	r3, #57
+ 236 001a 03D8     		bhi	.L14
+ 100:Generated_Source\PSoC4/tinyprintf_printf.c **** 		return ch-'0';
+ 237              		.loc 1 100 0 is_stmt 1
+ 238 001c FB1D     		add	r3, r7, #7
+ 239 001e 1B78     		ldrb	r3, [r3]
+ 240 0020 303B     		sub	r3, r3, #48
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 7
+
+
+ 241 0022 19E0     		b	.L15
+ 242              	.L14:
+ 101:Generated_Source\PSoC4/tinyprintf_printf.c **** 	else if (ch>='a' && ch<='f')
+ 243              		.loc 1 101 0
+ 244 0024 FB1D     		add	r3, r7, #7
+ 245 0026 1B78     		ldrb	r3, [r3]
+ 246 0028 602B     		cmp	r3, #96
+ 247 002a 07D9     		bls	.L16
+ 248              		.loc 1 101 0 is_stmt 0 discriminator 1
+ 249 002c FB1D     		add	r3, r7, #7
+ 250 002e 1B78     		ldrb	r3, [r3]
+ 251 0030 662B     		cmp	r3, #102
+ 252 0032 03D8     		bhi	.L16
+ 102:Generated_Source\PSoC4/tinyprintf_printf.c **** 		return ch-'a'+10;
+ 253              		.loc 1 102 0 is_stmt 1
+ 254 0034 FB1D     		add	r3, r7, #7
+ 255 0036 1B78     		ldrb	r3, [r3]
+ 256 0038 573B     		sub	r3, r3, #87
+ 257 003a 0DE0     		b	.L15
+ 258              	.L16:
+ 103:Generated_Source\PSoC4/tinyprintf_printf.c **** 	else if (ch>='A' && ch<='F')
+ 259              		.loc 1 103 0
+ 260 003c FB1D     		add	r3, r7, #7
+ 261 003e 1B78     		ldrb	r3, [r3]
+ 262 0040 402B     		cmp	r3, #64
+ 263 0042 07D9     		bls	.L17
+ 264              		.loc 1 103 0 is_stmt 0 discriminator 1
+ 265 0044 FB1D     		add	r3, r7, #7
+ 266 0046 1B78     		ldrb	r3, [r3]
+ 267 0048 462B     		cmp	r3, #70
+ 268 004a 03D8     		bhi	.L17
+ 104:Generated_Source\PSoC4/tinyprintf_printf.c **** 		return ch-'A'+10;
+ 269              		.loc 1 104 0 is_stmt 1
+ 270 004c FB1D     		add	r3, r7, #7
+ 271 004e 1B78     		ldrb	r3, [r3]
+ 272 0050 373B     		sub	r3, r3, #55
+ 273 0052 01E0     		b	.L15
+ 274              	.L17:
+ 105:Generated_Source\PSoC4/tinyprintf_printf.c **** 	else return -1;
+ 275              		.loc 1 105 0
+ 276 0054 0123     		mov	r3, #1
+ 277 0056 5B42     		neg	r3, r3
+ 278              	.L15:
+ 106:Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+ 279              		.loc 1 106 0
+ 280 0058 181C     		mov	r0, r3
+ 281 005a BD46     		mov	sp, r7
+ 282 005c 02B0     		add	sp, sp, #8
+ 283              		@ sp needed
+ 284 005e 80BD     		pop	{r7, pc}
+ 285              		.cfi_endproc
+ 286              	.LFE2:
+ 287              		.size	a2d, .-a2d
+ 288              		.section	.text.a2i,"ax",%progbits
+ 289              		.align	2
+ 290              		.code	16
+ 291              		.thumb_func
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 8
+
+
+ 292              		.type	a2i, %function
+ 293              	a2i:
+ 294              	.LFB3:
+ 107:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 108:Generated_Source\PSoC4/tinyprintf_printf.c **** static char a2i(char ch, char** src,int base,int* nump)
+ 109:Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+ 295              		.loc 1 109 0
+ 296              		.cfi_startproc
+ 297 0000 80B5     		push	{r7, lr}
+ 298              		.cfi_def_cfa_offset 8
+ 299              		.cfi_offset 7, -8
+ 300              		.cfi_offset 14, -4
+ 301 0002 88B0     		sub	sp, sp, #32
+ 302              		.cfi_def_cfa_offset 40
+ 303 0004 00AF     		add	r7, sp, #0
+ 304              		.cfi_def_cfa_register 7
+ 305 0006 B960     		str	r1, [r7, #8]
+ 306 0008 7A60     		str	r2, [r7, #4]
+ 307 000a 3B60     		str	r3, [r7]
+ 308 000c 0F23     		mov	r3, #15
+ 309 000e FB18     		add	r3, r7, r3
+ 310 0010 021C     		add	r2, r0, #0
+ 311 0012 1A70     		strb	r2, [r3]
+ 110:Generated_Source\PSoC4/tinyprintf_printf.c **** 	char* p= *src;
+ 312              		.loc 1 110 0
+ 313 0014 BB68     		ldr	r3, [r7, #8]
+ 314 0016 1B68     		ldr	r3, [r3]
+ 315 0018 FB61     		str	r3, [r7, #28]
+ 111:Generated_Source\PSoC4/tinyprintf_printf.c **** 	int num=0;
+ 316              		.loc 1 111 0
+ 317 001a 0023     		mov	r3, #0
+ 318 001c BB61     		str	r3, [r7, #24]
+ 112:Generated_Source\PSoC4/tinyprintf_printf.c **** 	int digit;
+ 113:Generated_Source\PSoC4/tinyprintf_printf.c **** 	while ((digit=a2d(ch))>=0) {
+ 319              		.loc 1 113 0
+ 320 001e 11E0     		b	.L19
+ 321              	.L22:
+ 114:Generated_Source\PSoC4/tinyprintf_printf.c **** 		if (digit>base) break;
+ 322              		.loc 1 114 0
+ 323 0020 7A69     		ldr	r2, [r7, #20]
+ 324 0022 7B68     		ldr	r3, [r7, #4]
+ 325 0024 9A42     		cmp	r2, r3
+ 326 0026 00DD     		ble	.L20
+ 327 0028 17E0     		b	.L21
+ 328              	.L20:
+ 115:Generated_Source\PSoC4/tinyprintf_printf.c **** 		num=num*base+digit;
+ 329              		.loc 1 115 0
+ 330 002a BB69     		ldr	r3, [r7, #24]
+ 331 002c 7A68     		ldr	r2, [r7, #4]
+ 332 002e 5A43     		mul	r2, r3
+ 333 0030 7B69     		ldr	r3, [r7, #20]
+ 334 0032 D318     		add	r3, r2, r3
+ 335 0034 BB61     		str	r3, [r7, #24]
+ 116:Generated_Source\PSoC4/tinyprintf_printf.c **** 		ch=*p++;
+ 336              		.loc 1 116 0
+ 337 0036 FB69     		ldr	r3, [r7, #28]
+ 338 0038 5A1C     		add	r2, r3, #1
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 9
+
+
+ 339 003a FA61     		str	r2, [r7, #28]
+ 340 003c 0F22     		mov	r2, #15
+ 341 003e BA18     		add	r2, r7, r2
+ 342 0040 1B78     		ldrb	r3, [r3]
+ 343 0042 1370     		strb	r3, [r2]
+ 344              	.L19:
+ 113:Generated_Source\PSoC4/tinyprintf_printf.c **** 		if (digit>base) break;
+ 345              		.loc 1 113 0
+ 346 0044 0F23     		mov	r3, #15
+ 347 0046 FB18     		add	r3, r7, r3
+ 348 0048 1B78     		ldrb	r3, [r3]
+ 349 004a 181C     		mov	r0, r3
+ 350 004c FFF7FEFF 		bl	a2d
+ 351 0050 031C     		mov	r3, r0
+ 352 0052 7B61     		str	r3, [r7, #20]
+ 353 0054 7B69     		ldr	r3, [r7, #20]
+ 354 0056 002B     		cmp	r3, #0
+ 355 0058 E2DA     		bge	.L22
+ 356              	.L21:
+ 117:Generated_Source\PSoC4/tinyprintf_printf.c **** 		}
+ 118:Generated_Source\PSoC4/tinyprintf_printf.c **** 	*src=p;
+ 357              		.loc 1 118 0
+ 358 005a BB68     		ldr	r3, [r7, #8]
+ 359 005c FA69     		ldr	r2, [r7, #28]
+ 360 005e 1A60     		str	r2, [r3]
+ 119:Generated_Source\PSoC4/tinyprintf_printf.c **** 	*nump=num;
+ 361              		.loc 1 119 0
+ 362 0060 3B68     		ldr	r3, [r7]
+ 363 0062 BA69     		ldr	r2, [r7, #24]
+ 364 0064 1A60     		str	r2, [r3]
+ 120:Generated_Source\PSoC4/tinyprintf_printf.c **** 	return ch;
+ 365              		.loc 1 120 0
+ 366 0066 0F23     		mov	r3, #15
+ 367 0068 FB18     		add	r3, r7, r3
+ 368 006a 1B78     		ldrb	r3, [r3]
+ 121:Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+ 369              		.loc 1 121 0
+ 370 006c 181C     		mov	r0, r3
+ 371 006e BD46     		mov	sp, r7
+ 372 0070 08B0     		add	sp, sp, #32
+ 373              		@ sp needed
+ 374 0072 80BD     		pop	{r7, pc}
+ 375              		.cfi_endproc
+ 376              	.LFE3:
+ 377              		.size	a2i, .-a2i
+ 378              		.section	.text.putchw,"ax",%progbits
+ 379              		.align	2
+ 380              		.code	16
+ 381              		.thumb_func
+ 382              		.type	putchw, %function
+ 383              	putchw:
+ 384              	.LFB4:
+ 122:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 123:Generated_Source\PSoC4/tinyprintf_printf.c **** static void putchw(void* putp,putcf putf,int n, char z, char* bf)
+ 124:Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+ 385              		.loc 1 124 0
+ 386              		.cfi_startproc
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 10
+
+
+ 387 0000 80B5     		push	{r7, lr}
+ 388              		.cfi_def_cfa_offset 8
+ 389              		.cfi_offset 7, -8
+ 390              		.cfi_offset 14, -4
+ 391 0002 86B0     		sub	sp, sp, #24
+ 392              		.cfi_def_cfa_offset 32
+ 393 0004 00AF     		add	r7, sp, #0
+ 394              		.cfi_def_cfa_register 7
+ 395 0006 F860     		str	r0, [r7, #12]
+ 396 0008 B960     		str	r1, [r7, #8]
+ 397 000a 7A60     		str	r2, [r7, #4]
+ 398 000c 1A1C     		mov	r2, r3
+ 399 000e FB1C     		add	r3, r7, #3
+ 400 0010 1A70     		strb	r2, [r3]
+ 125:Generated_Source\PSoC4/tinyprintf_printf.c **** 	char fc=z? '0' : ' ';
+ 401              		.loc 1 125 0
+ 402 0012 FB1C     		add	r3, r7, #3
+ 403 0014 1B78     		ldrb	r3, [r3]
+ 404 0016 002B     		cmp	r3, #0
+ 405 0018 01D0     		beq	.L25
+ 406              		.loc 1 125 0 is_stmt 0 discriminator 1
+ 407 001a 3022     		mov	r2, #48
+ 408 001c 00E0     		b	.L26
+ 409              	.L25:
+ 410              		.loc 1 125 0 discriminator 2
+ 411 001e 2022     		mov	r2, #32
+ 412              	.L26:
+ 413              		.loc 1 125 0 discriminator 4
+ 414 0020 1323     		mov	r3, #19
+ 415 0022 FB18     		add	r3, r7, r3
+ 416 0024 1A70     		strb	r2, [r3]
+ 126:Generated_Source\PSoC4/tinyprintf_printf.c **** 	char ch;
+ 127:Generated_Source\PSoC4/tinyprintf_printf.c **** 	char* p=bf;
+ 417              		.loc 1 127 0 is_stmt 1 discriminator 4
+ 418 0026 3B6A     		ldr	r3, [r7, #32]
+ 419 0028 7B61     		str	r3, [r7, #20]
+ 128:Generated_Source\PSoC4/tinyprintf_printf.c **** 	while (*p++ && n > 0)
+ 420              		.loc 1 128 0 discriminator 4
+ 421 002a 02E0     		b	.L27
+ 422              	.L29:
+ 129:Generated_Source\PSoC4/tinyprintf_printf.c **** 		n--;
+ 423              		.loc 1 129 0
+ 424 002c 7B68     		ldr	r3, [r7, #4]
+ 425 002e 013B     		sub	r3, r3, #1
+ 426 0030 7B60     		str	r3, [r7, #4]
+ 427              	.L27:
+ 128:Generated_Source\PSoC4/tinyprintf_printf.c **** 	while (*p++ && n > 0)
+ 428              		.loc 1 128 0
+ 429 0032 7B69     		ldr	r3, [r7, #20]
+ 430 0034 5A1C     		add	r2, r3, #1
+ 431 0036 7A61     		str	r2, [r7, #20]
+ 432 0038 1B78     		ldrb	r3, [r3]
+ 433 003a 002B     		cmp	r3, #0
+ 434 003c 02D0     		beq	.L28
+ 128:Generated_Source\PSoC4/tinyprintf_printf.c **** 	while (*p++ && n > 0)
+ 435              		.loc 1 128 0 is_stmt 0 discriminator 1
+ 436 003e 7B68     		ldr	r3, [r7, #4]
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 11
+
+
+ 437 0040 002B     		cmp	r3, #0
+ 438 0042 F3DC     		bgt	.L29
+ 439              	.L28:
+ 130:Generated_Source\PSoC4/tinyprintf_printf.c **** 	while (n-- > 0) 
+ 440              		.loc 1 130 0 is_stmt 1
+ 441 0044 07E0     		b	.L30
+ 442              	.L31:
+ 131:Generated_Source\PSoC4/tinyprintf_printf.c **** 		putf(putp,fc);
+ 443              		.loc 1 131 0
+ 444 0046 F968     		ldr	r1, [r7, #12]
+ 445 0048 1323     		mov	r3, #19
+ 446 004a FB18     		add	r3, r7, r3
+ 447 004c 1A78     		ldrb	r2, [r3]
+ 448 004e BB68     		ldr	r3, [r7, #8]
+ 449 0050 081C     		mov	r0, r1
+ 450 0052 111C     		mov	r1, r2
+ 451 0054 9847     		blx	r3
+ 452              	.L30:
+ 130:Generated_Source\PSoC4/tinyprintf_printf.c **** 	while (n-- > 0) 
+ 453              		.loc 1 130 0
+ 454 0056 7B68     		ldr	r3, [r7, #4]
+ 455 0058 5A1E     		sub	r2, r3, #1
+ 456 005a 7A60     		str	r2, [r7, #4]
+ 457 005c 002B     		cmp	r3, #0
+ 458 005e F2DC     		bgt	.L31
+ 132:Generated_Source\PSoC4/tinyprintf_printf.c **** 	while ((ch= *bf++))
+ 459              		.loc 1 132 0
+ 460 0060 07E0     		b	.L32
+ 461              	.L33:
+ 133:Generated_Source\PSoC4/tinyprintf_printf.c **** 		putf(putp,ch);
+ 462              		.loc 1 133 0
+ 463 0062 F968     		ldr	r1, [r7, #12]
+ 464 0064 1223     		mov	r3, #18
+ 465 0066 FB18     		add	r3, r7, r3
+ 466 0068 1A78     		ldrb	r2, [r3]
+ 467 006a BB68     		ldr	r3, [r7, #8]
+ 468 006c 081C     		mov	r0, r1
+ 469 006e 111C     		mov	r1, r2
+ 470 0070 9847     		blx	r3
+ 471              	.L32:
+ 132:Generated_Source\PSoC4/tinyprintf_printf.c **** 	while ((ch= *bf++))
+ 472              		.loc 1 132 0
+ 473 0072 3B6A     		ldr	r3, [r7, #32]
+ 474 0074 5A1C     		add	r2, r3, #1
+ 475 0076 3A62     		str	r2, [r7, #32]
+ 476 0078 1222     		mov	r2, #18
+ 477 007a BA18     		add	r2, r7, r2
+ 478 007c 1B78     		ldrb	r3, [r3]
+ 479 007e 1370     		strb	r3, [r2]
+ 480 0080 1223     		mov	r3, #18
+ 481 0082 FB18     		add	r3, r7, r3
+ 482 0084 1B78     		ldrb	r3, [r3]
+ 483 0086 002B     		cmp	r3, #0
+ 484 0088 EBD1     		bne	.L33
+ 134:Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+ 485              		.loc 1 134 0
+ 486 008a BD46     		mov	sp, r7
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 12
+
+
+ 487 008c 06B0     		add	sp, sp, #24
+ 488              		@ sp needed
+ 489 008e 80BD     		pop	{r7, pc}
+ 490              		.cfi_endproc
+ 491              	.LFE4:
+ 492              		.size	putchw, .-putchw
+ 493              		.section	.text.tfp_format,"ax",%progbits
+ 494              		.align	2
+ 495              		.global	tfp_format
+ 496              		.code	16
+ 497              		.thumb_func
+ 498              		.type	tfp_format, %function
+ 499              	tfp_format:
+ 500              	.LFB5:
+ 135:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 136:Generated_Source\PSoC4/tinyprintf_printf.c **** void tfp_format(void* putp,putcf putf,char *fmt, va_list va)
+ 137:Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+ 501              		.loc 1 137 0
+ 502              		.cfi_startproc
+ 503 0000 90B5     		push	{r4, r7, lr}
+ 504              		.cfi_def_cfa_offset 12
+ 505              		.cfi_offset 4, -12
+ 506              		.cfi_offset 7, -8
+ 507              		.cfi_offset 14, -4
+ 508 0002 8DB0     		sub	sp, sp, #52
+ 509              		.cfi_def_cfa_offset 64
+ 510 0004 02AF     		add	r7, sp, #8
+ 511              		.cfi_def_cfa 7, 56
+ 512 0006 F860     		str	r0, [r7, #12]
+ 513 0008 B960     		str	r1, [r7, #8]
+ 514 000a 7A60     		str	r2, [r7, #4]
+ 515 000c 3B60     		str	r3, [r7]
+ 138:Generated_Source\PSoC4/tinyprintf_printf.c **** 	char bf[12];
+ 139:Generated_Source\PSoC4/tinyprintf_printf.c ****     
+ 140:Generated_Source\PSoC4/tinyprintf_printf.c **** 	char ch;
+ 141:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 142:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 143:Generated_Source\PSoC4/tinyprintf_printf.c **** 	while ((ch=*(fmt++))) {
+ 516              		.loc 1 143 0
+ 517 000e CFE0     		b	.L35
+ 518              	.L51:
+ 144:Generated_Source\PSoC4/tinyprintf_printf.c **** 		if (ch!='%') 
+ 519              		.loc 1 144 0
+ 520 0010 2723     		mov	r3, #39
+ 521 0012 FB18     		add	r3, r7, r3
+ 522 0014 1B78     		ldrb	r3, [r3]
+ 523 0016 252B     		cmp	r3, #37
+ 524 0018 08D0     		beq	.L36
+ 145:Generated_Source\PSoC4/tinyprintf_printf.c **** 			putf(putp,ch);
+ 525              		.loc 1 145 0
+ 526 001a F968     		ldr	r1, [r7, #12]
+ 527 001c 2723     		mov	r3, #39
+ 528 001e FB18     		add	r3, r7, r3
+ 529 0020 1A78     		ldrb	r2, [r3]
+ 530 0022 BB68     		ldr	r3, [r7, #8]
+ 531 0024 081C     		mov	r0, r1
+ 532 0026 111C     		mov	r1, r2
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 13
+
+
+ 533 0028 9847     		blx	r3
+ 534 002a C1E0     		b	.L35
+ 535              	.L36:
+ 536              	.LBB3:
+ 146:Generated_Source\PSoC4/tinyprintf_printf.c **** 		else {
+ 147:Generated_Source\PSoC4/tinyprintf_printf.c **** 			char lz=0;
+ 537              		.loc 1 147 0
+ 538 002c 2623     		mov	r3, #38
+ 539 002e FB18     		add	r3, r7, r3
+ 540 0030 0022     		mov	r2, #0
+ 541 0032 1A70     		strb	r2, [r3]
+ 148:Generated_Source\PSoC4/tinyprintf_printf.c **** #ifdef 	PRINTF_LONG_SUPPORT
+ 149:Generated_Source\PSoC4/tinyprintf_printf.c **** 			char lng=0;
+ 150:Generated_Source\PSoC4/tinyprintf_printf.c **** #endif
+ 151:Generated_Source\PSoC4/tinyprintf_printf.c **** 			int w=0;
+ 542              		.loc 1 151 0
+ 543 0034 0023     		mov	r3, #0
+ 544 0036 7B61     		str	r3, [r7, #20]
+ 152:Generated_Source\PSoC4/tinyprintf_printf.c **** 			ch=*(fmt++);
+ 545              		.loc 1 152 0
+ 546 0038 7B68     		ldr	r3, [r7, #4]
+ 547 003a 5A1C     		add	r2, r3, #1
+ 548 003c 7A60     		str	r2, [r7, #4]
+ 549 003e 2722     		mov	r2, #39
+ 550 0040 BA18     		add	r2, r7, r2
+ 551 0042 1B78     		ldrb	r3, [r3]
+ 552 0044 1370     		strb	r3, [r2]
+ 153:Generated_Source\PSoC4/tinyprintf_printf.c **** 			if (ch=='0') {
+ 553              		.loc 1 153 0
+ 554 0046 2723     		mov	r3, #39
+ 555 0048 FB18     		add	r3, r7, r3
+ 556 004a 1B78     		ldrb	r3, [r3]
+ 557 004c 302B     		cmp	r3, #48
+ 558 004e 0AD1     		bne	.L37
+ 154:Generated_Source\PSoC4/tinyprintf_printf.c **** 				ch=*(fmt++);
+ 559              		.loc 1 154 0
+ 560 0050 7B68     		ldr	r3, [r7, #4]
+ 561 0052 5A1C     		add	r2, r3, #1
+ 562 0054 7A60     		str	r2, [r7, #4]
+ 563 0056 2722     		mov	r2, #39
+ 564 0058 BA18     		add	r2, r7, r2
+ 565 005a 1B78     		ldrb	r3, [r3]
+ 566 005c 1370     		strb	r3, [r2]
+ 155:Generated_Source\PSoC4/tinyprintf_printf.c **** 				lz=1;
+ 567              		.loc 1 155 0
+ 568 005e 2623     		mov	r3, #38
+ 569 0060 FB18     		add	r3, r7, r3
+ 570 0062 0122     		mov	r2, #1
+ 571 0064 1A70     		strb	r2, [r3]
+ 572              	.L37:
+ 156:Generated_Source\PSoC4/tinyprintf_printf.c **** 				}
+ 157:Generated_Source\PSoC4/tinyprintf_printf.c **** 			if (ch>='0' && ch<='9') {
+ 573              		.loc 1 157 0
+ 574 0066 2723     		mov	r3, #39
+ 575 0068 FB18     		add	r3, r7, r3
+ 576 006a 1B78     		ldrb	r3, [r3]
+ 577 006c 2F2B     		cmp	r3, #47
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 14
+
+
+ 578 006e 13D9     		bls	.L38
+ 579              		.loc 1 157 0 is_stmt 0 discriminator 1
+ 580 0070 2723     		mov	r3, #39
+ 581 0072 FB18     		add	r3, r7, r3
+ 582 0074 1B78     		ldrb	r3, [r3]
+ 583 0076 392B     		cmp	r3, #57
+ 584 0078 0ED8     		bhi	.L38
+ 158:Generated_Source\PSoC4/tinyprintf_printf.c **** 				ch=a2i(ch,&fmt,10,&w);
+ 585              		.loc 1 158 0 is_stmt 1
+ 586 007a 2723     		mov	r3, #39
+ 587 007c FC18     		add	r4, r7, r3
+ 588 007e 2723     		mov	r3, #39
+ 589 0080 FB18     		add	r3, r7, r3
+ 590 0082 1978     		ldrb	r1, [r3]
+ 591 0084 3A1D     		add	r2, r7, #4
+ 592 0086 1423     		mov	r3, #20
+ 593 0088 FB18     		add	r3, r7, r3
+ 594 008a 081C     		mov	r0, r1
+ 595 008c 111C     		mov	r1, r2
+ 596 008e 0A22     		mov	r2, #10
+ 597 0090 FFF7FEFF 		bl	a2i
+ 598 0094 031C     		mov	r3, r0
+ 599 0096 2370     		strb	r3, [r4]
+ 600              	.L38:
+ 159:Generated_Source\PSoC4/tinyprintf_printf.c **** 				}
+ 160:Generated_Source\PSoC4/tinyprintf_printf.c **** #ifdef 	PRINTF_LONG_SUPPORT
+ 161:Generated_Source\PSoC4/tinyprintf_printf.c **** 			if (ch=='l') {
+ 162:Generated_Source\PSoC4/tinyprintf_printf.c **** 				ch=*(fmt++);
+ 163:Generated_Source\PSoC4/tinyprintf_printf.c **** 				lng=1;
+ 164:Generated_Source\PSoC4/tinyprintf_printf.c **** 			}
+ 165:Generated_Source\PSoC4/tinyprintf_printf.c **** #endif
+ 166:Generated_Source\PSoC4/tinyprintf_printf.c **** 			switch (ch) {
+ 601              		.loc 1 166 0
+ 602 0098 2723     		mov	r3, #39
+ 603 009a FB18     		add	r3, r7, r3
+ 604 009c 1B78     		ldrb	r3, [r3]
+ 605 009e 632B     		cmp	r3, #99
+ 606 00a0 63D0     		beq	.L40
+ 607 00a2 08DC     		bgt	.L41
+ 608 00a4 252B     		cmp	r3, #37
+ 609 00a6 00D1     		bne	.LCB529
+ 610 00a8 79E0     		b	.L42	@long jump
+ 611              	.LCB529:
+ 612 00aa 582B     		cmp	r3, #88
+ 613 00ac 3DD0     		beq	.L43
+ 614 00ae 002B     		cmp	r3, #0
+ 615 00b0 00D1     		bne	.LCB533
+ 616 00b2 8BE0     		b	.L52	@long jump
+ 617              	.LCB533:
+ 167:Generated_Source\PSoC4/tinyprintf_printf.c **** 				case 0: 
+ 168:Generated_Source\PSoC4/tinyprintf_printf.c **** 					goto abort;
+ 169:Generated_Source\PSoC4/tinyprintf_printf.c **** 				case 'u' : {
+ 170:Generated_Source\PSoC4/tinyprintf_printf.c **** #ifdef 	PRINTF_LONG_SUPPORT
+ 171:Generated_Source\PSoC4/tinyprintf_printf.c **** 					if (lng)
+ 172:Generated_Source\PSoC4/tinyprintf_printf.c **** 						uli2a(va_arg(va, unsigned long int),10,0,bf);
+ 173:Generated_Source\PSoC4/tinyprintf_printf.c **** 					else
+ 174:Generated_Source\PSoC4/tinyprintf_printf.c **** #endif
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 15
+
+
+ 175:Generated_Source\PSoC4/tinyprintf_printf.c **** 					ui2a(va_arg(va, unsigned int),10,0,bf);
+ 176:Generated_Source\PSoC4/tinyprintf_printf.c **** 					putchw(putp,putf,w,lz,bf);
+ 177:Generated_Source\PSoC4/tinyprintf_printf.c **** 					break;
+ 178:Generated_Source\PSoC4/tinyprintf_printf.c **** 					}
+ 179:Generated_Source\PSoC4/tinyprintf_printf.c **** 				case 'd' :  {
+ 180:Generated_Source\PSoC4/tinyprintf_printf.c **** #ifdef 	PRINTF_LONG_SUPPORT
+ 181:Generated_Source\PSoC4/tinyprintf_printf.c **** 					if (lng)
+ 182:Generated_Source\PSoC4/tinyprintf_printf.c **** 						li2a(va_arg(va, unsigned long int),bf);
+ 183:Generated_Source\PSoC4/tinyprintf_printf.c **** 					else
+ 184:Generated_Source\PSoC4/tinyprintf_printf.c **** #endif
+ 185:Generated_Source\PSoC4/tinyprintf_printf.c **** 					i2a(va_arg(va, int),bf);
+ 186:Generated_Source\PSoC4/tinyprintf_printf.c **** 					putchw(putp,putf,w,lz,bf);
+ 187:Generated_Source\PSoC4/tinyprintf_printf.c **** 					break;
+ 188:Generated_Source\PSoC4/tinyprintf_printf.c **** 					}
+ 189:Generated_Source\PSoC4/tinyprintf_printf.c **** 				case 'x': case 'X' : 
+ 190:Generated_Source\PSoC4/tinyprintf_printf.c **** #ifdef 	PRINTF_LONG_SUPPORT
+ 191:Generated_Source\PSoC4/tinyprintf_printf.c **** 					if (lng)
+ 192:Generated_Source\PSoC4/tinyprintf_printf.c **** 						uli2a(va_arg(va, unsigned long int),16,(ch=='X'),bf);
+ 193:Generated_Source\PSoC4/tinyprintf_printf.c **** 					else
+ 194:Generated_Source\PSoC4/tinyprintf_printf.c **** #endif
+ 195:Generated_Source\PSoC4/tinyprintf_printf.c **** 					ui2a(va_arg(va, unsigned int),16,(ch=='X'),bf);
+ 196:Generated_Source\PSoC4/tinyprintf_printf.c **** 					putchw(putp,putf,w,lz,bf);
+ 197:Generated_Source\PSoC4/tinyprintf_printf.c **** 					break;
+ 198:Generated_Source\PSoC4/tinyprintf_printf.c **** 				case 'c' : 
+ 199:Generated_Source\PSoC4/tinyprintf_printf.c **** 					putf(putp,(char)(va_arg(va, int)));
+ 200:Generated_Source\PSoC4/tinyprintf_printf.c **** 					break;
+ 201:Generated_Source\PSoC4/tinyprintf_printf.c **** 				case 's' : 
+ 202:Generated_Source\PSoC4/tinyprintf_printf.c **** 					putchw(putp,putf,w,0,va_arg(va, char*));
+ 203:Generated_Source\PSoC4/tinyprintf_printf.c **** 					break;
+ 204:Generated_Source\PSoC4/tinyprintf_printf.c **** 				case '%' :
+ 205:Generated_Source\PSoC4/tinyprintf_printf.c **** 					putf(putp,ch);
+ 206:Generated_Source\PSoC4/tinyprintf_printf.c **** 				default:
+ 207:Generated_Source\PSoC4/tinyprintf_printf.c **** 					break;
+ 618              		.loc 1 207 0
+ 619 00b4 7BE0     		b	.L53
+ 620              	.L41:
+ 166:Generated_Source\PSoC4/tinyprintf_printf.c **** 				case 0: 
+ 621              		.loc 1 166 0
+ 622 00b6 732B     		cmp	r3, #115
+ 623 00b8 62D0     		beq	.L45
+ 624 00ba 02DC     		bgt	.L46
+ 625 00bc 642B     		cmp	r3, #100
+ 626 00be 1DD0     		beq	.L47
+ 627              		.loc 1 207 0
+ 628 00c0 75E0     		b	.L53
+ 629              	.L46:
+ 166:Generated_Source\PSoC4/tinyprintf_printf.c **** 				case 0: 
+ 630              		.loc 1 166 0
+ 631 00c2 752B     		cmp	r3, #117
+ 632 00c4 02D0     		beq	.L48
+ 633 00c6 782B     		cmp	r3, #120
+ 634 00c8 2FD0     		beq	.L43
+ 635              		.loc 1 207 0
+ 636 00ca 70E0     		b	.L53
+ 637              	.L48:
+ 175:Generated_Source\PSoC4/tinyprintf_printf.c **** 					putchw(putp,putf,w,lz,bf);
+ 638              		.loc 1 175 0
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 16
+
+
+ 639 00cc 3B68     		ldr	r3, [r7]
+ 640 00ce 1A1D     		add	r2, r3, #4
+ 641 00d0 3A60     		str	r2, [r7]
+ 642 00d2 1A68     		ldr	r2, [r3]
+ 643 00d4 1823     		mov	r3, #24
+ 644 00d6 FB18     		add	r3, r7, r3
+ 645 00d8 101C     		mov	r0, r2
+ 646 00da 0A21     		mov	r1, #10
+ 647 00dc 0022     		mov	r2, #0
+ 648 00de FFF7FEFF 		bl	ui2a
+ 176:Generated_Source\PSoC4/tinyprintf_printf.c **** 					break;
+ 649              		.loc 1 176 0
+ 650 00e2 7A69     		ldr	r2, [r7, #20]
+ 651 00e4 F868     		ldr	r0, [r7, #12]
+ 652 00e6 B968     		ldr	r1, [r7, #8]
+ 653 00e8 2623     		mov	r3, #38
+ 654 00ea FB18     		add	r3, r7, r3
+ 655 00ec 1C78     		ldrb	r4, [r3]
+ 656 00ee 1823     		mov	r3, #24
+ 657 00f0 FB18     		add	r3, r7, r3
+ 658 00f2 0093     		str	r3, [sp]
+ 659 00f4 231C     		mov	r3, r4
+ 660 00f6 FFF7FEFF 		bl	putchw
+ 177:Generated_Source\PSoC4/tinyprintf_printf.c **** 					}
+ 661              		.loc 1 177 0
+ 662 00fa 59E0     		b	.L50
+ 663              	.L47:
+ 185:Generated_Source\PSoC4/tinyprintf_printf.c **** 					putchw(putp,putf,w,lz,bf);
+ 664              		.loc 1 185 0
+ 665 00fc 3B68     		ldr	r3, [r7]
+ 666 00fe 1A1D     		add	r2, r3, #4
+ 667 0100 3A60     		str	r2, [r7]
+ 668 0102 1A68     		ldr	r2, [r3]
+ 669 0104 1823     		mov	r3, #24
+ 670 0106 FB18     		add	r3, r7, r3
+ 671 0108 101C     		mov	r0, r2
+ 672 010a 191C     		mov	r1, r3
+ 673 010c FFF7FEFF 		bl	i2a
+ 186:Generated_Source\PSoC4/tinyprintf_printf.c **** 					break;
+ 674              		.loc 1 186 0
+ 675 0110 7A69     		ldr	r2, [r7, #20]
+ 676 0112 F868     		ldr	r0, [r7, #12]
+ 677 0114 B968     		ldr	r1, [r7, #8]
+ 678 0116 2623     		mov	r3, #38
+ 679 0118 FB18     		add	r3, r7, r3
+ 680 011a 1C78     		ldrb	r4, [r3]
+ 681 011c 1823     		mov	r3, #24
+ 682 011e FB18     		add	r3, r7, r3
+ 683 0120 0093     		str	r3, [sp]
+ 684 0122 231C     		mov	r3, r4
+ 685 0124 FFF7FEFF 		bl	putchw
+ 187:Generated_Source\PSoC4/tinyprintf_printf.c **** 					}
+ 686              		.loc 1 187 0
+ 687 0128 42E0     		b	.L50
+ 688              	.L43:
+ 195:Generated_Source\PSoC4/tinyprintf_printf.c **** 					putchw(putp,putf,w,lz,bf);
+ 689              		.loc 1 195 0
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 17
+
+
+ 690 012a 3B68     		ldr	r3, [r7]
+ 691 012c 1A1D     		add	r2, r3, #4
+ 692 012e 3A60     		str	r2, [r7]
+ 693 0130 1A68     		ldr	r2, [r3]
+ 694 0132 2723     		mov	r3, #39
+ 695 0134 FB18     		add	r3, r7, r3
+ 696 0136 1B78     		ldrb	r3, [r3]
+ 697 0138 583B     		sub	r3, r3, #88
+ 698 013a 5942     		neg	r1, r3
+ 699 013c 4B41     		adc	r3, r3, r1
+ 700 013e DBB2     		uxtb	r3, r3
+ 701 0140 1C1C     		mov	r4, r3
+ 702 0142 1823     		mov	r3, #24
+ 703 0144 FB18     		add	r3, r7, r3
+ 704 0146 101C     		mov	r0, r2
+ 705 0148 1021     		mov	r1, #16
+ 706 014a 221C     		mov	r2, r4
+ 707 014c FFF7FEFF 		bl	ui2a
+ 196:Generated_Source\PSoC4/tinyprintf_printf.c **** 					break;
+ 708              		.loc 1 196 0
+ 709 0150 7A69     		ldr	r2, [r7, #20]
+ 710 0152 F868     		ldr	r0, [r7, #12]
+ 711 0154 B968     		ldr	r1, [r7, #8]
+ 712 0156 2623     		mov	r3, #38
+ 713 0158 FB18     		add	r3, r7, r3
+ 714 015a 1C78     		ldrb	r4, [r3]
+ 715 015c 1823     		mov	r3, #24
+ 716 015e FB18     		add	r3, r7, r3
+ 717 0160 0093     		str	r3, [sp]
+ 718 0162 231C     		mov	r3, r4
+ 719 0164 FFF7FEFF 		bl	putchw
+ 197:Generated_Source\PSoC4/tinyprintf_printf.c **** 				case 'c' : 
+ 720              		.loc 1 197 0
+ 721 0168 22E0     		b	.L50
+ 722              	.L40:
+ 199:Generated_Source\PSoC4/tinyprintf_printf.c **** 					break;
+ 723              		.loc 1 199 0
+ 724 016a 3B68     		ldr	r3, [r7]
+ 725 016c 1A1D     		add	r2, r3, #4
+ 726 016e 3A60     		str	r2, [r7]
+ 727 0170 1B68     		ldr	r3, [r3]
+ 728 0172 DAB2     		uxtb	r2, r3
+ 729 0174 F968     		ldr	r1, [r7, #12]
+ 730 0176 BB68     		ldr	r3, [r7, #8]
+ 731 0178 081C     		mov	r0, r1
+ 732 017a 111C     		mov	r1, r2
+ 733 017c 9847     		blx	r3
+ 200:Generated_Source\PSoC4/tinyprintf_printf.c **** 				case 's' : 
+ 734              		.loc 1 200 0
+ 735 017e 17E0     		b	.L50
+ 736              	.L45:
+ 202:Generated_Source\PSoC4/tinyprintf_printf.c **** 					break;
+ 737              		.loc 1 202 0
+ 738 0180 7C69     		ldr	r4, [r7, #20]
+ 739 0182 3B68     		ldr	r3, [r7]
+ 740 0184 1A1D     		add	r2, r3, #4
+ 741 0186 3A60     		str	r2, [r7]
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 18
+
+
+ 742 0188 1B68     		ldr	r3, [r3]
+ 743 018a F968     		ldr	r1, [r7, #12]
+ 744 018c BA68     		ldr	r2, [r7, #8]
+ 745 018e 0093     		str	r3, [sp]
+ 746 0190 081C     		mov	r0, r1
+ 747 0192 111C     		mov	r1, r2
+ 748 0194 221C     		mov	r2, r4
+ 749 0196 0023     		mov	r3, #0
+ 750 0198 FFF7FEFF 		bl	putchw
+ 203:Generated_Source\PSoC4/tinyprintf_printf.c **** 				case '%' :
+ 751              		.loc 1 203 0
+ 752 019c 08E0     		b	.L50
+ 753              	.L42:
+ 205:Generated_Source\PSoC4/tinyprintf_printf.c **** 				default:
+ 754              		.loc 1 205 0
+ 755 019e F968     		ldr	r1, [r7, #12]
+ 756 01a0 2723     		mov	r3, #39
+ 757 01a2 FB18     		add	r3, r7, r3
+ 758 01a4 1A78     		ldrb	r2, [r3]
+ 759 01a6 BB68     		ldr	r3, [r7, #8]
+ 760 01a8 081C     		mov	r0, r1
+ 761 01aa 111C     		mov	r1, r2
+ 762 01ac 9847     		blx	r3
+ 763              	.L53:
+ 764              		.loc 1 207 0
+ 765 01ae C046     		mov	r8, r8
+ 766              	.L50:
+ 767              	.L35:
+ 768              	.LBE3:
+ 143:Generated_Source\PSoC4/tinyprintf_printf.c **** 		if (ch!='%') 
+ 769              		.loc 1 143 0
+ 770 01b0 7B68     		ldr	r3, [r7, #4]
+ 771 01b2 5A1C     		add	r2, r3, #1
+ 772 01b4 7A60     		str	r2, [r7, #4]
+ 773 01b6 2722     		mov	r2, #39
+ 774 01b8 BA18     		add	r2, r7, r2
+ 775 01ba 1B78     		ldrb	r3, [r3]
+ 776 01bc 1370     		strb	r3, [r2]
+ 777 01be 2723     		mov	r3, #39
+ 778 01c0 FB18     		add	r3, r7, r3
+ 779 01c2 1B78     		ldrb	r3, [r3]
+ 780 01c4 002B     		cmp	r3, #0
+ 781 01c6 00D0     		beq	.LCB695
+ 782 01c8 22E7     		b	.L51	@long jump
+ 783              	.LCB695:
+ 784 01ca 00E0     		b	.L34
+ 785              	.L49:
+ 786              	.L52:
+ 787              	.LBB4:
+ 168:Generated_Source\PSoC4/tinyprintf_printf.c **** 				case 'u' : {
+ 788              		.loc 1 168 0
+ 789 01cc C046     		mov	r8, r8
+ 790              	.L34:
+ 791              	.LBE4:
+ 208:Generated_Source\PSoC4/tinyprintf_printf.c **** 				}
+ 209:Generated_Source\PSoC4/tinyprintf_printf.c **** 			}
+ 210:Generated_Source\PSoC4/tinyprintf_printf.c **** 		}
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 19
+
+
+ 211:Generated_Source\PSoC4/tinyprintf_printf.c **** 	abort:;
+ 212:Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+ 792              		.loc 1 212 0
+ 793 01ce BD46     		mov	sp, r7
+ 794 01d0 0BB0     		add	sp, sp, #44
+ 795              		@ sp needed
+ 796 01d2 90BD     		pop	{r4, r7, pc}
+ 797              		.cfi_endproc
+ 798              	.LFE5:
+ 799              		.size	tfp_format, .-tfp_format
+ 800              		.section	.text.init_printf,"ax",%progbits
+ 801              		.align	2
+ 802              		.global	init_printf
+ 803              		.code	16
+ 804              		.thumb_func
+ 805              		.type	init_printf, %function
+ 806              	init_printf:
+ 807              	.LFB6:
+ 213:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 214:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 215:Generated_Source\PSoC4/tinyprintf_printf.c **** void init_printf(void* putp,void (*putf) (void*,char))
+ 216:Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+ 808              		.loc 1 216 0
+ 809              		.cfi_startproc
+ 810 0000 80B5     		push	{r7, lr}
+ 811              		.cfi_def_cfa_offset 8
+ 812              		.cfi_offset 7, -8
+ 813              		.cfi_offset 14, -4
+ 814 0002 82B0     		sub	sp, sp, #8
+ 815              		.cfi_def_cfa_offset 16
+ 816 0004 00AF     		add	r7, sp, #0
+ 817              		.cfi_def_cfa_register 7
+ 818 0006 7860     		str	r0, [r7, #4]
+ 819 0008 3960     		str	r1, [r7]
+ 217:Generated_Source\PSoC4/tinyprintf_printf.c **** 	stdout_putf=putf;
+ 820              		.loc 1 217 0
+ 821 000a 044B     		ldr	r3, .L55
+ 822 000c 3A68     		ldr	r2, [r7]
+ 823 000e 1A60     		str	r2, [r3]
+ 218:Generated_Source\PSoC4/tinyprintf_printf.c **** 	stdout_putp=putp;
+ 824              		.loc 1 218 0
+ 825 0010 034B     		ldr	r3, .L55+4
+ 826 0012 7A68     		ldr	r2, [r7, #4]
+ 827 0014 1A60     		str	r2, [r3]
+ 219:Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+ 828              		.loc 1 219 0
+ 829 0016 BD46     		mov	sp, r7
+ 830 0018 02B0     		add	sp, sp, #8
+ 831              		@ sp needed
+ 832 001a 80BD     		pop	{r7, pc}
+ 833              	.L56:
+ 834              		.align	2
+ 835              	.L55:
+ 836 001c 00000000 		.word	stdout_putf
+ 837 0020 04000000 		.word	stdout_putp
+ 838              		.cfi_endproc
+ 839              	.LFE6:
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 20
+
+
+ 840              		.size	init_printf, .-init_printf
+ 841              		.section	.text.tfp_printf,"ax",%progbits
+ 842              		.align	2
+ 843              		.global	tfp_printf
+ 844              		.code	16
+ 845              		.thumb_func
+ 846              		.type	tfp_printf, %function
+ 847              	tfp_printf:
+ 848              	.LFB7:
+ 220:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 221:Generated_Source\PSoC4/tinyprintf_printf.c **** void tfp_printf(char *fmt, ...)
+ 222:Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+ 849              		.loc 1 222 0
+ 850              		.cfi_startproc
+ 851 0000 0FB4     		push	{r0, r1, r2, r3}
+ 852              		.cfi_def_cfa_offset 16
+ 853 0002 80B5     		push	{r7, lr}
+ 854              		.cfi_def_cfa_offset 24
+ 855              		.cfi_offset 7, -24
+ 856              		.cfi_offset 14, -20
+ 857 0004 82B0     		sub	sp, sp, #8
+ 858              		.cfi_def_cfa_offset 32
+ 859 0006 00AF     		add	r7, sp, #0
+ 860              		.cfi_def_cfa_register 7
+ 223:Generated_Source\PSoC4/tinyprintf_printf.c **** 	va_list va;
+ 224:Generated_Source\PSoC4/tinyprintf_printf.c **** 	va_start(va,fmt);
+ 861              		.loc 1 224 0
+ 862 0008 1423     		mov	r3, #20
+ 863 000a FB18     		add	r3, r7, r3
+ 864 000c 7B60     		str	r3, [r7, #4]
+ 225:Generated_Source\PSoC4/tinyprintf_printf.c **** 	tfp_format(stdout_putp,stdout_putf,fmt,va);
+ 865              		.loc 1 225 0
+ 866 000e 074B     		ldr	r3, .L58
+ 867 0010 1868     		ldr	r0, [r3]
+ 868 0012 074B     		ldr	r3, .L58+4
+ 869 0014 1968     		ldr	r1, [r3]
+ 870 0016 3A69     		ldr	r2, [r7, #16]
+ 871 0018 7B68     		ldr	r3, [r7, #4]
+ 872 001a FFF7FEFF 		bl	tfp_format
+ 226:Generated_Source\PSoC4/tinyprintf_printf.c **** 	va_end(va);
+ 227:Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+ 873              		.loc 1 227 0
+ 874 001e BD46     		mov	sp, r7
+ 875 0020 02B0     		add	sp, sp, #8
+ 876              		@ sp needed
+ 877 0022 80BC     		pop	{r7}
+ 878 0024 08BC     		pop	{r3}
+ 879 0026 04B0     		add	sp, sp, #16
+ 880 0028 1847     		bx	r3
+ 881              	.L59:
+ 882 002a C046     		.align	2
+ 883              	.L58:
+ 884 002c 04000000 		.word	stdout_putp
+ 885 0030 00000000 		.word	stdout_putf
+ 886              		.cfi_endproc
+ 887              	.LFE7:
+ 888              		.size	tfp_printf, .-tfp_printf
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 21
+
+
+ 889              		.section	.text.putcp,"ax",%progbits
+ 890              		.align	2
+ 891              		.code	16
+ 892              		.thumb_func
+ 893              		.type	putcp, %function
+ 894              	putcp:
+ 895              	.LFB8:
+ 228:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 229:Generated_Source\PSoC4/tinyprintf_printf.c **** static void putcp(void* p,char c)
+ 230:Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+ 896              		.loc 1 230 0
+ 897              		.cfi_startproc
+ 898 0000 80B5     		push	{r7, lr}
+ 899              		.cfi_def_cfa_offset 8
+ 900              		.cfi_offset 7, -8
+ 901              		.cfi_offset 14, -4
+ 902 0002 82B0     		sub	sp, sp, #8
+ 903              		.cfi_def_cfa_offset 16
+ 904 0004 00AF     		add	r7, sp, #0
+ 905              		.cfi_def_cfa_register 7
+ 906 0006 7860     		str	r0, [r7, #4]
+ 907 0008 0A1C     		mov	r2, r1
+ 908 000a FB1C     		add	r3, r7, #3
+ 909 000c 1A70     		strb	r2, [r3]
+ 231:Generated_Source\PSoC4/tinyprintf_printf.c **** 	*(*((char**)p))++ = c;
+ 910              		.loc 1 231 0
+ 911 000e 7B68     		ldr	r3, [r7, #4]
+ 912 0010 1B68     		ldr	r3, [r3]
+ 913 0012 591C     		add	r1, r3, #1
+ 914 0014 7A68     		ldr	r2, [r7, #4]
+ 915 0016 1160     		str	r1, [r2]
+ 916 0018 FA1C     		add	r2, r7, #3
+ 917 001a 1278     		ldrb	r2, [r2]
+ 918 001c 1A70     		strb	r2, [r3]
+ 232:Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+ 919              		.loc 1 232 0
+ 920 001e BD46     		mov	sp, r7
+ 921 0020 02B0     		add	sp, sp, #8
+ 922              		@ sp needed
+ 923 0022 80BD     		pop	{r7, pc}
+ 924              		.cfi_endproc
+ 925              	.LFE8:
+ 926              		.size	putcp, .-putcp
+ 927              		.section	.text.tfp_sprintf,"ax",%progbits
+ 928              		.align	2
+ 929              		.global	tfp_sprintf
+ 930              		.code	16
+ 931              		.thumb_func
+ 932              		.type	tfp_sprintf, %function
+ 933              	tfp_sprintf:
+ 934              	.LFB9:
+ 233:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 234:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 235:Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 236:Generated_Source\PSoC4/tinyprintf_printf.c **** void tfp_sprintf(char* s,char *fmt, ...)
+ 237:Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+ 935              		.loc 1 237 0
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 22
+
+
+ 936              		.cfi_startproc
+ 937 0000 0EB4     		push	{r1, r2, r3}
+ 938              		.cfi_def_cfa_offset 12
+ 939 0002 80B5     		push	{r7, lr}
+ 940              		.cfi_def_cfa_offset 20
+ 941              		.cfi_offset 7, -20
+ 942              		.cfi_offset 14, -16
+ 943 0004 85B0     		sub	sp, sp, #20
+ 944              		.cfi_def_cfa_offset 40
+ 945 0006 00AF     		add	r7, sp, #0
+ 946              		.cfi_def_cfa_register 7
+ 947 0008 7860     		str	r0, [r7, #4]
+ 238:Generated_Source\PSoC4/tinyprintf_printf.c **** 	va_list va;
+ 239:Generated_Source\PSoC4/tinyprintf_printf.c **** 	va_start(va,fmt);
+ 948              		.loc 1 239 0
+ 949 000a 2023     		mov	r3, #32
+ 950 000c FB18     		add	r3, r7, r3
+ 951 000e FB60     		str	r3, [r7, #12]
+ 240:Generated_Source\PSoC4/tinyprintf_printf.c **** 	tfp_format(&s,putcp,fmt,va);
+ 952              		.loc 1 240 0
+ 953 0010 381D     		add	r0, r7, #4
+ 954 0012 0849     		ldr	r1, .L62
+ 955 0014 FA69     		ldr	r2, [r7, #28]
+ 956 0016 FB68     		ldr	r3, [r7, #12]
+ 957 0018 FFF7FEFF 		bl	tfp_format
+ 241:Generated_Source\PSoC4/tinyprintf_printf.c **** 	putcp(&s,0);
+ 958              		.loc 1 241 0
+ 959 001c 3B1D     		add	r3, r7, #4
+ 960 001e 181C     		mov	r0, r3
+ 961 0020 0021     		mov	r1, #0
+ 962 0022 FFF7FEFF 		bl	putcp
+ 242:Generated_Source\PSoC4/tinyprintf_printf.c **** 	va_end(va);
+ 243:Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+ 963              		.loc 1 243 0
+ 964 0026 BD46     		mov	sp, r7
+ 965 0028 05B0     		add	sp, sp, #20
+ 966              		@ sp needed
+ 967 002a 80BC     		pop	{r7}
+ 968 002c 08BC     		pop	{r3}
+ 969 002e 03B0     		add	sp, sp, #12
+ 970 0030 1847     		bx	r3
+ 971              	.L63:
+ 972 0032 C046     		.align	2
+ 973              	.L62:
+ 974 0034 00000000 		.word	putcp
+ 975              		.cfi_endproc
+ 976              	.LFE9:
+ 977              		.size	tfp_sprintf, .-tfp_sprintf
+ 978              		.text
+ 979              	.Letext0:
+ 980              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 981              		.file 3 "<built-in>"
+ 982              		.section	.debug_info,"",%progbits
+ 983              	.Ldebug_info0:
+ 984 0000 FD030000 		.4byte	0x3fd
+ 985 0004 0400     		.2byte	0x4
+ 986 0006 00000000 		.4byte	.Ldebug_abbrev0
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 23
+
+
+ 987 000a 04       		.byte	0x4
+ 988 000b 01       		.uleb128 0x1
+ 989 000c DC000000 		.4byte	.LASF20
+ 990 0010 01       		.byte	0x1
+ 991 0011 00000000 		.4byte	.LASF21
+ 992 0015 2B000000 		.4byte	.LASF22
+ 993 0019 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 994 001d 00000000 		.4byte	0
+ 995 0021 00000000 		.4byte	.Ldebug_line0
+ 996 0025 02       		.uleb128 0x2
+ 997 0026 91000000 		.4byte	.LASF0
+ 998 002a 02       		.byte	0x2
+ 999 002b 28       		.byte	0x28
+ 1000 002c 30000000 		.4byte	0x30
+ 1001 0030 03       		.uleb128 0x3
+ 1002 0031 A7010000 		.4byte	.LASF23
+ 1003 0035 04       		.byte	0x4
+ 1004 0036 03       		.byte	0x3
+ 1005 0037 00       		.byte	0
+ 1006 0038 47000000 		.4byte	0x47
+ 1007 003c 04       		.uleb128 0x4
+ 1008 003d 8E010000 		.4byte	.LASF24
+ 1009 0041 47000000 		.4byte	0x47
+ 1010 0045 00       		.byte	0
+ 1011 0046 00       		.byte	0
+ 1012 0047 05       		.uleb128 0x5
+ 1013 0048 04       		.byte	0x4
+ 1014 0049 02       		.uleb128 0x2
+ 1015 004a BD000000 		.4byte	.LASF1
+ 1016 004e 02       		.byte	0x2
+ 1017 004f 62       		.byte	0x62
+ 1018 0050 25000000 		.4byte	0x25
+ 1019 0054 02       		.uleb128 0x2
+ 1020 0055 A0000000 		.4byte	.LASF2
+ 1021 0059 01       		.byte	0x1
+ 1022 005a 22       		.byte	0x22
+ 1023 005b 5F000000 		.4byte	0x5f
+ 1024 005f 06       		.uleb128 0x6
+ 1025 0060 04       		.byte	0x4
+ 1026 0061 65000000 		.4byte	0x65
+ 1027 0065 07       		.uleb128 0x7
+ 1028 0066 75000000 		.4byte	0x75
+ 1029 006a 08       		.uleb128 0x8
+ 1030 006b 47000000 		.4byte	0x47
+ 1031 006f 08       		.uleb128 0x8
+ 1032 0070 75000000 		.4byte	0x75
+ 1033 0074 00       		.byte	0
+ 1034 0075 09       		.uleb128 0x9
+ 1035 0076 01       		.byte	0x1
+ 1036 0077 08       		.byte	0x8
+ 1037 0078 89010000 		.4byte	.LASF4
+ 1038 007c 0A       		.uleb128 0xa
+ 1039 007d B1010000 		.4byte	.LASF6
+ 1040 0081 01       		.byte	0x1
+ 1041 0082 46       		.byte	0x46
+ 1042 0083 00000000 		.4byte	.LFB0
+ 1043 0087 AA000000 		.4byte	.LFE0-.LFB0
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 24
+
+
+ 1044 008b 01       		.uleb128 0x1
+ 1045 008c 9C       		.byte	0x9c
+ 1046 008d F8000000 		.4byte	0xf8
+ 1047 0091 0B       		.uleb128 0xb
+ 1048 0092 6E756D00 		.ascii	"num\000"
+ 1049 0096 01       		.byte	0x1
+ 1050 0097 46       		.byte	0x46
+ 1051 0098 F8000000 		.4byte	0xf8
+ 1052 009c 02       		.uleb128 0x2
+ 1053 009d 91       		.byte	0x91
+ 1054 009e 64       		.sleb128 -28
+ 1055 009f 0C       		.uleb128 0xc
+ 1056 00a0 B2000000 		.4byte	.LASF3
+ 1057 00a4 01       		.byte	0x1
+ 1058 00a5 46       		.byte	0x46
+ 1059 00a6 F8000000 		.4byte	0xf8
+ 1060 00aa 02       		.uleb128 0x2
+ 1061 00ab 91       		.byte	0x91
+ 1062 00ac 60       		.sleb128 -32
+ 1063 00ad 0B       		.uleb128 0xb
+ 1064 00ae 756300   		.ascii	"uc\000"
+ 1065 00b1 01       		.byte	0x1
+ 1066 00b2 46       		.byte	0x46
+ 1067 00b3 FF000000 		.4byte	0xff
+ 1068 00b7 02       		.uleb128 0x2
+ 1069 00b8 91       		.byte	0x91
+ 1070 00b9 5C       		.sleb128 -36
+ 1071 00ba 0B       		.uleb128 0xb
+ 1072 00bb 626600   		.ascii	"bf\000"
+ 1073 00be 01       		.byte	0x1
+ 1074 00bf 46       		.byte	0x46
+ 1075 00c0 06010000 		.4byte	0x106
+ 1076 00c4 02       		.uleb128 0x2
+ 1077 00c5 91       		.byte	0x91
+ 1078 00c6 58       		.sleb128 -40
+ 1079 00c7 0D       		.uleb128 0xd
+ 1080 00c8 6E00     		.ascii	"n\000"
+ 1081 00ca 01       		.byte	0x1
+ 1082 00cb 48       		.byte	0x48
+ 1083 00cc FF000000 		.4byte	0xff
+ 1084 00d0 02       		.uleb128 0x2
+ 1085 00d1 91       		.byte	0x91
+ 1086 00d2 74       		.sleb128 -12
+ 1087 00d3 0D       		.uleb128 0xd
+ 1088 00d4 6400     		.ascii	"d\000"
+ 1089 00d6 01       		.byte	0x1
+ 1090 00d7 49       		.byte	0x49
+ 1091 00d8 F8000000 		.4byte	0xf8
+ 1092 00dc 02       		.uleb128 0x2
+ 1093 00dd 91       		.byte	0x91
+ 1094 00de 70       		.sleb128 -16
+ 1095 00df 0E       		.uleb128 0xe
+ 1096 00e0 34000000 		.4byte	.LBB2
+ 1097 00e4 64000000 		.4byte	.LBE2-.LBB2
+ 1098 00e8 0D       		.uleb128 0xd
+ 1099 00e9 64677400 		.ascii	"dgt\000"
+ 1100 00ed 01       		.byte	0x1
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 25
+
+
+ 1101 00ee 4D       		.byte	0x4d
+ 1102 00ef FF000000 		.4byte	0xff
+ 1103 00f3 02       		.uleb128 0x2
+ 1104 00f4 91       		.byte	0x91
+ 1105 00f5 6C       		.sleb128 -20
+ 1106 00f6 00       		.byte	0
+ 1107 00f7 00       		.byte	0
+ 1108 00f8 09       		.uleb128 0x9
+ 1109 00f9 04       		.byte	0x4
+ 1110 00fa 07       		.byte	0x7
+ 1111 00fb 76010000 		.4byte	.LASF5
+ 1112 00ff 0F       		.uleb128 0xf
+ 1113 0100 04       		.byte	0x4
+ 1114 0101 05       		.byte	0x5
+ 1115 0102 696E7400 		.ascii	"int\000"
+ 1116 0106 06       		.uleb128 0x6
+ 1117 0107 04       		.byte	0x4
+ 1118 0108 75000000 		.4byte	0x75
+ 1119 010c 10       		.uleb128 0x10
+ 1120 010d 69326100 		.ascii	"i2a\000"
+ 1121 0111 01       		.byte	0x1
+ 1122 0112 58       		.byte	0x58
+ 1123 0113 00000000 		.4byte	.LFB1
+ 1124 0117 34000000 		.4byte	.LFE1-.LFB1
+ 1125 011b 01       		.uleb128 0x1
+ 1126 011c 9C       		.byte	0x9c
+ 1127 011d 3D010000 		.4byte	0x13d
+ 1128 0121 0B       		.uleb128 0xb
+ 1129 0122 6E756D00 		.ascii	"num\000"
+ 1130 0126 01       		.byte	0x1
+ 1131 0127 58       		.byte	0x58
+ 1132 0128 FF000000 		.4byte	0xff
+ 1133 012c 02       		.uleb128 0x2
+ 1134 012d 91       		.byte	0x91
+ 1135 012e 74       		.sleb128 -12
+ 1136 012f 0B       		.uleb128 0xb
+ 1137 0130 626600   		.ascii	"bf\000"
+ 1138 0133 01       		.byte	0x1
+ 1139 0134 58       		.byte	0x58
+ 1140 0135 06010000 		.4byte	0x106
+ 1141 0139 02       		.uleb128 0x2
+ 1142 013a 91       		.byte	0x91
+ 1143 013b 70       		.sleb128 -16
+ 1144 013c 00       		.byte	0
+ 1145 013d 11       		.uleb128 0x11
+ 1146 013e 61326400 		.ascii	"a2d\000"
+ 1147 0142 01       		.byte	0x1
+ 1148 0143 61       		.byte	0x61
+ 1149 0144 FF000000 		.4byte	0xff
+ 1150 0148 00000000 		.4byte	.LFB2
+ 1151 014c 60000000 		.4byte	.LFE2-.LFB2
+ 1152 0150 01       		.uleb128 0x1
+ 1153 0151 9C       		.byte	0x9c
+ 1154 0152 64010000 		.4byte	0x164
+ 1155 0156 0B       		.uleb128 0xb
+ 1156 0157 636800   		.ascii	"ch\000"
+ 1157 015a 01       		.byte	0x1
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 26
+
+
+ 1158 015b 61       		.byte	0x61
+ 1159 015c 75000000 		.4byte	0x75
+ 1160 0160 02       		.uleb128 0x2
+ 1161 0161 91       		.byte	0x91
+ 1162 0162 77       		.sleb128 -9
+ 1163 0163 00       		.byte	0
+ 1164 0164 12       		.uleb128 0x12
+ 1165 0165 61326900 		.ascii	"a2i\000"
+ 1166 0169 01       		.byte	0x1
+ 1167 016a 6C       		.byte	0x6c
+ 1168 016b 75000000 		.4byte	0x75
+ 1169 016f 00000000 		.4byte	.LFB3
+ 1170 0173 74000000 		.4byte	.LFE3-.LFB3
+ 1171 0177 01       		.uleb128 0x1
+ 1172 0178 9C       		.byte	0x9c
+ 1173 0179 DD010000 		.4byte	0x1dd
+ 1174 017d 0B       		.uleb128 0xb
+ 1175 017e 636800   		.ascii	"ch\000"
+ 1176 0181 01       		.byte	0x1
+ 1177 0182 6C       		.byte	0x6c
+ 1178 0183 75000000 		.4byte	0x75
+ 1179 0187 02       		.uleb128 0x2
+ 1180 0188 91       		.byte	0x91
+ 1181 0189 67       		.sleb128 -25
+ 1182 018a 0B       		.uleb128 0xb
+ 1183 018b 73726300 		.ascii	"src\000"
+ 1184 018f 01       		.byte	0x1
+ 1185 0190 6C       		.byte	0x6c
+ 1186 0191 DD010000 		.4byte	0x1dd
+ 1187 0195 02       		.uleb128 0x2
+ 1188 0196 91       		.byte	0x91
+ 1189 0197 60       		.sleb128 -32
+ 1190 0198 0C       		.uleb128 0xc
+ 1191 0199 B2000000 		.4byte	.LASF3
+ 1192 019d 01       		.byte	0x1
+ 1193 019e 6C       		.byte	0x6c
+ 1194 019f FF000000 		.4byte	0xff
+ 1195 01a3 02       		.uleb128 0x2
+ 1196 01a4 91       		.byte	0x91
+ 1197 01a5 5C       		.sleb128 -36
+ 1198 01a6 0C       		.uleb128 0xc
+ 1199 01a7 B6010000 		.4byte	.LASF7
+ 1200 01ab 01       		.byte	0x1
+ 1201 01ac 6C       		.byte	0x6c
+ 1202 01ad E3010000 		.4byte	0x1e3
+ 1203 01b1 02       		.uleb128 0x2
+ 1204 01b2 91       		.byte	0x91
+ 1205 01b3 58       		.sleb128 -40
+ 1206 01b4 0D       		.uleb128 0xd
+ 1207 01b5 7000     		.ascii	"p\000"
+ 1208 01b7 01       		.byte	0x1
+ 1209 01b8 6E       		.byte	0x6e
+ 1210 01b9 06010000 		.4byte	0x106
+ 1211 01bd 02       		.uleb128 0x2
+ 1212 01be 91       		.byte	0x91
+ 1213 01bf 74       		.sleb128 -12
+ 1214 01c0 0D       		.uleb128 0xd
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 27
+
+
+ 1215 01c1 6E756D00 		.ascii	"num\000"
+ 1216 01c5 01       		.byte	0x1
+ 1217 01c6 6F       		.byte	0x6f
+ 1218 01c7 FF000000 		.4byte	0xff
+ 1219 01cb 02       		.uleb128 0x2
+ 1220 01cc 91       		.byte	0x91
+ 1221 01cd 70       		.sleb128 -16
+ 1222 01ce 13       		.uleb128 0x13
+ 1223 01cf 83010000 		.4byte	.LASF8
+ 1224 01d3 01       		.byte	0x1
+ 1225 01d4 70       		.byte	0x70
+ 1226 01d5 FF000000 		.4byte	0xff
+ 1227 01d9 02       		.uleb128 0x2
+ 1228 01da 91       		.byte	0x91
+ 1229 01db 6C       		.sleb128 -20
+ 1230 01dc 00       		.byte	0
+ 1231 01dd 06       		.uleb128 0x6
+ 1232 01de 04       		.byte	0x4
+ 1233 01df 06010000 		.4byte	0x106
+ 1234 01e3 06       		.uleb128 0x6
+ 1235 01e4 04       		.byte	0x4
+ 1236 01e5 FF000000 		.4byte	0xff
+ 1237 01e9 0A       		.uleb128 0xa
+ 1238 01ea BB010000 		.4byte	.LASF9
+ 1239 01ee 01       		.byte	0x1
+ 1240 01ef 7B       		.byte	0x7b
+ 1241 01f0 00000000 		.4byte	.LFB4
+ 1242 01f4 90000000 		.4byte	.LFE4-.LFB4
+ 1243 01f8 01       		.uleb128 0x1
+ 1244 01f9 9C       		.byte	0x9c
+ 1245 01fa 66020000 		.4byte	0x266
+ 1246 01fe 0C       		.uleb128 0xc
+ 1247 01ff C2010000 		.4byte	.LASF10
+ 1248 0203 01       		.byte	0x1
+ 1249 0204 7B       		.byte	0x7b
+ 1250 0205 47000000 		.4byte	0x47
+ 1251 0209 02       		.uleb128 0x2
+ 1252 020a 91       		.byte	0x91
+ 1253 020b 6C       		.sleb128 -20
+ 1254 020c 0C       		.uleb128 0xc
+ 1255 020d 8C000000 		.4byte	.LASF11
+ 1256 0211 01       		.byte	0x1
+ 1257 0212 7B       		.byte	0x7b
+ 1258 0213 54000000 		.4byte	0x54
+ 1259 0217 02       		.uleb128 0x2
+ 1260 0218 91       		.byte	0x91
+ 1261 0219 68       		.sleb128 -24
+ 1262 021a 0B       		.uleb128 0xb
+ 1263 021b 6E00     		.ascii	"n\000"
+ 1264 021d 01       		.byte	0x1
+ 1265 021e 7B       		.byte	0x7b
+ 1266 021f FF000000 		.4byte	0xff
+ 1267 0223 02       		.uleb128 0x2
+ 1268 0224 91       		.byte	0x91
+ 1269 0225 64       		.sleb128 -28
+ 1270 0226 0B       		.uleb128 0xb
+ 1271 0227 7A00     		.ascii	"z\000"
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 28
+
+
+ 1272 0229 01       		.byte	0x1
+ 1273 022a 7B       		.byte	0x7b
+ 1274 022b 75000000 		.4byte	0x75
+ 1275 022f 02       		.uleb128 0x2
+ 1276 0230 91       		.byte	0x91
+ 1277 0231 63       		.sleb128 -29
+ 1278 0232 0B       		.uleb128 0xb
+ 1279 0233 626600   		.ascii	"bf\000"
+ 1280 0236 01       		.byte	0x1
+ 1281 0237 7B       		.byte	0x7b
+ 1282 0238 06010000 		.4byte	0x106
+ 1283 023c 02       		.uleb128 0x2
+ 1284 023d 91       		.byte	0x91
+ 1285 023e 00       		.sleb128 0
+ 1286 023f 0D       		.uleb128 0xd
+ 1287 0240 666300   		.ascii	"fc\000"
+ 1288 0243 01       		.byte	0x1
+ 1289 0244 7D       		.byte	0x7d
+ 1290 0245 75000000 		.4byte	0x75
+ 1291 0249 02       		.uleb128 0x2
+ 1292 024a 91       		.byte	0x91
+ 1293 024b 73       		.sleb128 -13
+ 1294 024c 0D       		.uleb128 0xd
+ 1295 024d 636800   		.ascii	"ch\000"
+ 1296 0250 01       		.byte	0x1
+ 1297 0251 7E       		.byte	0x7e
+ 1298 0252 75000000 		.4byte	0x75
+ 1299 0256 02       		.uleb128 0x2
+ 1300 0257 91       		.byte	0x91
+ 1301 0258 72       		.sleb128 -14
+ 1302 0259 0D       		.uleb128 0xd
+ 1303 025a 7000     		.ascii	"p\000"
+ 1304 025c 01       		.byte	0x1
+ 1305 025d 7F       		.byte	0x7f
+ 1306 025e 06010000 		.4byte	0x106
+ 1307 0262 02       		.uleb128 0x2
+ 1308 0263 91       		.byte	0x91
+ 1309 0264 74       		.sleb128 -12
+ 1310 0265 00       		.byte	0
+ 1311 0266 14       		.uleb128 0x14
+ 1312 0267 C5000000 		.4byte	.LASF13
+ 1313 026b 01       		.byte	0x1
+ 1314 026c 88       		.byte	0x88
+ 1315 026d 00000000 		.4byte	.LFB5
+ 1316 0271 D4010000 		.4byte	.LFE5-.LFB5
+ 1317 0275 01       		.uleb128 0x1
+ 1318 0276 9C       		.byte	0x9c
+ 1319 0277 F7020000 		.4byte	0x2f7
+ 1320 027b 0C       		.uleb128 0xc
+ 1321 027c C2010000 		.4byte	.LASF10
+ 1322 0280 01       		.byte	0x1
+ 1323 0281 88       		.byte	0x88
+ 1324 0282 47000000 		.4byte	0x47
+ 1325 0286 02       		.uleb128 0x2
+ 1326 0287 91       		.byte	0x91
+ 1327 0288 54       		.sleb128 -44
+ 1328 0289 0C       		.uleb128 0xc
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 29
+
+
+ 1329 028a 8C000000 		.4byte	.LASF11
+ 1330 028e 01       		.byte	0x1
+ 1331 028f 88       		.byte	0x88
+ 1332 0290 54000000 		.4byte	0x54
+ 1333 0294 02       		.uleb128 0x2
+ 1334 0295 91       		.byte	0x91
+ 1335 0296 50       		.sleb128 -48
+ 1336 0297 0B       		.uleb128 0xb
+ 1337 0298 666D7400 		.ascii	"fmt\000"
+ 1338 029c 01       		.byte	0x1
+ 1339 029d 88       		.byte	0x88
+ 1340 029e 06010000 		.4byte	0x106
+ 1341 02a2 02       		.uleb128 0x2
+ 1342 02a3 91       		.byte	0x91
+ 1343 02a4 4C       		.sleb128 -52
+ 1344 02a5 0B       		.uleb128 0xb
+ 1345 02a6 766100   		.ascii	"va\000"
+ 1346 02a9 01       		.byte	0x1
+ 1347 02aa 88       		.byte	0x88
+ 1348 02ab 49000000 		.4byte	0x49
+ 1349 02af 02       		.uleb128 0x2
+ 1350 02b0 91       		.byte	0x91
+ 1351 02b1 48       		.sleb128 -56
+ 1352 02b2 0D       		.uleb128 0xd
+ 1353 02b3 626600   		.ascii	"bf\000"
+ 1354 02b6 01       		.byte	0x1
+ 1355 02b7 8A       		.byte	0x8a
+ 1356 02b8 F7020000 		.4byte	0x2f7
+ 1357 02bc 02       		.uleb128 0x2
+ 1358 02bd 91       		.byte	0x91
+ 1359 02be 60       		.sleb128 -32
+ 1360 02bf 0D       		.uleb128 0xd
+ 1361 02c0 636800   		.ascii	"ch\000"
+ 1362 02c3 01       		.byte	0x1
+ 1363 02c4 8C       		.byte	0x8c
+ 1364 02c5 75000000 		.4byte	0x75
+ 1365 02c9 02       		.uleb128 0x2
+ 1366 02ca 91       		.byte	0x91
+ 1367 02cb 6F       		.sleb128 -17
+ 1368 02cc 15       		.uleb128 0x15
+ 1369 02cd C7010000 		.4byte	.LASF25
+ 1370 02d1 01       		.byte	0x1
+ 1371 02d2 D3       		.byte	0xd3
+ 1372 02d3 CC010000 		.4byte	.L49
+ 1373 02d7 16       		.uleb128 0x16
+ 1374 02d8 00000000 		.4byte	.Ldebug_ranges0+0
+ 1375 02dc 0D       		.uleb128 0xd
+ 1376 02dd 6C7A00   		.ascii	"lz\000"
+ 1377 02e0 01       		.byte	0x1
+ 1378 02e1 93       		.byte	0x93
+ 1379 02e2 75000000 		.4byte	0x75
+ 1380 02e6 02       		.uleb128 0x2
+ 1381 02e7 91       		.byte	0x91
+ 1382 02e8 6E       		.sleb128 -18
+ 1383 02e9 0D       		.uleb128 0xd
+ 1384 02ea 7700     		.ascii	"w\000"
+ 1385 02ec 01       		.byte	0x1
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 30
+
+
+ 1386 02ed 97       		.byte	0x97
+ 1387 02ee FF000000 		.4byte	0xff
+ 1388 02f2 02       		.uleb128 0x2
+ 1389 02f3 91       		.byte	0x91
+ 1390 02f4 5C       		.sleb128 -36
+ 1391 02f5 00       		.byte	0
+ 1392 02f6 00       		.byte	0
+ 1393 02f7 17       		.uleb128 0x17
+ 1394 02f8 75000000 		.4byte	0x75
+ 1395 02fc 07030000 		.4byte	0x307
+ 1396 0300 18       		.uleb128 0x18
+ 1397 0301 07030000 		.4byte	0x307
+ 1398 0305 0B       		.byte	0xb
+ 1399 0306 00       		.byte	0
+ 1400 0307 09       		.uleb128 0x9
+ 1401 0308 04       		.byte	0x4
+ 1402 0309 07       		.byte	0x7
+ 1403 030a 9E010000 		.4byte	.LASF12
+ 1404 030e 19       		.uleb128 0x19
+ 1405 030f A6000000 		.4byte	.LASF14
+ 1406 0313 01       		.byte	0x1
+ 1407 0314 D7       		.byte	0xd7
+ 1408 0315 00000000 		.4byte	.LFB6
+ 1409 0319 24000000 		.4byte	.LFE6-.LFB6
+ 1410 031d 01       		.uleb128 0x1
+ 1411 031e 9C       		.byte	0x9c
+ 1412 031f 40030000 		.4byte	0x340
+ 1413 0323 0C       		.uleb128 0xc
+ 1414 0324 C2010000 		.4byte	.LASF10
+ 1415 0328 01       		.byte	0x1
+ 1416 0329 D7       		.byte	0xd7
+ 1417 032a 47000000 		.4byte	0x47
+ 1418 032e 02       		.uleb128 0x2
+ 1419 032f 91       		.byte	0x91
+ 1420 0330 74       		.sleb128 -12
+ 1421 0331 0C       		.uleb128 0xc
+ 1422 0332 8C000000 		.4byte	.LASF11
+ 1423 0336 01       		.byte	0x1
+ 1424 0337 D7       		.byte	0xd7
+ 1425 0338 5F000000 		.4byte	0x5f
+ 1426 033c 02       		.uleb128 0x2
+ 1427 033d 91       		.byte	0x91
+ 1428 033e 70       		.sleb128 -16
+ 1429 033f 00       		.byte	0
+ 1430 0340 14       		.uleb128 0x14
+ 1431 0341 93010000 		.4byte	.LASF15
+ 1432 0345 01       		.byte	0x1
+ 1433 0346 DD       		.byte	0xdd
+ 1434 0347 00000000 		.4byte	.LFB7
+ 1435 034b 34000000 		.4byte	.LFE7-.LFB7
+ 1436 034f 01       		.uleb128 0x1
+ 1437 0350 9C       		.byte	0x9c
+ 1438 0351 72030000 		.4byte	0x372
+ 1439 0355 0B       		.uleb128 0xb
+ 1440 0356 666D7400 		.ascii	"fmt\000"
+ 1441 035a 01       		.byte	0x1
+ 1442 035b DD       		.byte	0xdd
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 31
+
+
+ 1443 035c 06010000 		.4byte	0x106
+ 1444 0360 02       		.uleb128 0x2
+ 1445 0361 91       		.byte	0x91
+ 1446 0362 70       		.sleb128 -16
+ 1447 0363 1A       		.uleb128 0x1a
+ 1448 0364 0D       		.uleb128 0xd
+ 1449 0365 766100   		.ascii	"va\000"
+ 1450 0368 01       		.byte	0x1
+ 1451 0369 DF       		.byte	0xdf
+ 1452 036a 49000000 		.4byte	0x49
+ 1453 036e 02       		.uleb128 0x2
+ 1454 036f 91       		.byte	0x91
+ 1455 0370 64       		.sleb128 -28
+ 1456 0371 00       		.byte	0
+ 1457 0372 1B       		.uleb128 0x1b
+ 1458 0373 B7000000 		.4byte	.LASF16
+ 1459 0377 01       		.byte	0x1
+ 1460 0378 E5       		.byte	0xe5
+ 1461 0379 00000000 		.4byte	.LFB8
+ 1462 037d 24000000 		.4byte	.LFE8-.LFB8
+ 1463 0381 01       		.uleb128 0x1
+ 1464 0382 9C       		.byte	0x9c
+ 1465 0383 A0030000 		.4byte	0x3a0
+ 1466 0387 0B       		.uleb128 0xb
+ 1467 0388 7000     		.ascii	"p\000"
+ 1468 038a 01       		.byte	0x1
+ 1469 038b E5       		.byte	0xe5
+ 1470 038c 47000000 		.4byte	0x47
+ 1471 0390 02       		.uleb128 0x2
+ 1472 0391 91       		.byte	0x91
+ 1473 0392 74       		.sleb128 -12
+ 1474 0393 0B       		.uleb128 0xb
+ 1475 0394 6300     		.ascii	"c\000"
+ 1476 0396 01       		.byte	0x1
+ 1477 0397 E5       		.byte	0xe5
+ 1478 0398 75000000 		.4byte	0x75
+ 1479 039c 02       		.uleb128 0x2
+ 1480 039d 91       		.byte	0x91
+ 1481 039e 73       		.sleb128 -13
+ 1482 039f 00       		.byte	0
+ 1483 03a0 14       		.uleb128 0x14
+ 1484 03a1 6A010000 		.4byte	.LASF17
+ 1485 03a5 01       		.byte	0x1
+ 1486 03a6 EC       		.byte	0xec
+ 1487 03a7 00000000 		.4byte	.LFB9
+ 1488 03ab 38000000 		.4byte	.LFE9-.LFB9
+ 1489 03af 01       		.uleb128 0x1
+ 1490 03b0 9C       		.byte	0x9c
+ 1491 03b1 DE030000 		.4byte	0x3de
+ 1492 03b5 0B       		.uleb128 0xb
+ 1493 03b6 7300     		.ascii	"s\000"
+ 1494 03b8 01       		.byte	0x1
+ 1495 03b9 EC       		.byte	0xec
+ 1496 03ba 06010000 		.4byte	0x106
+ 1497 03be 02       		.uleb128 0x2
+ 1498 03bf 91       		.byte	0x91
+ 1499 03c0 5C       		.sleb128 -36
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 32
+
+
+ 1500 03c1 0B       		.uleb128 0xb
+ 1501 03c2 666D7400 		.ascii	"fmt\000"
+ 1502 03c6 01       		.byte	0x1
+ 1503 03c7 EC       		.byte	0xec
+ 1504 03c8 06010000 		.4byte	0x106
+ 1505 03cc 02       		.uleb128 0x2
+ 1506 03cd 91       		.byte	0x91
+ 1507 03ce 74       		.sleb128 -12
+ 1508 03cf 1A       		.uleb128 0x1a
+ 1509 03d0 0D       		.uleb128 0xd
+ 1510 03d1 766100   		.ascii	"va\000"
+ 1511 03d4 01       		.byte	0x1
+ 1512 03d5 EE       		.byte	0xee
+ 1513 03d6 49000000 		.4byte	0x49
+ 1514 03da 02       		.uleb128 0x2
+ 1515 03db 91       		.byte	0x91
+ 1516 03dc 64       		.sleb128 -28
+ 1517 03dd 00       		.byte	0
+ 1518 03de 13       		.uleb128 0x13
+ 1519 03df CD010000 		.4byte	.LASF18
+ 1520 03e3 01       		.byte	0x1
+ 1521 03e4 23       		.byte	0x23
+ 1522 03e5 54000000 		.4byte	0x54
+ 1523 03e9 05       		.uleb128 0x5
+ 1524 03ea 03       		.byte	0x3
+ 1525 03eb 00000000 		.4byte	stdout_putf
+ 1526 03ef 13       		.uleb128 0x13
+ 1527 03f0 D0000000 		.4byte	.LASF19
+ 1528 03f4 01       		.byte	0x1
+ 1529 03f5 24       		.byte	0x24
+ 1530 03f6 47000000 		.4byte	0x47
+ 1531 03fa 05       		.uleb128 0x5
+ 1532 03fb 03       		.byte	0x3
+ 1533 03fc 04000000 		.4byte	stdout_putp
+ 1534 0400 00       		.byte	0
+ 1535              		.section	.debug_abbrev,"",%progbits
+ 1536              	.Ldebug_abbrev0:
+ 1537 0000 01       		.uleb128 0x1
+ 1538 0001 11       		.uleb128 0x11
+ 1539 0002 01       		.byte	0x1
+ 1540 0003 25       		.uleb128 0x25
+ 1541 0004 0E       		.uleb128 0xe
+ 1542 0005 13       		.uleb128 0x13
+ 1543 0006 0B       		.uleb128 0xb
+ 1544 0007 03       		.uleb128 0x3
+ 1545 0008 0E       		.uleb128 0xe
+ 1546 0009 1B       		.uleb128 0x1b
+ 1547 000a 0E       		.uleb128 0xe
+ 1548 000b 55       		.uleb128 0x55
+ 1549 000c 17       		.uleb128 0x17
+ 1550 000d 11       		.uleb128 0x11
+ 1551 000e 01       		.uleb128 0x1
+ 1552 000f 10       		.uleb128 0x10
+ 1553 0010 17       		.uleb128 0x17
+ 1554 0011 00       		.byte	0
+ 1555 0012 00       		.byte	0
+ 1556 0013 02       		.uleb128 0x2
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 33
+
+
+ 1557 0014 16       		.uleb128 0x16
+ 1558 0015 00       		.byte	0
+ 1559 0016 03       		.uleb128 0x3
+ 1560 0017 0E       		.uleb128 0xe
+ 1561 0018 3A       		.uleb128 0x3a
+ 1562 0019 0B       		.uleb128 0xb
+ 1563 001a 3B       		.uleb128 0x3b
+ 1564 001b 0B       		.uleb128 0xb
+ 1565 001c 49       		.uleb128 0x49
+ 1566 001d 13       		.uleb128 0x13
+ 1567 001e 00       		.byte	0
+ 1568 001f 00       		.byte	0
+ 1569 0020 03       		.uleb128 0x3
+ 1570 0021 13       		.uleb128 0x13
+ 1571 0022 01       		.byte	0x1
+ 1572 0023 03       		.uleb128 0x3
+ 1573 0024 0E       		.uleb128 0xe
+ 1574 0025 0B       		.uleb128 0xb
+ 1575 0026 0B       		.uleb128 0xb
+ 1576 0027 3A       		.uleb128 0x3a
+ 1577 0028 0B       		.uleb128 0xb
+ 1578 0029 3B       		.uleb128 0x3b
+ 1579 002a 0B       		.uleb128 0xb
+ 1580 002b 01       		.uleb128 0x1
+ 1581 002c 13       		.uleb128 0x13
+ 1582 002d 00       		.byte	0
+ 1583 002e 00       		.byte	0
+ 1584 002f 04       		.uleb128 0x4
+ 1585 0030 0D       		.uleb128 0xd
+ 1586 0031 00       		.byte	0
+ 1587 0032 03       		.uleb128 0x3
+ 1588 0033 0E       		.uleb128 0xe
+ 1589 0034 49       		.uleb128 0x49
+ 1590 0035 13       		.uleb128 0x13
+ 1591 0036 38       		.uleb128 0x38
+ 1592 0037 0B       		.uleb128 0xb
+ 1593 0038 34       		.uleb128 0x34
+ 1594 0039 19       		.uleb128 0x19
+ 1595 003a 00       		.byte	0
+ 1596 003b 00       		.byte	0
+ 1597 003c 05       		.uleb128 0x5
+ 1598 003d 0F       		.uleb128 0xf
+ 1599 003e 00       		.byte	0
+ 1600 003f 0B       		.uleb128 0xb
+ 1601 0040 0B       		.uleb128 0xb
+ 1602 0041 00       		.byte	0
+ 1603 0042 00       		.byte	0
+ 1604 0043 06       		.uleb128 0x6
+ 1605 0044 0F       		.uleb128 0xf
+ 1606 0045 00       		.byte	0
+ 1607 0046 0B       		.uleb128 0xb
+ 1608 0047 0B       		.uleb128 0xb
+ 1609 0048 49       		.uleb128 0x49
+ 1610 0049 13       		.uleb128 0x13
+ 1611 004a 00       		.byte	0
+ 1612 004b 00       		.byte	0
+ 1613 004c 07       		.uleb128 0x7
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 34
+
+
+ 1614 004d 15       		.uleb128 0x15
+ 1615 004e 01       		.byte	0x1
+ 1616 004f 27       		.uleb128 0x27
+ 1617 0050 19       		.uleb128 0x19
+ 1618 0051 01       		.uleb128 0x1
+ 1619 0052 13       		.uleb128 0x13
+ 1620 0053 00       		.byte	0
+ 1621 0054 00       		.byte	0
+ 1622 0055 08       		.uleb128 0x8
+ 1623 0056 05       		.uleb128 0x5
+ 1624 0057 00       		.byte	0
+ 1625 0058 49       		.uleb128 0x49
+ 1626 0059 13       		.uleb128 0x13
+ 1627 005a 00       		.byte	0
+ 1628 005b 00       		.byte	0
+ 1629 005c 09       		.uleb128 0x9
+ 1630 005d 24       		.uleb128 0x24
+ 1631 005e 00       		.byte	0
+ 1632 005f 0B       		.uleb128 0xb
+ 1633 0060 0B       		.uleb128 0xb
+ 1634 0061 3E       		.uleb128 0x3e
+ 1635 0062 0B       		.uleb128 0xb
+ 1636 0063 03       		.uleb128 0x3
+ 1637 0064 0E       		.uleb128 0xe
+ 1638 0065 00       		.byte	0
+ 1639 0066 00       		.byte	0
+ 1640 0067 0A       		.uleb128 0xa
+ 1641 0068 2E       		.uleb128 0x2e
+ 1642 0069 01       		.byte	0x1
+ 1643 006a 03       		.uleb128 0x3
+ 1644 006b 0E       		.uleb128 0xe
+ 1645 006c 3A       		.uleb128 0x3a
+ 1646 006d 0B       		.uleb128 0xb
+ 1647 006e 3B       		.uleb128 0x3b
+ 1648 006f 0B       		.uleb128 0xb
+ 1649 0070 27       		.uleb128 0x27
+ 1650 0071 19       		.uleb128 0x19
+ 1651 0072 11       		.uleb128 0x11
+ 1652 0073 01       		.uleb128 0x1
+ 1653 0074 12       		.uleb128 0x12
+ 1654 0075 06       		.uleb128 0x6
+ 1655 0076 40       		.uleb128 0x40
+ 1656 0077 18       		.uleb128 0x18
+ 1657 0078 9642     		.uleb128 0x2116
+ 1658 007a 19       		.uleb128 0x19
+ 1659 007b 01       		.uleb128 0x1
+ 1660 007c 13       		.uleb128 0x13
+ 1661 007d 00       		.byte	0
+ 1662 007e 00       		.byte	0
+ 1663 007f 0B       		.uleb128 0xb
+ 1664 0080 05       		.uleb128 0x5
+ 1665 0081 00       		.byte	0
+ 1666 0082 03       		.uleb128 0x3
+ 1667 0083 08       		.uleb128 0x8
+ 1668 0084 3A       		.uleb128 0x3a
+ 1669 0085 0B       		.uleb128 0xb
+ 1670 0086 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 35
+
+
+ 1671 0087 0B       		.uleb128 0xb
+ 1672 0088 49       		.uleb128 0x49
+ 1673 0089 13       		.uleb128 0x13
+ 1674 008a 02       		.uleb128 0x2
+ 1675 008b 18       		.uleb128 0x18
+ 1676 008c 00       		.byte	0
+ 1677 008d 00       		.byte	0
+ 1678 008e 0C       		.uleb128 0xc
+ 1679 008f 05       		.uleb128 0x5
+ 1680 0090 00       		.byte	0
+ 1681 0091 03       		.uleb128 0x3
+ 1682 0092 0E       		.uleb128 0xe
+ 1683 0093 3A       		.uleb128 0x3a
+ 1684 0094 0B       		.uleb128 0xb
+ 1685 0095 3B       		.uleb128 0x3b
+ 1686 0096 0B       		.uleb128 0xb
+ 1687 0097 49       		.uleb128 0x49
+ 1688 0098 13       		.uleb128 0x13
+ 1689 0099 02       		.uleb128 0x2
+ 1690 009a 18       		.uleb128 0x18
+ 1691 009b 00       		.byte	0
+ 1692 009c 00       		.byte	0
+ 1693 009d 0D       		.uleb128 0xd
+ 1694 009e 34       		.uleb128 0x34
+ 1695 009f 00       		.byte	0
+ 1696 00a0 03       		.uleb128 0x3
+ 1697 00a1 08       		.uleb128 0x8
+ 1698 00a2 3A       		.uleb128 0x3a
+ 1699 00a3 0B       		.uleb128 0xb
+ 1700 00a4 3B       		.uleb128 0x3b
+ 1701 00a5 0B       		.uleb128 0xb
+ 1702 00a6 49       		.uleb128 0x49
+ 1703 00a7 13       		.uleb128 0x13
+ 1704 00a8 02       		.uleb128 0x2
+ 1705 00a9 18       		.uleb128 0x18
+ 1706 00aa 00       		.byte	0
+ 1707 00ab 00       		.byte	0
+ 1708 00ac 0E       		.uleb128 0xe
+ 1709 00ad 0B       		.uleb128 0xb
+ 1710 00ae 01       		.byte	0x1
+ 1711 00af 11       		.uleb128 0x11
+ 1712 00b0 01       		.uleb128 0x1
+ 1713 00b1 12       		.uleb128 0x12
+ 1714 00b2 06       		.uleb128 0x6
+ 1715 00b3 00       		.byte	0
+ 1716 00b4 00       		.byte	0
+ 1717 00b5 0F       		.uleb128 0xf
+ 1718 00b6 24       		.uleb128 0x24
+ 1719 00b7 00       		.byte	0
+ 1720 00b8 0B       		.uleb128 0xb
+ 1721 00b9 0B       		.uleb128 0xb
+ 1722 00ba 3E       		.uleb128 0x3e
+ 1723 00bb 0B       		.uleb128 0xb
+ 1724 00bc 03       		.uleb128 0x3
+ 1725 00bd 08       		.uleb128 0x8
+ 1726 00be 00       		.byte	0
+ 1727 00bf 00       		.byte	0
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 36
+
+
+ 1728 00c0 10       		.uleb128 0x10
+ 1729 00c1 2E       		.uleb128 0x2e
+ 1730 00c2 01       		.byte	0x1
+ 1731 00c3 03       		.uleb128 0x3
+ 1732 00c4 08       		.uleb128 0x8
+ 1733 00c5 3A       		.uleb128 0x3a
+ 1734 00c6 0B       		.uleb128 0xb
+ 1735 00c7 3B       		.uleb128 0x3b
+ 1736 00c8 0B       		.uleb128 0xb
+ 1737 00c9 27       		.uleb128 0x27
+ 1738 00ca 19       		.uleb128 0x19
+ 1739 00cb 11       		.uleb128 0x11
+ 1740 00cc 01       		.uleb128 0x1
+ 1741 00cd 12       		.uleb128 0x12
+ 1742 00ce 06       		.uleb128 0x6
+ 1743 00cf 40       		.uleb128 0x40
+ 1744 00d0 18       		.uleb128 0x18
+ 1745 00d1 9642     		.uleb128 0x2116
+ 1746 00d3 19       		.uleb128 0x19
+ 1747 00d4 01       		.uleb128 0x1
+ 1748 00d5 13       		.uleb128 0x13
+ 1749 00d6 00       		.byte	0
+ 1750 00d7 00       		.byte	0
+ 1751 00d8 11       		.uleb128 0x11
+ 1752 00d9 2E       		.uleb128 0x2e
+ 1753 00da 01       		.byte	0x1
+ 1754 00db 03       		.uleb128 0x3
+ 1755 00dc 08       		.uleb128 0x8
+ 1756 00dd 3A       		.uleb128 0x3a
+ 1757 00de 0B       		.uleb128 0xb
+ 1758 00df 3B       		.uleb128 0x3b
+ 1759 00e0 0B       		.uleb128 0xb
+ 1760 00e1 27       		.uleb128 0x27
+ 1761 00e2 19       		.uleb128 0x19
+ 1762 00e3 49       		.uleb128 0x49
+ 1763 00e4 13       		.uleb128 0x13
+ 1764 00e5 11       		.uleb128 0x11
+ 1765 00e6 01       		.uleb128 0x1
+ 1766 00e7 12       		.uleb128 0x12
+ 1767 00e8 06       		.uleb128 0x6
+ 1768 00e9 40       		.uleb128 0x40
+ 1769 00ea 18       		.uleb128 0x18
+ 1770 00eb 9742     		.uleb128 0x2117
+ 1771 00ed 19       		.uleb128 0x19
+ 1772 00ee 01       		.uleb128 0x1
+ 1773 00ef 13       		.uleb128 0x13
+ 1774 00f0 00       		.byte	0
+ 1775 00f1 00       		.byte	0
+ 1776 00f2 12       		.uleb128 0x12
+ 1777 00f3 2E       		.uleb128 0x2e
+ 1778 00f4 01       		.byte	0x1
+ 1779 00f5 03       		.uleb128 0x3
+ 1780 00f6 08       		.uleb128 0x8
+ 1781 00f7 3A       		.uleb128 0x3a
+ 1782 00f8 0B       		.uleb128 0xb
+ 1783 00f9 3B       		.uleb128 0x3b
+ 1784 00fa 0B       		.uleb128 0xb
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 37
+
+
+ 1785 00fb 27       		.uleb128 0x27
+ 1786 00fc 19       		.uleb128 0x19
+ 1787 00fd 49       		.uleb128 0x49
+ 1788 00fe 13       		.uleb128 0x13
+ 1789 00ff 11       		.uleb128 0x11
+ 1790 0100 01       		.uleb128 0x1
+ 1791 0101 12       		.uleb128 0x12
+ 1792 0102 06       		.uleb128 0x6
+ 1793 0103 40       		.uleb128 0x40
+ 1794 0104 18       		.uleb128 0x18
+ 1795 0105 9642     		.uleb128 0x2116
+ 1796 0107 19       		.uleb128 0x19
+ 1797 0108 01       		.uleb128 0x1
+ 1798 0109 13       		.uleb128 0x13
+ 1799 010a 00       		.byte	0
+ 1800 010b 00       		.byte	0
+ 1801 010c 13       		.uleb128 0x13
+ 1802 010d 34       		.uleb128 0x34
+ 1803 010e 00       		.byte	0
+ 1804 010f 03       		.uleb128 0x3
+ 1805 0110 0E       		.uleb128 0xe
+ 1806 0111 3A       		.uleb128 0x3a
+ 1807 0112 0B       		.uleb128 0xb
+ 1808 0113 3B       		.uleb128 0x3b
+ 1809 0114 0B       		.uleb128 0xb
+ 1810 0115 49       		.uleb128 0x49
+ 1811 0116 13       		.uleb128 0x13
+ 1812 0117 02       		.uleb128 0x2
+ 1813 0118 18       		.uleb128 0x18
+ 1814 0119 00       		.byte	0
+ 1815 011a 00       		.byte	0
+ 1816 011b 14       		.uleb128 0x14
+ 1817 011c 2E       		.uleb128 0x2e
+ 1818 011d 01       		.byte	0x1
+ 1819 011e 3F       		.uleb128 0x3f
+ 1820 011f 19       		.uleb128 0x19
+ 1821 0120 03       		.uleb128 0x3
+ 1822 0121 0E       		.uleb128 0xe
+ 1823 0122 3A       		.uleb128 0x3a
+ 1824 0123 0B       		.uleb128 0xb
+ 1825 0124 3B       		.uleb128 0x3b
+ 1826 0125 0B       		.uleb128 0xb
+ 1827 0126 27       		.uleb128 0x27
+ 1828 0127 19       		.uleb128 0x19
+ 1829 0128 11       		.uleb128 0x11
+ 1830 0129 01       		.uleb128 0x1
+ 1831 012a 12       		.uleb128 0x12
+ 1832 012b 06       		.uleb128 0x6
+ 1833 012c 40       		.uleb128 0x40
+ 1834 012d 18       		.uleb128 0x18
+ 1835 012e 9642     		.uleb128 0x2116
+ 1836 0130 19       		.uleb128 0x19
+ 1837 0131 01       		.uleb128 0x1
+ 1838 0132 13       		.uleb128 0x13
+ 1839 0133 00       		.byte	0
+ 1840 0134 00       		.byte	0
+ 1841 0135 15       		.uleb128 0x15
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 38
+
+
+ 1842 0136 0A       		.uleb128 0xa
+ 1843 0137 00       		.byte	0
+ 1844 0138 03       		.uleb128 0x3
+ 1845 0139 0E       		.uleb128 0xe
+ 1846 013a 3A       		.uleb128 0x3a
+ 1847 013b 0B       		.uleb128 0xb
+ 1848 013c 3B       		.uleb128 0x3b
+ 1849 013d 0B       		.uleb128 0xb
+ 1850 013e 11       		.uleb128 0x11
+ 1851 013f 01       		.uleb128 0x1
+ 1852 0140 00       		.byte	0
+ 1853 0141 00       		.byte	0
+ 1854 0142 16       		.uleb128 0x16
+ 1855 0143 0B       		.uleb128 0xb
+ 1856 0144 01       		.byte	0x1
+ 1857 0145 55       		.uleb128 0x55
+ 1858 0146 17       		.uleb128 0x17
+ 1859 0147 00       		.byte	0
+ 1860 0148 00       		.byte	0
+ 1861 0149 17       		.uleb128 0x17
+ 1862 014a 01       		.uleb128 0x1
+ 1863 014b 01       		.byte	0x1
+ 1864 014c 49       		.uleb128 0x49
+ 1865 014d 13       		.uleb128 0x13
+ 1866 014e 01       		.uleb128 0x1
+ 1867 014f 13       		.uleb128 0x13
+ 1868 0150 00       		.byte	0
+ 1869 0151 00       		.byte	0
+ 1870 0152 18       		.uleb128 0x18
+ 1871 0153 21       		.uleb128 0x21
+ 1872 0154 00       		.byte	0
+ 1873 0155 49       		.uleb128 0x49
+ 1874 0156 13       		.uleb128 0x13
+ 1875 0157 2F       		.uleb128 0x2f
+ 1876 0158 0B       		.uleb128 0xb
+ 1877 0159 00       		.byte	0
+ 1878 015a 00       		.byte	0
+ 1879 015b 19       		.uleb128 0x19
+ 1880 015c 2E       		.uleb128 0x2e
+ 1881 015d 01       		.byte	0x1
+ 1882 015e 3F       		.uleb128 0x3f
+ 1883 015f 19       		.uleb128 0x19
+ 1884 0160 03       		.uleb128 0x3
+ 1885 0161 0E       		.uleb128 0xe
+ 1886 0162 3A       		.uleb128 0x3a
+ 1887 0163 0B       		.uleb128 0xb
+ 1888 0164 3B       		.uleb128 0x3b
+ 1889 0165 0B       		.uleb128 0xb
+ 1890 0166 27       		.uleb128 0x27
+ 1891 0167 19       		.uleb128 0x19
+ 1892 0168 11       		.uleb128 0x11
+ 1893 0169 01       		.uleb128 0x1
+ 1894 016a 12       		.uleb128 0x12
+ 1895 016b 06       		.uleb128 0x6
+ 1896 016c 40       		.uleb128 0x40
+ 1897 016d 18       		.uleb128 0x18
+ 1898 016e 9742     		.uleb128 0x2117
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 39
+
+
+ 1899 0170 19       		.uleb128 0x19
+ 1900 0171 01       		.uleb128 0x1
+ 1901 0172 13       		.uleb128 0x13
+ 1902 0173 00       		.byte	0
+ 1903 0174 00       		.byte	0
+ 1904 0175 1A       		.uleb128 0x1a
+ 1905 0176 18       		.uleb128 0x18
+ 1906 0177 00       		.byte	0
+ 1907 0178 00       		.byte	0
+ 1908 0179 00       		.byte	0
+ 1909 017a 1B       		.uleb128 0x1b
+ 1910 017b 2E       		.uleb128 0x2e
+ 1911 017c 01       		.byte	0x1
+ 1912 017d 03       		.uleb128 0x3
+ 1913 017e 0E       		.uleb128 0xe
+ 1914 017f 3A       		.uleb128 0x3a
+ 1915 0180 0B       		.uleb128 0xb
+ 1916 0181 3B       		.uleb128 0x3b
+ 1917 0182 0B       		.uleb128 0xb
+ 1918 0183 27       		.uleb128 0x27
+ 1919 0184 19       		.uleb128 0x19
+ 1920 0185 11       		.uleb128 0x11
+ 1921 0186 01       		.uleb128 0x1
+ 1922 0187 12       		.uleb128 0x12
+ 1923 0188 06       		.uleb128 0x6
+ 1924 0189 40       		.uleb128 0x40
+ 1925 018a 18       		.uleb128 0x18
+ 1926 018b 9742     		.uleb128 0x2117
+ 1927 018d 19       		.uleb128 0x19
+ 1928 018e 01       		.uleb128 0x1
+ 1929 018f 13       		.uleb128 0x13
+ 1930 0190 00       		.byte	0
+ 1931 0191 00       		.byte	0
+ 1932 0192 00       		.byte	0
+ 1933              		.section	.debug_aranges,"",%progbits
+ 1934 0000 64000000 		.4byte	0x64
+ 1935 0004 0200     		.2byte	0x2
+ 1936 0006 00000000 		.4byte	.Ldebug_info0
+ 1937 000a 04       		.byte	0x4
+ 1938 000b 00       		.byte	0
+ 1939 000c 0000     		.2byte	0
+ 1940 000e 0000     		.2byte	0
+ 1941 0010 00000000 		.4byte	.LFB0
+ 1942 0014 AA000000 		.4byte	.LFE0-.LFB0
+ 1943 0018 00000000 		.4byte	.LFB1
+ 1944 001c 34000000 		.4byte	.LFE1-.LFB1
+ 1945 0020 00000000 		.4byte	.LFB2
+ 1946 0024 60000000 		.4byte	.LFE2-.LFB2
+ 1947 0028 00000000 		.4byte	.LFB3
+ 1948 002c 74000000 		.4byte	.LFE3-.LFB3
+ 1949 0030 00000000 		.4byte	.LFB4
+ 1950 0034 90000000 		.4byte	.LFE4-.LFB4
+ 1951 0038 00000000 		.4byte	.LFB5
+ 1952 003c D4010000 		.4byte	.LFE5-.LFB5
+ 1953 0040 00000000 		.4byte	.LFB6
+ 1954 0044 24000000 		.4byte	.LFE6-.LFB6
+ 1955 0048 00000000 		.4byte	.LFB7
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 40
+
+
+ 1956 004c 34000000 		.4byte	.LFE7-.LFB7
+ 1957 0050 00000000 		.4byte	.LFB8
+ 1958 0054 24000000 		.4byte	.LFE8-.LFB8
+ 1959 0058 00000000 		.4byte	.LFB9
+ 1960 005c 38000000 		.4byte	.LFE9-.LFB9
+ 1961 0060 00000000 		.4byte	0
+ 1962 0064 00000000 		.4byte	0
+ 1963              		.section	.debug_ranges,"",%progbits
+ 1964              	.Ldebug_ranges0:
+ 1965 0000 2C000000 		.4byte	.LBB3
+ 1966 0004 B0010000 		.4byte	.LBE3
+ 1967 0008 CC010000 		.4byte	.LBB4
+ 1968 000c CE010000 		.4byte	.LBE4
+ 1969 0010 00000000 		.4byte	0
+ 1970 0014 00000000 		.4byte	0
+ 1971 0018 00000000 		.4byte	.LFB0
+ 1972 001c AA000000 		.4byte	.LFE0
+ 1973 0020 00000000 		.4byte	.LFB1
+ 1974 0024 34000000 		.4byte	.LFE1
+ 1975 0028 00000000 		.4byte	.LFB2
+ 1976 002c 60000000 		.4byte	.LFE2
+ 1977 0030 00000000 		.4byte	.LFB3
+ 1978 0034 74000000 		.4byte	.LFE3
+ 1979 0038 00000000 		.4byte	.LFB4
+ 1980 003c 90000000 		.4byte	.LFE4
+ 1981 0040 00000000 		.4byte	.LFB5
+ 1982 0044 D4010000 		.4byte	.LFE5
+ 1983 0048 00000000 		.4byte	.LFB6
+ 1984 004c 24000000 		.4byte	.LFE6
+ 1985 0050 00000000 		.4byte	.LFB7
+ 1986 0054 34000000 		.4byte	.LFE7
+ 1987 0058 00000000 		.4byte	.LFB8
+ 1988 005c 24000000 		.4byte	.LFE8
+ 1989 0060 00000000 		.4byte	.LFB9
+ 1990 0064 38000000 		.4byte	.LFE9
+ 1991 0068 00000000 		.4byte	0
+ 1992 006c 00000000 		.4byte	0
+ 1993              		.section	.debug_line,"",%progbits
+ 1994              	.Ldebug_line0:
+ 1995 0000 57020000 		.section	.debug_str,"MS",%progbits,1
+ 1995      0200D100 
+ 1995      00000201 
+ 1995      FB0E0D00 
+ 1995      01010101 
+ 1996              	.LASF21:
+ 1997 0000 47656E65 		.ascii	"Generated_Source\\PSoC4\\tinyprintf_printf.c\000"
+ 1997      72617465 
+ 1997      645F536F 
+ 1997      75726365 
+ 1997      5C50536F 
+ 1998              	.LASF22:
+ 1999 002b 433A5C55 		.ascii	"C:\\Users\\Shahil Zhangada\\OneDrive\\Spring 2017\\"
+ 1999      73657273 
+ 1999      5C536861 
+ 1999      68696C20 
+ 1999      5A68616E 
+ 2000 0059 4D656368 		.ascii	"Mech Eng 135\\KIT042_Accelerometer_LightPaint.cydsn"
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 41
+
+
+ 2000      20456E67 
+ 2000      20313335 
+ 2000      5C4B4954 
+ 2000      3034325F 
+ 2001 008b 00       		.ascii	"\000"
+ 2002              	.LASF11:
+ 2003 008c 70757466 		.ascii	"putf\000"
+ 2003      00
+ 2004              	.LASF0:
+ 2005 0091 5F5F676E 		.ascii	"__gnuc_va_list\000"
+ 2005      75635F76 
+ 2005      615F6C69 
+ 2005      737400
+ 2006              	.LASF2:
+ 2007 00a0 70757463 		.ascii	"putcf\000"
+ 2007      6600
+ 2008              	.LASF14:
+ 2009 00a6 696E6974 		.ascii	"init_printf\000"
+ 2009      5F707269 
+ 2009      6E746600 
+ 2010              	.LASF3:
+ 2011 00b2 62617365 		.ascii	"base\000"
+ 2011      00
+ 2012              	.LASF16:
+ 2013 00b7 70757463 		.ascii	"putcp\000"
+ 2013      7000
+ 2014              	.LASF1:
+ 2015 00bd 76615F6C 		.ascii	"va_list\000"
+ 2015      69737400 
+ 2016              	.LASF13:
+ 2017 00c5 7466705F 		.ascii	"tfp_format\000"
+ 2017      666F726D 
+ 2017      617400
+ 2018              	.LASF19:
+ 2019 00d0 7374646F 		.ascii	"stdout_putp\000"
+ 2019      75745F70 
+ 2019      75747000 
+ 2020              	.LASF20:
+ 2021 00dc 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2021      4320342E 
+ 2021      392E3320 
+ 2021      32303135 
+ 2021      30333033 
+ 2022 010f 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 2022      20726576 
+ 2022      6973696F 
+ 2022      6E203232 
+ 2022      31323230 
+ 2023 0142 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 2023      66756E63 
+ 2023      74696F6E 
+ 2023      2D736563 
+ 2023      74696F6E 
+ 2024              	.LASF17:
+ 2025 016a 7466705F 		.ascii	"tfp_sprintf\000"
+ 2025      73707269 
+ 2025      6E746600 
+ARM GAS  C:\Users\SHAHIL~1\AppData\Local\Temp\ccvhjtwi.s 			page 42
+
+
+ 2026              	.LASF5:
+ 2027 0176 756E7369 		.ascii	"unsigned int\000"
+ 2027      676E6564 
+ 2027      20696E74 
+ 2027      00
+ 2028              	.LASF8:
+ 2029 0183 64696769 		.ascii	"digit\000"
+ 2029      7400
+ 2030              	.LASF4:
+ 2031 0189 63686172 		.ascii	"char\000"
+ 2031      00
+ 2032              	.LASF24:
+ 2033 018e 5F5F6170 		.ascii	"__ap\000"
+ 2033      00
+ 2034              	.LASF15:
+ 2035 0193 7466705F 		.ascii	"tfp_printf\000"
+ 2035      7072696E 
+ 2035      746600
+ 2036              	.LASF12:
+ 2037 019e 73697A65 		.ascii	"sizetype\000"
+ 2037      74797065 
+ 2037      00
+ 2038              	.LASF23:
+ 2039 01a7 5F5F7661 		.ascii	"__va_list\000"
+ 2039      5F6C6973 
+ 2039      7400
+ 2040              	.LASF6:
+ 2041 01b1 75693261 		.ascii	"ui2a\000"
+ 2041      00
+ 2042              	.LASF7:
+ 2043 01b6 6E756D70 		.ascii	"nump\000"
+ 2043      00
+ 2044              	.LASF9:
+ 2045 01bb 70757463 		.ascii	"putchw\000"
+ 2045      687700
+ 2046              	.LASF10:
+ 2047 01c2 70757470 		.ascii	"putp\000"
+ 2047      00
+ 2048              	.LASF25:
+ 2049 01c7 61626F72 		.ascii	"abort\000"
+ 2049      7400
+ 2050              	.LASF18:
+ 2051 01cd 7374646F 		.ascii	"stdout_putf\000"
+ 2051      75745F70 
+ 2051      75746600 
+ 2052              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
